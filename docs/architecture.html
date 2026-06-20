@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MoneyPrinterTurbo — Architecture, Features & Cost Guide</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<style>
+  :root {
+    --bg: #0d1117;
+    --panel: #161b22;
+    --panel-2: #1c2230;
+    --border: #2d333b;
+    --text: #e6edf3;
+    --muted: #9aa7b4;
+    --accent: #2ea043;
+    --accent-2: #58a6ff;
+    --warn: #d29922;
+    --pink: #db61a2;
+    --code-bg: #0b0f14;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .layout { display: flex; max-width: 1500px; margin: 0 auto; }
+  nav {
+    position: sticky; top: 0; align-self: flex-start;
+    width: 250px; height: 100vh; overflow-y: auto;
+    padding: 24px 18px; border-right: 1px solid var(--border);
+    background: var(--panel);
+    flex-shrink: 0;
+  }
+  nav h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 22px 0 8px; }
+  nav h2:first-child { margin-top: 0; }
+  nav a { display: block; color: var(--muted); text-decoration: none; font-size: 14px; padding: 4px 8px; border-radius: 6px; }
+  nav a:hover { color: var(--text); background: var(--panel-2); }
+  main { flex: 1; padding: 40px 56px; max-width: 1100px; min-width: 0; }
+  header.hero {
+    background: linear-gradient(135deg, #16351f, #161b22 60%);
+    border: 1px solid var(--border); border-radius: 16px; padding: 36px 40px; margin-bottom: 36px;
+  }
+  header.hero h1 { margin: 0 0 8px; font-size: 34px; }
+  header.hero .tag { color: var(--accent); font-weight: 600; letter-spacing: .04em; font-size: 13px; text-transform: uppercase; }
+  header.hero p { color: var(--muted); font-size: 17px; margin: 12px 0 0; max-width: 760px; }
+  section { margin-bottom: 56px; scroll-margin-top: 20px; }
+  h2.section-title { font-size: 26px; border-bottom: 2px solid var(--border); padding-bottom: 10px; margin-bottom: 20px; }
+  h3 { font-size: 19px; margin-top: 28px; color: var(--accent-2); }
+  h4 { font-size: 16px; margin-top: 20px; color: var(--pink); }
+  p, li { color: #cdd6e0; }
+  code { background: var(--code-bg); padding: 2px 6px; border-radius: 5px; font-size: 13px; color: #ffd9a8; font-family: "SF Mono", Menlo, Consolas, monospace; }
+  pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: 10px; padding: 16px; overflow-x: auto; }
+  pre code { background: none; padding: 0; color: #d6deeb; }
+  .grid { display: grid; gap: 16px; }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .card {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px;
+  }
+  .card h4 { margin-top: 0; color: var(--accent-2); }
+  .card p { margin: 6px 0 0; font-size: 14px; color: var(--muted); }
+  .pill { display: inline-block; font-size: 12px; padding: 2px 9px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); margin: 2px 4px 2px 0; background: var(--panel-2); }
+  .pill.free { color: var(--accent); border-color: #1f6f33; }
+  .pill.paid { color: var(--warn); border-color: #7a5a12; }
+  .pill.opt { color: var(--accent-2); border-color: #1f4d80; }
+  .mermaid { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 18px 0; text-align: center; }
+  table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 14px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { color: var(--muted); text-transform: uppercase; font-size: 12px; letter-spacing: .05em; }
+  tr:hover td { background: var(--panel); }
+  .callout { border-left: 4px solid var(--accent-2); background: var(--panel); padding: 14px 18px; border-radius: 0 10px 10px 0; margin: 18px 0; }
+  .callout.warn { border-left-color: var(--warn); }
+  .callout.free { border-left-color: var(--accent); }
+  .step { display: flex; gap: 16px; margin: 16px 0; }
+  .step .num { flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; background: var(--accent); color: #03210c; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+  .step .body { flex: 1; }
+  .step .body h4 { margin: 4px 0 4px; color: var(--text); }
+  .step .body p { margin: 0; font-size: 14px; color: var(--muted); }
+  .muted { color: var(--muted); }
+  .free-text { color: var(--accent); font-weight: 600; }
+  .paid-text { color: var(--warn); font-weight: 600; }
+  footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); padding-top: 20px; margin-top: 40px; }
+  a.inline { color: var(--accent-2); }
+</style>
+</head>
+<body>
+<div class="layout">
+<nav>
+  <h2>Overview</h2>
+  <a href="#what">What it is</a>
+  <a href="#goal">High-level goal</a>
+  <h2>Diagrams</h2>
+  <a href="#arch">System architecture</a>
+  <a href="#pipeline">Generation pipeline</a>
+  <a href="#sequence">Request sequence</a>
+  <h2>Features</h2>
+  <a href="#features">Full feature list</a>
+  <a href="#api">API surface</a>
+  <h2>Deep dive</h2>
+  <a href="#e2e">End-to-end: a video</a>
+  <h2>Costs</h2>
+  <a href="#costs">Cost breakdown</a>
+  <a href="#cost-scenarios">Cost scenarios</a>
+  <a href="#cost-free">Run it for $0</a>
+</nav>
+
+<main>
+<header class="hero">
+  <div class="tag">MoneyPrinterTurbo</div>
+  <h1>Architecture, Features &amp; Cost Guide</h1>
+  <p>An end-to-end map of what this repository does, how a video is produced stage by stage, and exactly where money is (and isn't) spent when you run it.</p>
+</header>
+
+<!-- ===================== WHAT IT IS ===================== -->
+<section id="what">
+  <h2 class="section-title">What it is</h2>
+  <p>
+    MoneyPrinterTurbo turns a single <strong>topic or keyword</strong> into a finished, HD short-form video — the kind you'd post to TikTok, YouTube Shorts, or Instagram Reels — with no manual editing.
+    From one subject line it writes the script, picks stock-footage search terms, synthesizes a narration voice, generates timed subtitles, downloads matching b-roll, and composites everything (clips + narration + subtitles + background music) into one or more rendered <code>.mp4</code> files.
+  </p>
+  <p>
+    It is a layered Python application. The <strong>service layer is the true engine</strong>, and it is exposed two ways over the exact same code:
+  </p>
+  <div class="grid grid-2">
+    <div class="card">
+      <h4>FastAPI service</h4>
+      <p><code>main.py → app/asgi.py</code>. REST endpoints for creating tasks, polling status, uploading media, and streaming/downloading results. Good for automation and scripting.</p>
+    </div>
+    <div class="card">
+      <h4>Streamlit WebUI</h4>
+      <p><code>webui/Main.py</code>. A point-and-click interface that imports the service layer <em>directly</em> — it is not merely an HTTP client of the API.</p>
+    </div>
+  </div>
+  <p style="margin-top:16px">
+    Built on FastAPI, Streamlit, MoviePy 2.x + FFmpeg, edge-tts, faster-whisper, OpenAI-compatible SDKs, and optional Redis. Runtime configuration lives in <code>config.toml</code> (auto-created from <code>config.example.toml</code>), <em>not</em> environment variables.
+  </p>
+</section>
+
+<!-- ===================== GOAL ===================== -->
+<section id="goal">
+  <h2 class="section-title">The high-level goal</h2>
+  <div class="callout">
+    <strong>Automate the entire short-video content pipeline</strong> so that producing dozens of faceless, narrated short videos costs minutes of compute instead of hours of human editing — and, with the optional cross-post integration, can publish them automatically.
+  </div>
+  <p>Concretely it aims to:</p>
+  <ul>
+    <li><strong>Remove every manual step</strong> between "I have an idea" and "I have a publishable MP4": scripting, voiceover, subtitling, footage sourcing, and editing.</li>
+    <li><strong>Stay provider-agnostic and cheap.</strong> ~20 LLM providers, multiple TTS engines, and two stock-media sources are pluggable via config — including paths that cost literally nothing.</li>
+    <li><strong>Scale horizontally.</strong> A task queue with configurable concurrency (in-memory or Redis-backed) lets one instance crank out many videos in parallel.</li>
+    <li><strong>Be operable by non-developers</strong> through the WebUI, while remaining fully scriptable through the API.</li>
+  </ul>
+</section>
+
+<!-- ===================== ARCHITECTURE DIAGRAM ===================== -->
+<section id="arch">
+  <h2 class="section-title">System architecture</h2>
+  <p>Two entry points feed one service layer. A task manager schedules work onto threads; the orchestrator runs the pipeline and calls out to pluggable provider services. State and queueing each have in-memory and Redis-backed variants, toggled together by <code>enable_redis</code>.</p>
+  <div class="mermaid">
+flowchart TB
+    user["User / Client"]
+
+    subgraph entry["Entry Points"]
+        webui["Streamlit WebUI<br/>webui/Main.py"]
+        fastapi["FastAPI App<br/>main.py → app/asgi.py"]
+    end
+
+    subgraph control["Task Control"]
+        manager["Task Manager<br/>threaded workers<br/>concurrency + queue"]
+        state["State Store<br/>progress / outputs / errors"]
+    end
+
+    orch["Pipeline Orchestrator<br/>app/services/task.py"]
+
+    subgraph services["Provider Services"]
+        llm["LLM service<br/>script · terms · metadata"]
+        voice["Voice service<br/>TTS / no-voice / custom"]
+        sub["Subtitle service<br/>edge timing · whisper"]
+        mat["Material service<br/>Pexels · Pixabay · local"]
+        vid["Video service<br/>MoviePy + FFmpeg"]
+        post["Upload-Post<br/>TikTok · Instagram"]
+    end
+
+    subgraph external["External Systems"]
+        llmp["LLM providers"]
+        ttsp["TTS providers"]
+        stock["Stock media APIs"]
+        redis[("Redis<br/>optional")]
+        ffmpeg["FFmpeg / HW encoders"]
+    end
+
+    config[/"config.toml<br/>keys + options"/]
+    storage[("storage/tasks/&lt;id&gt;<br/>script · audio · srt · mp4")]
+
+    user --> webui & fastapi
+    webui --> orch
+    fastapi --> manager --> orch
+    manager <--> state
+    state -.optional.-> redis
+    manager -.optional.-> redis
+
+    orch --> llm & voice & sub & mat & vid & post
+    llm --> llmp
+    voice --> ttsp
+    mat --> stock
+    vid --> ffmpeg
+    post --> stock
+
+    config --> webui & fastapi & orch
+    orch --> storage
+    fastapi --> storage
+
+    style external fill:#1c2230,stroke:#2d333b
+    style services fill:#16351f,stroke:#1f6f33
+    style entry fill:#1c2230,stroke:#2d333b
+  </div>
+</section>
+
+<!-- ===================== PIPELINE DIAGRAM ===================== -->
+<section id="pipeline">
+  <h2 class="section-title">The generation pipeline</h2>
+  <p>
+    <code>task.start(task_id, params, stop_at)</code> runs eight ordered stages. The <code>stop_at</code> argument ("script" / "terms" / "audio" / "subtitle" / "materials" / "video") lets the lighter <code>/scripts</code>, <code>/terms</code>, <code>/audio</code>, and <code>/subtitle</code> endpoints reuse the <em>same</em> function for partial runs. Each stage reports progress into the state store.
+  </p>
+  <div class="mermaid">
+flowchart LR
+    A["1 Script<br/>AI or custom text"] --> B["2 Search terms<br/>AI or custom"]
+    B --> C["3 Audio<br/>TTS · silent · custom"]
+    C --> D["4 Subtitles<br/>edge timing or whisper"]
+    D --> E["5 Materials<br/>stock or local"]
+    E --> F["6 Combine clips<br/>resize · trim · loop · transitions"]
+    F --> G["7 Final render<br/>narration + BGM + subs"]
+    G --> H["8 Cross-post<br/>optional"]
+
+    A -.stop_at=script.-> X1((done))
+    B -.stop_at=terms.-> X2((done))
+    C -.stop_at=audio.-> X3((done))
+    D -.stop_at=subtitle.-> X4((done))
+    E -.stop_at=materials.-> X5((done))
+
+    style A fill:#16351f,stroke:#1f6f33
+    style B fill:#16351f,stroke:#1f6f33
+    style C fill:#1c2230,stroke:#2d333b
+    style D fill:#1c2230,stroke:#2d333b
+    style E fill:#2a2030,stroke:#7a3a5a
+    style F fill:#2a2030,stroke:#7a3a5a
+    style G fill:#2a2030,stroke:#7a3a5a
+    style H fill:#1c2230,stroke:#2d333b
+  </div>
+  <p class="muted"><span class="free-text">Green</span> = LLM calls · <span style="color:var(--accent-2);font-weight:600">Blue</span> = audio/subtitle · <span style="color:var(--pink);font-weight:600">Pink</span> = media + local FFmpeg rendering.</p>
+</section>
+
+<!-- ===================== SEQUENCE DIAGRAM ===================== -->
+<section id="sequence">
+  <h2 class="section-title">Request sequence (API path)</h2>
+  <p>For the full-video path via <code>POST /videos</code>, the client gets an immediate <code>task_id</code> and then polls — the heavy work runs on a background worker thread.</p>
+  <div class="mermaid">
+sequenceDiagram
+    autonumber
+    participant C as Client / WebUI
+    participant API as FastAPI /videos
+    participant TM as Task Manager
+    participant T as task.start()
+    participant Ext as LLM / TTS / Stock APIs
+    participant FF as FFmpeg
+
+    C->>API: POST /videos (VideoParams)
+    API->>API: create task_id, register state
+    API->>TM: enqueue task
+    API-->>C: 202 { task_id }
+    Note over TM: run if concurrency allows,<br/>else queue (429 if full)
+    TM->>T: start(task_id, params)
+    T->>Ext: generate script + terms (LLM)
+    T->>Ext: synthesize narration (TTS)
+    T->>T: build subtitles (timing/whisper)
+    T->>Ext: download stock clips
+    T->>FF: combine + render final-N.mp4
+    T->>T: update state COMPLETE + paths
+    loop poll
+        C->>API: GET /tasks/{task_id}
+        API-->>C: progress / output URLs
+    end
+    C->>API: GET /download/{file_path}
+  </div>
+</section>
+
+<!-- ===================== FEATURES ===================== -->
+<section id="features">
+  <h2 class="section-title">Full feature list — what it can do</h2>
+
+  <h3>Content generation (LLM)</h3>
+  <div class="grid grid-3">
+    <div class="card"><h4>Script writing</h4><p>From subject, language, paragraph count, custom user prompt, and optional custom system prompt. Strips <code>&lt;think&gt;</code> reasoning blocks.</p></div>
+    <div class="card"><h4>Search-term generation</h4><p>Derives stock-footage keywords from the subject + script for media retrieval.</p></div>
+    <div class="card"><h4>Social metadata</h4><p>Title, caption, and hashtags for TikTok, YouTube Shorts, Instagram Reels, Facebook Reels.</p></div>
+    <div class="card"><h4>~20 LLM providers</h4><p>OpenAI, AIHubMix, Moonshot, Azure, Qwen, DeepSeek, Gemini, Grok, Ollama, g4f, OneAPI, Cloudflare, MiniMax, MiMo, ERNIE, ModelScope, Pollinations, LiteLLM (100+ via gateway).</p></div>
+  </div>
+
+  <h3>Audio &amp; voice</h3>
+  <div class="grid grid-3">
+    <div class="card"><h4>Edge TTS (default)</h4><p>Free Microsoft Edge voices, shown as "Azure TTS V1". Also yields subtitle timing data. <span class="pill free">free</span></p></div>
+    <div class="card"><h4>Azure Speech "V2"</h4><p>Higher-quality neural voices via Azure Speech SDK (needs <code>[azure]</code> keys). <span class="pill paid">paid</span></p></div>
+    <div class="card"><h4>SiliconFlow / Gemini / MiMo TTS</h4><p>Additional cloud TTS engines (CosyVoice2, Gemini TTS voices, Xiaomi MiMo TTS).</p></div>
+    <div class="card"><h4>Custom audio</h4><p>Upload your own narration track instead of TTS.</p></div>
+    <div class="card"><h4>No-voice mode</h4><p>Silent placeholder audio to drive the timeline for music-only videos.</p></div>
+    <div class="card"><h4>Voice rate control</h4><p>Speed up / slow down narration.</p></div>
+  </div>
+
+  <h3>Subtitles</h3>
+  <div class="grid grid-3">
+    <div class="card"><h4>Edge timing (fast)</h4><p>Reuses timestamps emitted by Edge TTS — no transcription needed. <span class="pill free">free</span></p></div>
+    <div class="card"><h4>Whisper (accurate)</h4><p>Local <code>faster-whisper</code> transcription + correction against the script. Falls back automatically if edge produces nothing.</p></div>
+    <div class="card"><h4>Full styling</h4><p>Font, size, color, stroke, position (top/center/bottom/custom %), background, rounded background. Rendered with Pillow — no ImageMagick needed.</p></div>
+  </div>
+
+  <h3>Media &amp; footage</h3>
+  <div class="grid grid-3">
+    <div class="card"><h4>Pexels / Pixabay</h4><p>Stock video search + download by term, with API-key rotation and TLS verification. <span class="pill free">free API</span></p></div>
+    <div class="card"><h4>Local materials</h4><p>Upload your own videos/images via API or WebUI.</p></div>
+    <div class="card"><h4>Image → clip</h4><p>Turns still images into short zooming video clips.</p></div>
+    <div class="card"><h4>Material caching</h4><p>Downloaded clips cached under <code>storage/cache_videos</code> for reuse across tasks.</p></div>
+  </div>
+
+  <h3>Video composition</h3>
+  <div class="grid grid-3">
+    <div class="card"><h4>Aspect ratios</h4><p>Portrait 9:16, landscape 16:9, square 1:1 (API).</p></div>
+    <div class="card"><h4>Concat modes</h4><p>Sequential or random clip ordering.</p></div>
+    <div class="card"><h4>Transitions</h4><p>Fade in/out, slide in/out, shuffle.</p></div>
+    <div class="card"><h4>Clip fitting</h4><p>Trim, resize, loop clips to match audio duration.</p></div>
+    <div class="card"><h4>Background music</h4><p>None / random / custom BGM mixed under narration; uploadable BGM library.</p></div>
+    <div class="card"><h4>Multiple variants</h4><p>Generate N video variants per task in one run.</p></div>
+    <div class="card"><h4>Hardware encoders</h4><p>libx264 (default), NVENC, AMF, QSV, MediaFoundation, VideoToolbox — auto-fallback to libx264.</p></div>
+  </div>
+
+  <h3>Serving, tasks &amp; ops</h3>
+  <div class="grid grid-3">
+    <div class="card"><h4>Stream &amp; download</h4><p>Byte-range streaming and direct download of outputs, path-traversal guarded.</p></div>
+    <div class="card"><h4>Task lifecycle</h4><p>Create, list (paginated), query status/progress, delete tasks + files.</p></div>
+    <div class="card"><h4>Concurrency &amp; queue</h4><p>Configurable <code>max_concurrent_tasks</code> + <code>max_queued_tasks</code> (429 when full).</p></div>
+    <div class="card"><h4>Redis option</h4><p>Swap in-memory state/queue for Redis-backed for multi-process scale.</p></div>
+    <div class="card"><h4>Auto cross-post</h4><p>Optional Upload-Post integration to TikTok &amp; Instagram after render. <span class="pill paid">paid</span></p></div>
+    <div class="card"><h4>Docker / GPU</h4><p><code>docker-compose</code> runs API + WebUI; GPU variants for Whisper/encoding.</p></div>
+  </div>
+
+  <div class="callout warn">
+    <strong>Known gap:</strong> the WebUI lists TikTok, Bilibili, and Xiaohongshu as video <em>source</em> labels, but the backend downloader only implements Pexels and Pixabay. Any unrecognized online source value falls back to the Pexels search path.
+  </div>
+</section>
+
+<!-- ===================== API ===================== -->
+<section id="api">
+  <h2 class="section-title">API surface</h2>
+  <table>
+    <tr><th>Endpoint</th><th>Purpose</th></tr>
+    <tr><td><code>POST /videos</code></td><td>Create a full video-generation task</td></tr>
+    <tr><td><code>POST /subtitle</code></td><td>Subtitle-only task (partial pipeline)</td></tr>
+    <tr><td><code>POST /audio</code></td><td>Audio-only task (partial pipeline)</td></tr>
+    <tr><td><code>POST /scripts</code></td><td>Generate only a script</td></tr>
+    <tr><td><code>POST /terms</code></td><td>Generate only search terms</td></tr>
+    <tr><td><code>POST /social-metadata</code></td><td>Generate platform title/caption/hashtags</td></tr>
+    <tr><td><code>GET /tasks</code> · <code>GET /tasks/{id}</code> · <code>DELETE /tasks/{id}</code></td><td>List / query / delete tasks</td></tr>
+    <tr><td><code>GET /musics</code> · <code>POST /musics</code></td><td>List / upload BGM</td></tr>
+    <tr><td><code>GET /video_materials</code> · <code>POST /video_materials</code></td><td>List / upload local media</td></tr>
+    <tr><td><code>GET /stream/{file_path}</code> · <code>GET /download/{file_path}</code></td><td>Stream (byte range) / download outputs</td></tr>
+  </table>
+</section>
+
+<!-- ===================== END TO END ===================== -->
+<section id="e2e">
+  <h2 class="section-title">End-to-end deep dive: how one video gets made</h2>
+  <p>
+    This traces the <strong>full video generation feature</strong> — the flagship path — from an API/WebUI request to a downloadable MP4. Source of truth: <code>app/services/task.py:start()</code>.
+  </p>
+
+  <div class="step"><div class="num">0</div><div class="body">
+    <h4>Request &amp; scheduling</h4>
+    <p><code>POST /videos</code> validates a <code>VideoParams</code> object (subject, language, voice, aspect, counts, subtitle styling, source…). A <code>task_id</code> is created, initial state stored, and the job handed to the <strong>Task Manager</strong>, which runs it immediately if under <code>max_concurrent_tasks</code> or queues it (HTTP 429 if the queue is full). The client receives the <code>task_id</code> and starts polling <code>GET /tasks/{id}</code>. Progress is set to 5%.</p>
+  </div></div>
+
+  <div class="step"><div class="num">1</div><div class="body">
+    <h4>Script — <code>generate_script()</code></h4>
+    <p>If <code>params.video_script</code> is empty, <code>llm.generate_script()</code> calls the configured provider (<code>config.app["llm_provider"]</code>) with the role prompt + subject + language + paragraph count. The response is cleaned (<code>&lt;think&gt;</code> blocks stripped, newlines normalized). A non-empty custom script skips the LLM entirely. <span class="paid-text">← LLM cost incurred here (unless local/free provider).</span> Progress → 10%. <code>stop_at="script"</code> returns now.</p>
+  </div></div>
+
+  <div class="step"><div class="num">2</div><div class="body">
+    <h4>Search terms — <code>generate_terms()</code></h4>
+    <p>Only for online sources (skipped when <code>video_source="local"</code>). <code>llm.generate_terms()</code> produces ~5 English keywords for stock search. Script + terms + params are persisted to <code>storage/tasks/&lt;id&gt;/script.json</code>. <span class="paid-text">← second (small) LLM call.</span> <code>stop_at="terms"</code> returns now.</p>
+  </div></div>
+
+  <div class="step"><div class="num">3</div><div class="body">
+    <h4>Audio — <code>generate_audio()</code></h4>
+    <p>Three branches: (a) a valid <code>custom_audio_file</code> is used as-is (no TTS, no subtitle timing); (b) otherwise <code>voice.tts()</code> synthesizes <code>audio.mp3</code> via the selected engine and returns a <code>sub_maker</code> carrying word timing; (c) no-voice mode produces silent audio. Audio duration is measured (<code>get_audio_duration</code>). <span class="paid-text">← TTS cost here for paid engines; Edge TTS is free.</span> Progress → 30%. <code>stop_at="audio"</code> returns now.</p>
+  </div></div>
+
+  <div class="step"><div class="num">4</div><div class="body">
+    <h4>Subtitles — <code>generate_subtitle()</code></h4>
+    <p>Skipped if disabled or no <code>sub_maker</code>. With provider <code>edge</code>, timing from the TTS step is written straight to <code>subtitle.srt</code> (fast, free). With <code>whisper</code> (or as an automatic fallback), local <code>faster-whisper</code> transcribes the audio and <code>subtitle.correct()</code> aligns it to the known script. The result is validated. <span class="free-text">← runs locally, no API cost (uses CPU/GPU).</span> <code>stop_at="subtitle"</code> returns now.</p>
+  </div></div>
+
+  <div class="step"><div class="num">5</div><div class="body">
+    <h4>Materials — <code>get_video_materials()</code></h4>
+    <p>For <code>local</code> source, uploaded videos/images are preprocessed (images become zooming clips). Otherwise <code>material.download_videos()</code> searches Pexels/Pixabay per term, downloading enough footage to cover <code>audio_duration × video_count</code>, caching it. API keys rotate across a pool to dodge rate limits. <span class="free-text">← stock APIs are free tier; bandwidth/storage are the only cost.</span> Progress → 40–50%. <code>stop_at="materials"</code> returns now.</p>
+  </div></div>
+
+  <div class="step"><div class="num">6</div><div class="body">
+    <h4>Combine clips — <code>video.combine_videos()</code></h4>
+    <p>Per variant (<code>video_count</code>): clips are trimmed to <code>max_clip_duration</code>, resized to the target aspect, ordered (sequential/random), looped to fill the narration length, and joined with the chosen transition into <code>combined-N.mp4</code>. <span class="free-text">← local CPU/GPU via FFmpeg.</span> Progress climbs toward 75%.</p>
+  </div></div>
+
+  <div class="step"><div class="num">7</div><div class="body">
+    <h4>Final render — <code>video.generate_video()</code></h4>
+    <p>The combined track is muxed with narration, optional BGM (mixed under the voice), and styled subtitles (rendered via Pillow), encoded with the selected codec (HW encoder or libx264 fallback) into <code>final-N.mp4</code>. <span class="free-text">← the most CPU/GPU-intensive step; local only.</span> Progress → ~100%.</p>
+  </div></div>
+
+  <div class="step"><div class="num">8</div><div class="body">
+    <h4>Optional cross-post + completion</h4>
+    <p>If Upload-Post is configured with auto-upload, each final video is pushed to TikTok/Instagram. The state store is marked <code>COMPLETE</code> with all output paths (videos, combined, audio, subtitle, materials, cross-post results). The client's next poll returns URLs servable via <code>/tasks</code>, <code>/stream</code>, or <code>/download</code>. <span class="paid-text">← Upload-Post is a paid third-party service if enabled.</span></p>
+  </div></div>
+</section>
+
+<!-- ===================== COSTS ===================== -->
+<section id="costs">
+  <h2 class="section-title">Where the costs are</h2>
+  <p>
+    The project is designed so the <strong>core pipeline can run essentially free</strong>. Costs appear only at specific external touch-points, and almost every one has a free alternative. Here is every place money can be spent:
+  </p>
+
+  <table>
+    <tr><th>Cost center</th><th>When it applies</th><th>Cost profile</th></tr>
+    <tr>
+      <td><strong>LLM (script + terms + metadata)</strong></td>
+      <td>Every full run makes ~2 calls (script + ~5-word terms); social metadata is a 3rd if used.</td>
+      <td><span class="pill paid">paid</span> for hosted APIs · <span class="pill free">free</span> with Ollama/g4f/Pollinations/free tiers. <em>Tiny per video</em> — see below.</td>
+    </tr>
+    <tr>
+      <td><strong>TTS (narration)</strong></td>
+      <td>Every run unless using custom audio or no-voice.</td>
+      <td><span class="pill free">free</span> with Edge TTS (default) · <span class="pill paid">paid</span> for Azure Speech / SiliconFlow / Gemini / MiMo TTS (per character).</td>
+    </tr>
+    <tr>
+      <td><strong>Stock media (Pexels / Pixabay)</strong></td>
+      <td>Any online video source.</td>
+      <td><span class="pill free">free API</span> (rate-limited; key rotation supported). Only egress/storage cost.</td>
+    </tr>
+    <tr>
+      <td><strong>Compute / rendering</strong></td>
+      <td>Every run — combine + encode is CPU/GPU heavy.</td>
+      <td><span class="pill opt">self-hosted</span> Your machine or a rented VM/GPU. The dominant <em>real</em> cost at scale.</td>
+    </tr>
+    <tr>
+      <td><strong>Whisper subtitles</strong></td>
+      <td>Only if <code>subtitle_provider="whisper"</code>.</td>
+      <td><span class="pill free">free</span> software · costs CPU time + a one-time model download (<code>large-v3</code> ≈ 3 GB). GPU strongly recommended.</td>
+    </tr>
+    <tr>
+      <td><strong>Redis</strong></td>
+      <td>Only if <code>enable_redis=true</code>.</td>
+      <td><span class="pill opt">optional</span> Free self-hosted; small cost for managed Redis.</td>
+    </tr>
+    <tr>
+      <td><strong>Upload-Post cross-post</strong></td>
+      <td>Only if cross-posting enabled.</td>
+      <td><span class="pill paid">paid</span> third-party SaaS subscription.</td>
+    </tr>
+    <tr>
+      <td><strong>Bandwidth &amp; storage</strong></td>
+      <td>Always — clips downloaded, outputs stored under <code>storage/</code>.</td>
+      <td><span class="pill opt">infra</span> Grows with footage cache + number/length of videos.</td>
+    </tr>
+  </table>
+
+  <h3>LLM cost in detail</h3>
+  <p>
+    The LLM workload per video is <strong>small</strong>: a script of a few short paragraphs plus a one-line list of ~5 keywords. That's roughly a few hundred input tokens and a few hundred output tokens per video — call it ~1–2k total tokens including the system prompt.
+  </p>
+  <div class="callout">
+    <strong>Rough order of magnitude (verify current prices with the provider):</strong> on a cheap hosted model in the "mini/flash" tier, ~1–2k tokens is a fraction of a US cent per video — typically well under <strong>$0.01</strong>. On a premium frontier model it might reach a few cents. Either way, for the text generation step, <strong>LLM cost is rarely the bottleneck</strong>. The default config points at low-cost "mini/flash"-tier models precisely for this reason.
+  </div>
+  <p class="muted">
+    To drive LLM cost to <strong>$0</strong>: use <code>ollama</code> (local models), <code>pollinations</code> (free public tier), provider free tiers (e.g. Gemini flash), or <code>g4f</code> (reverse-engineered endpoints — disabled by default, use at your own risk).
+  </p>
+
+  <div class="callout warn">
+    <strong>The real cost at scale is compute, not APIs.</strong> Video encoding (combine + final render, especially with multiple variants or Whisper on CPU) is what consumes minutes of CPU/GPU per video. If you batch hundreds of videos, your VM/GPU bill dwarfs the per-video LLM and TTS costs.
+  </div>
+</section>
+
+<!-- ===================== COST SCENARIOS ===================== -->
+<section id="cost-scenarios">
+  <h2 class="section-title">Cost scenarios per video</h2>
+  <table>
+    <tr><th>Setup</th><th>LLM</th><th>TTS</th><th>Subtitles</th><th>Media</th><th>Net cash / video</th></tr>
+    <tr>
+      <td><strong>Free stack</strong><br/><span class="muted">Ollama + Edge TTS + edge subs + Pexels</span></td>
+      <td class="free-text">$0 (local)</td>
+      <td class="free-text">$0</td>
+      <td class="free-text">$0 (timing)</td>
+      <td class="free-text">$0</td>
+      <td class="free-text">$0 + your compute</td>
+    </tr>
+    <tr>
+      <td><strong>Cheap hosted</strong><br/><span class="muted">gpt-4o-mini/flash + Edge TTS + edge subs + Pexels</span></td>
+      <td class="paid-text">&lt; $0.01</td>
+      <td class="free-text">$0</td>
+      <td class="free-text">$0</td>
+      <td class="free-text">$0</td>
+      <td class="paid-text">≈ &lt; $0.01 + compute</td>
+    </tr>
+    <tr>
+      <td><strong>Premium quality</strong><br/><span class="muted">frontier LLM + Azure neural TTS + Whisper + Pexels</span></td>
+      <td class="paid-text">~few ¢</td>
+      <td class="paid-text">per-char fee</td>
+      <td class="free-text">$0 (local GPU)</td>
+      <td class="free-text">$0</td>
+      <td class="paid-text">a few cents + heavier compute</td>
+    </tr>
+    <tr>
+      <td><strong>Full auto-publish</strong><br/><span class="muted">premium + Upload-Post cross-post</span></td>
+      <td class="paid-text">~few ¢</td>
+      <td class="paid-text">per-char</td>
+      <td class="free-text">$0</td>
+      <td class="free-text">$0</td>
+      <td class="paid-text">above + Upload-Post subscription</td>
+    </tr>
+  </table>
+  <p class="muted">All figures are order-of-magnitude estimates to show <em>relative</em> weight; always confirm against each provider's current pricing page. "Compute" = your own hardware or a rented VM/GPU and is the dominant cost when generating in bulk.</p>
+</section>
+
+<!-- ===================== FREE ===================== -->
+<section id="cost-free">
+  <h2 class="section-title">Running it for (almost) $0</h2>
+  <p>The default-friendly free configuration:</p>
+  <pre><code>[app]
+video_source     = "pexels"        # free API key
+llm_provider     = "ollama"        # or "pollinations" / a free tier
+subtitle_provider = "edge"         # reuse TTS timing — no Whisper, no API
+enable_redis     = false           # in-memory queue/state
+
+# voice_name in the request → an Edge TTS voice (free, "Azure TTS V1")
+# no [azure] / siliconflow keys needed
+# upload_post_enabled = false</code></pre>
+  <div class="callout free">
+    With this stack the <strong>only</strong> cost is the electricity/VM time to render video. No LLM bill, no TTS bill, no subtitle bill, no publishing bill — just a free Pexels/Pixabay API key and your own compute.
+  </div>
+  <p class="muted">Trade-offs: Ollama needs local model weights + RAM/VRAM; Edge TTS voices are good but not as natural as premium neural voices; edge-timing subtitles are slightly less precise than Whisper. For most faceless short-video use cases this is more than enough.</p>
+</section>
+
+<footer>
+  Generated as a living overview of the MoneyPrinterTurbo repository. Source of truth for the pipeline: <code>app/services/task.py</code>; configuration: <code>config.example.toml</code>. Cost figures are estimates — verify against current provider pricing.
+</footer>
+</main>
+</div>
+
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: "dark",
+    themeVariables: {
+      background: "#161b22",
+      primaryColor: "#1c2230",
+      primaryTextColor: "#e6edf3",
+      primaryBorderColor: "#2d333b",
+      lineColor: "#58a6ff",
+      fontSize: "14px"
+    },
+    flowchart: { curve: "basis", nodeSpacing: 40, rankSpacing: 50 }
+  });
+</script>
+</body>
+</html>

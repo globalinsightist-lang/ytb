@@ -1,0 +1,18 @@
+# One topic per line. Lines starting with # are ignored.
+# The autopilot walks this list, skipping recently used topics. When the list
+# is exhausted it asks the LLM to invent new ones in the configured niche.
+Why the ancient Romans used human urine to whiten their teeth
+The shrimp that punches hard enough to boil water
+Why your brain deletes the moment you blink
+The library of Alexandria did not burn down in a single fire
+How honey never spoils, even after 3000 years
+The country that has no rivers at all
+Why octopuses have three hearts and blue blood
+The sound that is illegal to make in some cities
+How a single volcano changed the color of sunsets worldwide
+The man who survived two atomic bombs
+Why Venus spins backwards compared to every other planet
+The forgotten language that only whistles
+How sharks existed before trees did
+The hotel room that was booked for 100 years straight
+Why bananas are slightly radioactive

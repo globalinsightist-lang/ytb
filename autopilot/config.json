@@ -1,0 +1,16 @@
+{
+  "niche": "fascinating science and history facts",
+  "language": "en",
+  "paragraph_number": 1,
+  "num_candidates": 4,
+  "aspect": "9:16",
+  "video_source": "pexels",
+  "voice_name": "en-US-JennyNeural-Female",
+  "bgm_type": "random",
+  "subtitle_enabled": true,
+  "upload_enabled": true,
+  "privacy_status": "public",
+  "youtube_category_id": "22",
+  "max_feedback_notes": 12,
+  "recent_topics_window": 30
+}
