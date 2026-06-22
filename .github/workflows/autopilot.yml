@@ -15,7 +15,7 @@ name: Autopilot Video Generator
 
 on:
   schedule:
-    - cron: "0 */4 * * *"    # every 4 hours = 6 runs/day, matches the ~6/day YouTube quota
+    - cron: "23 */4 * * *"   # every 4h at :23 — off the top of the hour, which GitHub explicitly says gets delayed/dropped under load; 6 runs/day matches the ~6/day YouTube quota
   workflow_dispatch: {}        # allow manual runs from the Actions tab
 
 # Never run two iterations at once; queue instead of overlapping.

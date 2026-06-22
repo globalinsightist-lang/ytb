@@ -98,7 +98,7 @@
     <p class="lead">How the two cron workflows interact across a day.</p>
     <div class="mermaid">
 flowchart TD
-    subgraph DAILY["🗓️ Daily Topic Refresh — 05:30 UTC"]
+    subgraph DAILY["🗓️ Daily Topic Refresh — 01:21 UTC"]
       GT["Google Trends RSS<br/>(IN · GB · US)"] --> CUR["LLM curator<br/>raw searches → 6 renderable topics"]
       CUR --> TOPICS[("autopilot/topics.txt<br/>6 locked topics")]
     end
@@ -128,12 +128,12 @@ flowchart TD
       <tr><th>Workflow</th><th>Schedule</th><th>Does</th></tr>
       <tr>
         <td><code>refresh-topics.yml</code><br/>Daily Topic Refresh</td>
-        <td><span class="pill cron">30 5 * * *</span><br/>once/day</td>
+        <td><span class="pill cron">21 1 * * *</span><br/>once/day</td>
         <td>Fetch Google Trends → LLM curates 6 renderable topics → write <code>topics.txt</code> → commit back. No rendering, near-zero cost.</td>
       </tr>
       <tr>
         <td><code>autopilot.yml</code><br/>Autopilot Video Generator</td>
-        <td><span class="pill cron">0 */4 * * *</span><br/>6×/day</td>
+        <td><span class="pill cron">23 */4 * * *</span><br/>6×/day</td>
         <td>Pick a topic → candidates → LLM judge → render winner → upload to YouTube → commit learning state. Capped at 6/day to fit the YouTube API quota (videos.insert = 1600 units / 10,000 per day).</td>
       </tr>
     </table>

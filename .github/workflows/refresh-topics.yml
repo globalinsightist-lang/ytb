@@ -6,12 +6,13 @@ name: Daily Topic Refresh
 # the rest of the day (generate candidates -> LLM judge -> render winner ->
 # upload). This is the cheap, no-render half of the system.
 #
-# Runs at 05:30 UTC daily — staggered off the autopilot's top-of-4h slots so the
-# two workflows don't race on the git push-back.
+# Runs at 01:21 UTC daily — an off-peak minute (top of the hour gets delayed/dropped
+# under GitHub load) and clear of the autopilot's :23 slots so the two workflows
+# don't race on the git push-back.
 
 on:
   schedule:
-    - cron: "30 5 * * *"     # 05:30 UTC daily
+    - cron: "21 1 * * *"     # 01:21 UTC daily — off the top of the hour, which GitHub delays/drops under load
   workflow_dispatch: {}        # allow manual refresh from the Actions tab
 
 concurrency:
