@@ -1,5 +1,5 @@
 {
-  "niche": "fascinating science and history facts",
+  "niche": "trending global news and culture explained",
   "language": "en",
   "paragraph_number": 1,
   "num_candidates": 4,
@@ -12,5 +12,7 @@
   "privacy_status": "public",
   "youtube_category_id": "22",
   "max_feedback_notes": 12,
-  "recent_topics_window": 30
+  "recent_topics_window": 5,
+  "trends_geos": ["IN", "GB", "US"],
+  "daily_topic_count": 6
 }

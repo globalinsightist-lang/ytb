@@ -1,18 +1,13 @@
 # One topic per line. Lines starting with # are ignored.
-# The autopilot walks this list, skipping recently used topics. When the list
-# is exhausted it asks the LLM to invent new ones in the configured niche.
-Why the ancient Romans used human urine to whiten their teeth
-The shrimp that punches hard enough to boil water
-Why your brain deletes the moment you blink
-The library of Alexandria did not burn down in a single fire
-How honey never spoils, even after 3000 years
-The country that has no rivers at all
-Why octopuses have three hearts and blue blood
-The sound that is illegal to make in some cities
-How a single volcano changed the color of sunsets worldwide
-The man who survived two atomic bombs
-Why Venus spins backwards compared to every other planet
-The forgotten language that only whistles
-How sharks existed before trees did
-The hotel room that was booked for 100 years straight
-Why bananas are slightly radioactive
+# The autopilot walks this list, skipping recently used topics.
+#
+# LOCKED to the 6 trending concepts below (sourced from Google Trends IN/GB,
+# 2026-06-22). recent_topics_window in config.json is set BELOW the topic count
+# so the autopilot round-robins over exactly these 6 forever and never invents
+# off-topic scripts. Refresh this list when the trends go stale.
+Why the 2026 FIFA World Cup will be the biggest in history
+Toy Story 5 is coming: the insane work behind a single Pixar frame
+Why South Korea's stock market just hit an all-time high
+The surprising true origin of pizza (it wasn't where you think)
+Why pollen makes millions of people sneeze every summer
+Why cricket is the second most-watched sport on Earth

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MoneyPrinterTurbo — Architecture</title>
+<!--
+  ARCHITECTURE DOC. Kept in sync by hand: any change to the pipeline, the
+  autopilot, the cron schedules, or the services below MUST be reflected here.
+  (See the rule in CLAUDE.md.) Served via GitHub Pages from /docs on main.
+-->
+<style>
+  :root {
+    --bg: #0d1117; --panel: #161b22; --border: #30363d;
+    --text: #e6edf3; --muted: #9da7b1; --accent: #f0b429; --accent2: #58a6ff;
+    --green: #3fb950; --radius: 10px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  header {
+    padding: 48px 24px 32px; text-align: center;
+    background: radial-gradient(1200px 400px at 50% -10%, #1f2937 0%, var(--bg) 70%);
+    border-bottom: 1px solid var(--border);
+  }
+  header h1 { margin: 0 0 6px; font-size: 2rem; }
+  header h1 .coin { color: var(--accent); }
+  header p { margin: 4px 0; color: var(--muted); }
+  header a { color: var(--accent2); text-decoration: none; }
+  main { max-width: 980px; margin: 0 auto; padding: 32px 24px 80px; }
+  section { margin: 40px 0; }
+  h2 {
+    font-size: 1.35rem; border-bottom: 1px solid var(--border);
+    padding-bottom: 8px; margin-bottom: 16px;
+  }
+  h2 .tag {
+    font-size: .7rem; font-weight: 600; color: var(--bg); background: var(--accent);
+    padding: 2px 8px; border-radius: 20px; vertical-align: middle; margin-left: 8px;
+  }
+  p.lead { color: var(--muted); }
+  .panel {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 18px 20px; margin: 16px 0;
+  }
+  .grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .card {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 16px;
+  }
+  .card h3 { margin: 0 0 6px; font-size: 1rem; }
+  .card h3 code { color: var(--accent2); background: none; padding: 0; }
+  .card p { margin: 0; color: var(--muted); font-size: .92rem; }
+  table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: .93rem; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { color: var(--accent); font-weight: 600; }
+  code {
+    background: #1f2530; color: #e6edf3; padding: 1px 6px;
+    border-radius: 5px; font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace; font-size: .88em;
+  }
+  .mermaid { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; margin: 16px 0; text-align: center; }
+  .pill { display: inline-block; font-size: .75rem; padding: 2px 10px; border-radius: 20px; border: 1px solid var(--border); color: var(--muted); margin-right: 6px; }
+  .pill.cron { color: var(--green); border-color: #214a2b; }
+  footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 24px; border-top: 1px solid var(--border); }
+  .note { border-left: 3px solid var(--accent); padding-left: 14px; color: var(--muted); }
+</style>
+</head>
+<body>
+<header>
+  <h1><span class="coin">💰</span> MoneyPrinterTurbo</h1>
+  <p>Autonomous, self-improving short-form video factory</p>
+  <p><a href="https://github.com/globalinsightist-lang/ytb">github.com/globalinsightist-lang/ytb</a></p>
+</header>
+
+<main>
+  <section>
+    <h2>Overview</h2>
+    <p class="lead">
+      MoneyPrinterTurbo turns a topic into a finished vertical Short: an LLM writes the
+      script &amp; search terms, TTS produces narration, subtitles are generated, matching
+      stock footage is downloaded, and MoviePy composites it all into an HD video. On top of
+      that core pipeline sits an <strong>autopilot</strong> that runs entirely on free GitHub
+      Actions runners — it picks trending topics, generates several script candidates, lets an
+      LLM judge pick the best, renders only the winner, uploads it to YouTube, and learns from
+      each run.
+    </p>
+    <div class="panel note">
+      The system is split into <strong>two scheduled halves</strong>: a cheap <em>daily</em>
+      job that refreshes the topic list from Google Trends, and an <em>every-4-hours</em> job
+      that does the heavy render/judge/upload. They share state through tracked files under
+      <code>autopilot/</code>, committed back to <code>main</code> between runs.
+    </div>
+  </section>
+
+  <section>
+    <h2>The scheduled system</h2>
+    <p class="lead">How the two cron workflows interact across a day.</p>
+    <div class="mermaid">
+flowchart TD
+    subgraph DAILY["🗓️ Daily Topic Refresh — 05:30 UTC"]
+      GT["Google Trends RSS<br/>(IN · GB · US)"] --> CUR["LLM curator<br/>raw searches → 6 renderable topics"]
+      CUR --> TOPICS[("autopilot/topics.txt<br/>6 locked topics")]
+    end
+
+    subgraph AUTO["🎬 Autopilot Video Generator — every 4h (6×/day)"]
+      PICK["pick_topic()<br/>round-robin over the 6"] --> GEN["generate N candidate scripts"]
+      GEN --> JUDGE["LLM-as-judge<br/>scores hook/pacing/clarity/payoff"]
+      JUDGE --> RENDER["render ONLY the winner<br/>TTS → subs → Pexels → MoviePy"]
+      RENDER --> UP["upload to YouTube<br/>Data API v3"]
+      UP --> LEARN["append judge lessons<br/>→ state.json feedback_notes"]
+    end
+
+    TOPICS --> PICK
+    LEARN --> COMMIT[("git commit-back to main<br/>state.json · history.jsonl")]
+    COMMIT -.-> PICK
+
+    style DAILY fill:#161b22,stroke:#30363d,color:#e6edf3
+    style AUTO fill:#161b22,stroke:#30363d,color:#e6edf3
+    style TOPICS fill:#1f2530,stroke:#f0b429,color:#e6edf3
+    style COMMIT fill:#1f2530,stroke:#3fb950,color:#e6edf3
+    </div>
+  </section>
+
+  <section>
+    <h2>Cron schedules</h2>
+    <table>
+      <tr><th>Workflow</th><th>Schedule</th><th>Does</th></tr>
+      <tr>
+        <td><code>refresh-topics.yml</code><br/>Daily Topic Refresh</td>
+        <td><span class="pill cron">30 5 * * *</span><br/>once/day</td>
+        <td>Fetch Google Trends → LLM curates 6 renderable topics → write <code>topics.txt</code> → commit back. No rendering, near-zero cost.</td>
+      </tr>
+      <tr>
+        <td><code>autopilot.yml</code><br/>Autopilot Video Generator</td>
+        <td><span class="pill cron">0 */4 * * *</span><br/>6×/day</td>
+        <td>Pick a topic → candidates → LLM judge → render winner → upload to YouTube → commit learning state. Capped at 6/day to fit the YouTube API quota (videos.insert = 1600 units / 10,000 per day).</td>
+      </tr>
+    </table>
+    <p class="lead" style="font-size:.9rem">
+      Also present but outside the content pipeline: <code>ci.yml</code> (tests) and
+      <code>docker-ghcr.yml</code> (publishes Docker images to GHCR).
+    </p>
+  </section>
+
+  <section>
+    <h2>Core render pipeline <span class="tag">app/services/task.py</span></h2>
+    <p class="lead">
+      The service layer is the real entry point — both the FastAPI controllers and the
+      Streamlit WebUI call <code>task.start(task_id, params, stop_at)</code>, which runs these
+      stages in order. <code>stop_at</code> lets partial runs reuse the same function.
+    </p>
+    <div class="mermaid">
+flowchart LR
+    A["topic /<br/>keyword"] --> B["script<br/>llm.py"]
+    B --> C["search terms<br/>llm.py"]
+    C --> D["TTS audio<br/>voice.py"]
+    D --> E["subtitles<br/>subtitle.py"]
+    E --> F["stock footage<br/>material.py"]
+    F --> G["composite HD video<br/>video.py (MoviePy)"]
+    G --> H["upload / cross-post<br/>youtube_upload.py · upload_post.py"]
+    style A fill:#1f2530,stroke:#58a6ff,color:#e6edf3
+    style H fill:#1f2530,stroke:#3fb950,color:#e6edf3
+    </div>
+  </section>
+
+  <section>
+    <h2>Components</h2>
+    <div class="grid">
+      <div class="card"><h3><code>services/task.py</code></h3><p>Pipeline orchestrator. Runs script → terms → audio → subtitle → materials → video → cross-post; updates progress via the state store.</p></div>
+      <div class="card"><h3><code>services/autopilot.py</code></h3><p>Self-improving loop: trends → topics, candidates → judge → render winner → upload → learn. Holds the daily <code>refresh_topics()</code> too.</p></div>
+      <div class="card"><h3><code>services/llm.py</code></h3><p>Script, search-term, judge &amp; metadata generation across ~20 providers (default Gemini here). Strips <code>&lt;think&gt;</code> blocks.</p></div>
+      <div class="card"><h3><code>services/voice.py</code></h3><p>TTS. Default free Edge TTS (also yields subtitle timestamps); Azure Speech &amp; SiliconFlow optional.</p></div>
+      <div class="card"><h3><code>services/subtitle.py</code></h3><p>Subtitles via <code>edge</code> (reuses TTS timing) or local <code>whisper</code>. Edge falls back to whisper.</p></div>
+      <div class="card"><h3><code>services/material.py</code></h3><p>Downloads matching stock footage from Pexels/Pixabay, or uses local materials.</p></div>
+      <div class="card"><h3><code>services/video.py</code></h3><p>MoviePy 2.x compositing; subtitles rendered via Pillow (no ImageMagick).</p></div>
+      <div class="card"><h3><code>services/youtube_upload.py</code></h3><p>Direct YouTube Data API v3 resumable upload. OAuth refresh-token → access-token per run.</p></div>
+      <div class="card"><h3><code>services/state.py</code></h3><p>Per-task status/progress store: in-memory or Redis (toggled by <code>enable_redis</code>).</p></div>
+      <div class="card"><h3><code>controllers/manager/</code></h3><p>Task queue / concurrency: threads up to <code>max_concurrent_tasks</code>; memory- or Redis-backed.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Autopilot state files <span class="tag">autopilot/</span></h2>
+    <table>
+      <tr><th>File</th><th>Role</th></tr>
+      <tr><td><code>config.json</code></td><td>Knobs: niche, num_candidates, voice, privacy_status, <code>trends_geos</code>, <code>daily_topic_count</code>, <code>recent_topics_window</code> (kept below the topic count so the autopilot round-robins and never invents off-topic).</td></tr>
+      <tr><td><code>topics.txt</code></td><td>The locked daily topic list — auto-generated by the daily refresh.</td></tr>
+      <tr><td><code>state.json</code></td><td>Evolving learning state: <code>run_count</code>, <code>recent_topics</code> (rotation), <code>feedback_notes</code> (judge lessons folded into the next system prompt).</td></tr>
+      <tr><td><code>history.jsonl</code></td><td>Append-only log of every run: topic, scores, lessons, video path, YouTube result.</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Secrets &amp; permissions</h2>
+    <table>
+      <tr><th>Item</th><th>Purpose</th></tr>
+      <tr><td><code>CONFIG_TOML</code></td><td>The whole <code>config.toml</code> (LLM + Pexels keys) materialized at runtime.</td></tr>
+      <tr><td><code>YT_CLIENT_ID</code> · <code>YT_CLIENT_SECRET</code> · <code>YT_REFRESH_TOKEN</code></td><td>OAuth credentials for the YouTube Data API uploader.</td></tr>
+      <tr><td>Workflow permissions</td><td><em>Read &amp; write</em> — both workflows commit state back to <code>main</code>.</td></tr>
+    </table>
+  </section>
+</main>
+
+<footer>
+  Generated architecture reference · keep in sync with the code (see CLAUDE.md).
+</footer>
+
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+  mermaid.initialize({ startOnLoad: true, theme: "dark", themeVariables: { fontSize: "14px" } });
+</script>
+</body>
+</html>

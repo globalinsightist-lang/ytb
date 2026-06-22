@@ -15,10 +15,12 @@ is gitignored and would be wiped on every fresh checkout.
 """
 import json
 import os
+import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from os import path
 from typing import List
 
+import requests
 from loguru import logger
 
 from app.models.schema import VideoParams
@@ -50,7 +52,10 @@ DEFAULT_CONFIG = {
     "privacy_status": "public",
     "youtube_category_id": "22",
     "max_feedback_notes": 12,
-    "recent_topics_window": 30,
+    "recent_topics_window": 5,
+    # Daily Google-Trends topic refresh (run_refresh_topics.py).
+    "trends_geos": ["IN", "GB", "US"],
+    "daily_topic_count": 6,
 }
 
 DEFAULT_STATE = {"run_count": 0, "recent_topics": [], "feedback_notes": []}
@@ -252,6 +257,145 @@ def upload_to_youtube(topic: str, script: str, video_path: str, cfg: dict) -> di
         privacy_status=cfg["privacy_status"],
         category_id=cfg["youtube_category_id"],
     )
+
+
+# --------------------------------------------------------------------------- #
+# Daily Google-Trends topic refresh
+# --------------------------------------------------------------------------- #
+TRENDS_RSS_URL = "https://trends.google.com/trending/rss?geo={geo}"
+
+# Google returns 404/empty to the default python-requests UA; pretend to be a
+# browser so the trending RSS feed loads.
+_TRENDS_UA = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/124.0 Safari/537.36"
+)
+
+_CURATE_TEMPLATE = """You are a topic curator for a FACELESS YouTube Shorts channel. \
+Every video is narrated over generic stock footage — there is no host on camera \
+and no licensed clips of real people, brands, or TV shows.
+
+Here are today's raw Google Trends searches, pooled from several regions \
+(many are hyper-local news, weather, sports results, or specific people):
+
+{terms}
+
+Turn these into EXACTLY {n} Shorts topics that are:
+- globally interesting (NOT a single town's weather/news, NOT a local election);
+- renderable from generic stock footage — nature, cities, sport, food, money, \
+science, space, tech — so AVOID anything that needs footage of one specific \
+living person, a logo/brand, or a copyrighted show;
+- phrased as a punchy, curiosity-driving title (no hashtags, numbering, or quotes).
+
+Ground each topic in a real trend above where you can, but GENERALISE it (a \
+celebrity -> the sport/field they're famous for; a local budget -> the broader \
+economic story; a movie -> how that kind of film/effect is made).
+
+Return ONLY valid JSON, no prose, no code fence:
+{{"topics": ["<title>", "<title>", ... exactly {n} of them]}}"""
+
+
+def fetch_google_trends(geos: List[str]) -> List[str]:
+    """Pull the daily trending searches for each geo, newest first, deduped."""
+    terms: List[str] = []
+    seen = set()
+    for geo in geos:
+        url = TRENDS_RSS_URL.format(geo=geo)
+        try:
+            resp = requests.get(url, headers={"User-Agent": _TRENDS_UA}, timeout=30)
+            resp.raise_for_status()
+            root = ET.fromstring(resp.content)
+        except (requests.RequestException, ET.ParseError) as e:  # noqa: BLE001
+            logger.warning(f"failed to fetch Google Trends for geo={geo}: {e}")
+            continue
+        # RSS 2.0: channel/item/title carries the trending query.
+        for item in root.iter("item"):
+            title_el = item.find("title")
+            title = (title_el.text or "").strip() if title_el is not None else ""
+            key = title.lower()
+            if title and key not in seen:
+                seen.add(key)
+                terms.append(title)
+        logger.info(f"Google Trends geo={geo}: {len(terms)} total terms so far")
+    return terms
+
+
+def _curate_topics(raw_terms: List[str], n: int) -> List[str]:
+    """Ask the LLM to turn raw trending searches into renderable Shorts topics."""
+    if not raw_terms:
+        return []
+    listed = "\n".join(f"- {t}" for t in raw_terms[:40])
+    prompt = _CURATE_TEMPLATE.format(terms=listed, n=n)
+    raw = _generate_response(prompt)
+    if not raw or "Error: " in raw:
+        logger.error(f"topic curation LLM call failed: {raw!r}")
+        return []
+    try:
+        data = json.loads(_strip_code_fence(raw))
+        topics = [str(t).strip().strip('"').lstrip("#").strip() for t in data.get("topics", [])]
+    except (json.JSONDecodeError, AttributeError, TypeError) as e:
+        logger.error(f"could not parse curated topics: {e}; raw={raw!r}")
+        return []
+    # Dedupe (case-insensitive) while preserving order, then cap at n.
+    out: List[str] = []
+    seen = set()
+    for t in topics:
+        if t and t.lower() not in seen:
+            seen.add(t.lower())
+            out.append(t)
+    return out[:n]
+
+
+def _write_topics(topics: List[str]) -> None:
+    header = (
+        "# AUTO-GENERATED DAILY by run_refresh_topics.py from Google Trends.\n"
+        "# Do not hand-edit — the daily cron overwrites this file. Tune the\n"
+        "# source regions via 'trends_geos' / count via 'daily_topic_count' in\n"
+        "# autopilot/config.json. recent_topics_window is kept below the topic\n"
+        "# count so the autopilot round-robins these and never invents off-topic.\n"
+        f"# Last refreshed: {datetime.now(timezone.utc).isoformat()}\n"
+    )
+    os.makedirs(AUTOPILOT_DIR, exist_ok=True)
+    with open(TOPICS_FILE, "w", encoding="utf-8") as f:
+        f.write(header)
+        f.write("\n".join(topics) + "\n")
+
+
+def refresh_topics() -> dict:
+    """Fetch today's trends, curate N renderable topics, and lock them in.
+
+    Keeps the round-robin invariant (topic count > recent_topics_window) so the
+    autopilot cycles only these topics. On any failure the existing topics.txt is
+    left untouched rather than wiped to garbage.
+    """
+    cfg = load_config()
+    window = int(cfg.get("recent_topics_window", 5))
+    # Always produce more topics than the window so pick_topic never falls
+    # through to LLM invention.
+    n = max(int(cfg.get("daily_topic_count", 6)), window + 1)
+
+    raw_terms = fetch_google_trends(list(cfg.get("trends_geos", ["IN", "GB", "US"])))
+    if not raw_terms:
+        logger.error("no trends fetched; leaving existing topics.txt untouched")
+        return {"ok": False, "error": "no trends fetched"}
+
+    topics = _curate_topics(raw_terms, n)
+    if len(topics) <= window:
+        logger.error(
+            f"curation returned {len(topics)} topics (need > {window}); "
+            "leaving existing topics.txt untouched"
+        )
+        return {"ok": False, "error": "too few curated topics", "got": len(topics)}
+
+    _write_topics(topics)
+
+    # New topics -> reset the rotation, but keep the learned feedback + counter.
+    state = load_state()
+    state["recent_topics"] = []
+    save_state(state)
+
+    logger.success(f"refreshed daily topics ({len(topics)}): {topics}")
+    return {"ok": True, "topics": topics, "source_terms": raw_terms[:40]}
 
 
 # --------------------------------------------------------------------------- #
