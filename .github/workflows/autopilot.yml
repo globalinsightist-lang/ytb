@@ -5,13 +5,17 @@ name: Autopilot Video Generator
 # 16 GB) do the heavy MoviePy/FFmpeg rendering that Render's free tier can't.
 #
 # NOTE: cron is best-effort — GitHub frequently delays scheduled runs under
-# load, so "*/20" is an upper bound, not a guarantee. Scheduled workflows are
-# also auto-disabled after 60 days with no repo activity; the commit-back step
-# below counts as activity and keeps it alive.
+# load, so the cadence is an upper bound, not a guarantee. Scheduled workflows
+# are also auto-disabled after 60 days with no repo activity; the commit-back
+# step below counts as activity and keeps it alive.
+#
+# Cadence is capped by the YouTube Data API quota: videos.insert costs 1600
+# units against the default 10,000/day, i.e. ~6 uploads/day. Running more often
+# just burns quota and returns 403 quotaExceeded, so we run every 4 hours.
 
 on:
   schedule:
-    - cron: "*/20 * * * *"   # every 20 minutes (best-effort)
+    - cron: "0 */4 * * *"    # every 4 hours = 6 runs/day, matches the ~6/day YouTube quota
   workflow_dispatch: {}        # allow manual runs from the Actions tab
 
 # Never run two iterations at once; queue instead of overlapping.
@@ -25,7 +29,7 @@ permissions:
 jobs:
   generate:
     runs-on: ubuntu-latest
-    timeout-minutes: 18        # under the 20-min cadence so runs don't pile up
+    timeout-minutes: 18        # caps a hung run; a normal render finishes well under this
     steps:
       - uses: actions/checkout@v4
 
