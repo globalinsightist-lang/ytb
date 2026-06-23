@@ -91,6 +91,14 @@
       that does the heavy render/judge/upload. They share state through tracked files under
       <code>autopilot/</code>, committed back to <code>main</code> between runs.
     </div>
+    <div class="panel note">
+      <strong>Scheduling:</strong> the cadence is driven by a <strong>Cloudflare Worker</strong>
+      (<code>cloudflare-cron/</code>), not GitHub's native <code>schedule:</code> event — the latter
+      best-effort drops scheduled runs (worst for new repos / under load), which kept the autopilot
+      from firing. The Worker runs on Cloudflare's reliable cron and triggers each workflow via the
+      <code>workflow_dispatch</code> REST API; the workflows keep only their <code>workflow_dispatch:</code>
+      trigger (no <code>schedule:</code>, so they never double-fire and waste YouTube quota).
+    </div>
   </section>
 
   <section>
@@ -98,6 +106,8 @@
     <p class="lead">How the two cron workflows interact across a day.</p>
     <div class="mermaid">
 flowchart TD
+    CRON["☁️ Cloudflare Worker cron<br/>cloudflare-cron/ → workflow_dispatch (UTC)"]
+
     subgraph DAILY["🗓️ Daily Topic Refresh — 01:21 UTC"]
       GT["Google Trends RSS<br/>(IN · GB · US)"] --> CUR["LLM curator<br/>raw searches → 6 renderable topics"]
       CUR --> TOPICS[("autopilot/topics.txt<br/>6 locked topics")]
@@ -111,10 +121,13 @@ flowchart TD
       UP --> LEARN["append judge lessons<br/>→ state.json feedback_notes"]
     end
 
+    CRON -->|"21 1 * * *"| GT
+    CRON -->|"0 */4 * * *"| PICK
     TOPICS --> PICK
     LEARN --> COMMIT[("git commit-back to main<br/>state.json · history.jsonl")]
     COMMIT -.-> PICK
 
+    style CRON fill:#1f2530,stroke:#58a6ff,color:#e6edf3
     style DAILY fill:#161b22,stroke:#30363d,color:#e6edf3
     style AUTO fill:#161b22,stroke:#30363d,color:#e6edf3
     style TOPICS fill:#1f2530,stroke:#f0b429,color:#e6edf3
@@ -124,8 +137,11 @@ flowchart TD
 
   <section>
     <h2>Cron schedules</h2>
+    <p class="lead">Cron strings live in <code>cloudflare-cron/wrangler.toml</code> (UTC); the Cloudflare
+      Worker maps each to a <code>workflow_dispatch</code> call. The GitHub workflows have no
+      <code>schedule:</code> of their own.</p>
     <table>
-      <tr><th>Workflow</th><th>Schedule</th><th>Does</th></tr>
+      <tr><th>Workflow</th><th>Cloudflare cron</th><th>Does</th></tr>
       <tr>
         <td><code>refresh-topics.yml</code><br/>Daily Topic Refresh</td>
         <td><span class="pill cron">21 1 * * *</span><br/>once/day</td>
@@ -133,13 +149,14 @@ flowchart TD
       </tr>
       <tr>
         <td><code>autopilot.yml</code><br/>Autopilot Video Generator</td>
-        <td><span class="pill cron">23 */4 * * *</span><br/>6×/day</td>
+        <td><span class="pill cron">0 */4 * * *</span><br/>6×/day</td>
         <td>Pick a topic → candidates → LLM judge → render winner → upload to YouTube → commit learning state. Capped at 6/day to fit the YouTube API quota (videos.insert = 1600 units / 10,000 per day).</td>
       </tr>
     </table>
     <p class="lead" style="font-size:.9rem">
-      Also present but outside the content pipeline: <code>ci.yml</code> (tests) and
-      <code>docker-ghcr.yml</code> (publishes Docker images to GHCR).
+      Both are fired by the Cloudflare Worker in <code>cloudflare-cron/</code> via
+      <code>workflow_dispatch</code>. Also present but outside the content pipeline:
+      <code>ci.yml</code> (tests).
     </p>
   </section>
 
@@ -177,6 +194,7 @@ flowchart LR
       <div class="card"><h3><code>services/youtube_upload.py</code></h3><p>Direct YouTube Data API v3 resumable upload. OAuth refresh-token → access-token per run.</p></div>
       <div class="card"><h3><code>services/state.py</code></h3><p>Per-task status/progress store: in-memory or Redis (toggled by <code>enable_redis</code>).</p></div>
       <div class="card"><h3><code>controllers/manager/</code></h3><p>Task queue / concurrency: threads up to <code>max_concurrent_tasks</code>; memory- or Redis-backed.</p></div>
+      <div class="card"><h3><code>cloudflare-cron/</code></h3><p>Cloudflare Worker on a reliable cron that fires both GitHub workflows via the <code>workflow_dispatch</code> API — replaces GitHub's flaky native <code>schedule:</code>.</p></div>
     </div>
   </section>
 
@@ -194,10 +212,12 @@ flowchart LR
   <section>
     <h2>Secrets &amp; permissions</h2>
     <table>
-      <tr><th>Item</th><th>Purpose</th></tr>
-      <tr><td><code>CONFIG_TOML</code></td><td>The whole <code>config.toml</code> (LLM + Pexels keys) materialized at runtime.</td></tr>
-      <tr><td><code>YT_CLIENT_ID</code> · <code>YT_CLIENT_SECRET</code> · <code>YT_REFRESH_TOKEN</code></td><td>OAuth credentials for the YouTube Data API uploader.</td></tr>
-      <tr><td>Workflow permissions</td><td><em>Read &amp; write</em> — both workflows commit state back to <code>main</code>.</td></tr>
+      <tr><th>Item</th><th>Where</th><th>Purpose</th></tr>
+      <tr><td><code>CONFIG_TOML</code></td><td>GitHub Actions</td><td>The whole <code>config.toml</code> (LLM + Pexels keys) materialized at runtime.</td></tr>
+      <tr><td><code>YT_CLIENT_ID</code> · <code>YT_CLIENT_SECRET</code> · <code>YT_REFRESH_TOKEN</code></td><td>GitHub Actions</td><td>OAuth credentials for the YouTube Data API uploader.</td></tr>
+      <tr><td>Workflow permissions</td><td>GitHub Actions</td><td><em>Read &amp; write</em> — both workflows commit state back to <code>main</code>.</td></tr>
+      <tr><td><code>GH_PAT</code></td><td>Cloudflare Worker</td><td>Fine-grained GitHub PAT scoped to this repo only (<em>Actions: read &amp; write</em>). Lets the Worker fire the workflows via <code>workflow_dispatch</code>.</td></tr>
+      <tr><td><code>TRIGGER_KEY</code> <span style="color:var(--muted)">(optional)</span></td><td>Cloudflare Worker</td><td>Gates the Worker's manual HTTP test endpoint; if unset, that endpoint is disabled (404).</td></tr>
     </table>
   </section>
 </main>

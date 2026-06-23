@@ -1,0 +1,12 @@
+name = "ytb-cron-trigger"
+main = "worker.js"
+compatibility_date = "2024-11-01"
+
+# Cloudflare cron triggers (UTC). These are now the source of truth for the
+# autopilot cadence — the GitHub workflows themselves only keep workflow_dispatch.
+# Keep these strings byte-identical to the keys in worker.js CRON_TO_WORKFLOW.
+[triggers]
+crons = [
+  "0 */4 * * *",  # autopilot.yml — every 4h, 6×/day (YouTube videos.insert quota cap)
+  "21 1 * * *",   # refresh-topics.yml — daily 01:21 UTC
+]

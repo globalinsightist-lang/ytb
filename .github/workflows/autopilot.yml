@@ -4,19 +4,19 @@ name: Autopilot Video Generator
 # evolving prompt-feedback back to the repo. GitHub-hosted runners (4 vCPU /
 # 16 GB) do the heavy MoviePy/FFmpeg rendering that Render's free tier can't.
 #
-# NOTE: cron is best-effort — GitHub frequently delays scheduled runs under
-# load, so the cadence is an upper bound, not a guarantee. Scheduled workflows
-# are also auto-disabled after 60 days with no repo activity; the commit-back
-# step below counts as activity and keeps it alive.
+# Cadence is driven externally by the Cloudflare Worker in cloudflare-cron/,
+# which fires this workflow via the workflow_dispatch REST API every 4h. We do
+# NOT use GitHub's native `schedule:` — it best-effort drops scheduled runs
+# (worst for new repos / high load), which is exactly why it kept missing.
+# Cloudflare cron is reliable; keeping `schedule:` too would double-fire and
+# burn the YouTube quota.
 #
 # Cadence is capped by the YouTube Data API quota: videos.insert costs 1600
 # units against the default 10,000/day, i.e. ~6 uploads/day. Running more often
-# just burns quota and returns 403 quotaExceeded, so we run every 4 hours.
+# just burns quota and returns 403 quotaExceeded, so Cloudflare fires every 4h.
 
 on:
-  schedule:
-    - cron: "23 */4 * * *"   # every 4h at :23 — off the top of the hour, which GitHub explicitly says gets delayed/dropped under load; 6 runs/day matches the ~6/day YouTube quota
-  workflow_dispatch: {}        # allow manual runs from the Actions tab
+  workflow_dispatch: {}        # triggered by the Cloudflare Worker (and manual runs from the Actions tab)
 
 # Never run two iterations at once; queue instead of overlapping.
 concurrency:

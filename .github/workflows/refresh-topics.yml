@@ -6,14 +6,13 @@ name: Daily Topic Refresh
 # the rest of the day (generate candidates -> LLM judge -> render winner ->
 # upload). This is the cheap, no-render half of the system.
 #
-# Runs at 01:21 UTC daily — an off-peak minute (top of the hour gets delayed/dropped
-# under GitHub load) and clear of the autopilot's :23 slots so the two workflows
-# don't race on the git push-back.
+# Fired daily at 01:21 UTC by the Cloudflare Worker in cloudflare-cron/ via the
+# workflow_dispatch REST API (not GitHub's native `schedule:`, which best-effort
+# drops runs). 01:21 is clear of the autopilot's 4-hourly slots so the two
+# workflows don't race on the git push-back.
 
 on:
-  schedule:
-    - cron: "21 1 * * *"     # 01:21 UTC daily — off the top of the hour, which GitHub delays/drops under load
-  workflow_dispatch: {}        # allow manual refresh from the Actions tab
+  workflow_dispatch: {}        # triggered by the Cloudflare Worker (and manual refresh from the Actions tab)
 
 concurrency:
   group: topic-refresh

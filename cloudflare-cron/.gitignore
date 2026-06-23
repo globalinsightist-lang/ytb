@@ -1,0 +1,9 @@
+# Wrangler local state / cache — machine-local, never commit
+.wrangler/
+
+# Local secrets for `wrangler dev` (real secrets live in Cloudflare via `wrangler secret put`)
+.dev.vars
+.dev.vars.*
+
+# JS deps, if you ever add any
+node_modules/
