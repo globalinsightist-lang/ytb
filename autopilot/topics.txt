@@ -1,13 +1,12 @@
-# One topic per line. Lines starting with # are ignored.
-# The autopilot walks this list, skipping recently used topics.
-#
-# LOCKED to the 6 trending concepts below (sourced from Google Trends IN/GB,
-# 2026-06-22). recent_topics_window in config.json is set BELOW the topic count
-# so the autopilot round-robins over exactly these 6 forever and never invents
-# off-topic scripts. Refresh this list when the trends go stale.
-Why the 2026 FIFA World Cup will be the biggest in history
-Toy Story 5 is coming: the insane work behind a single Pixar frame
-Why South Korea's stock market just hit an all-time high
-The surprising true origin of pizza (it wasn't where you think)
-Why pollen makes millions of people sneeze every summer
-Why cricket is the second most-watched sport on Earth
+# AUTO-GENERATED DAILY by run_refresh_topics.py from Google Trends.
+# Do not hand-edit — the daily cron overwrites this file. Tune the
+# source regions via 'trends_geos' / count via 'daily_topic_count' in
+# autopilot/config.json. recent_topics_window is kept below the topic
+# count so the autopilot round-robins these and never invents off-topic.
+# Last refreshed: 2026-06-24T01:22:20.066707+00:00
+The Rising Impact of FIFA World Cup Matches on Global Sports Culture
+Exploring the Future of Euro 2024: Trends and Predictions
+The Role of Peace Talks in Shaping Global Relations
+Understanding the Significance of Global Athlete Birthdays
+Examining the Unfolding Drama of World Cup Knockout Stages
+How Upcoming NBA Drafts Impact Future Basketball Stars
