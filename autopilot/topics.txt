@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-06-26T01:22:18.766391+00:00
-The Rise of Women's T20 Cricket Worldwide
-Understanding Cryptocurrency Wallets: A Beginner's Guide
-The Impact of Earthquakes on Urban Infrastructure
-Exploring the Growing Popularity of Global Football Transfers
-How Weather Influences Daily Life Around the World
-A Sneak Peek into the World of Sci-Fi Movie Production Techniques
+# Last refreshed: 2026-06-27T01:22:19.573542+00:00
+The Rise of Futuristic Sports: Exploring the Next Generation of Athletes
+The Evolution of Anime: From Classic Series to Epic Films
+Inside the FIFA World Cup 2026: What to Expect from the Biggest Sporting Event
+Adapting to Extreme Weather: Strategies for Staying Cool in Hot Climates
+The Impact of Technology on Soccer Tactics and Game Strategy
+The Intersection of Pop Culture and Food: How Celebrities Influence Culinary Trends
