@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-06-30T01:22:15.090760+00:00
-The Rise of Soccer Stars: From Europe to the World
-Exploring the Science Behind Full Moons: The Strawberry Moon
-World Cup Fever: Anticipating the 2026 Tournament
-Euro 2024: What Fans Can Expect from This Exciting Championship
-The Impact of Rainfall on Global Ecosystems
-Inside the Energy of Major League Baseball: A Look at Game Day
+# Last refreshed: 2026-07-01T01:21:52.849076+00:00
+The Impact of Major World Cup Events on Global Culture
+Exploring the Science Behind Volcanic Eruptions
+Unraveling the Mysteries of Soccer World Cup Statistics
+What Weather Patterns Reveal About Climate Change
+The Fascinating Evolution of Action Movies
+Understanding Economic Trends Through Local Elections
