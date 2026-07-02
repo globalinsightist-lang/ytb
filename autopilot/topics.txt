@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-07-01T01:21:52.849076+00:00
-The Impact of Major World Cup Events on Global Culture
-Exploring the Science Behind Volcanic Eruptions
-Unraveling the Mysteries of Soccer World Cup Statistics
-What Weather Patterns Reveal About Climate Change
-The Fascinating Evolution of Action Movies
-Understanding Economic Trends Through Local Elections
+# Last refreshed: 2026-07-02T01:21:53.043943+00:00
+Exploring the Excitement of the Women's T20 World Cup
+How Half-Time Shapes the Outcome of Big Games
+Breaking Down the Evolution of PlayStation Plus
+The Surprising Role of Coaches in World Cup History
+Understanding the Global Impact of Major Soccer Events
+The Science Behind Weather Patterns and Their Effects on Us
