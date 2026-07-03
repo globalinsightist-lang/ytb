@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-07-02T01:21:53.043943+00:00
-Exploring the Excitement of the Women's T20 World Cup
-How Half-Time Shapes the Outcome of Big Games
-Breaking Down the Evolution of PlayStation Plus
-The Surprising Role of Coaches in World Cup History
-Understanding the Global Impact of Major Soccer Events
-The Science Behind Weather Patterns and Their Effects on Us
+# Last refreshed: 2026-07-03T01:21:53.327798+00:00
+The Rise of Football Stars in Global Tournaments
+Weather Patterns and the Impact on Major Events
+Exploring the Economics of Gold and Silver Prices
+Understanding World Cup Predictions and Their Accuracy
+Satellite Imagery: How It Shapes Our Understanding of Climate
+The Science Behind Winning Teams in International Football
