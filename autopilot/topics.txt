@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-07-03T01:21:53.327798+00:00
-The Rise of Football Stars in Global Tournaments
-Weather Patterns and the Impact on Major Events
-Exploring the Economics of Gold and Silver Prices
-Understanding World Cup Predictions and Their Accuracy
-Satellite Imagery: How It Shapes Our Understanding of Climate
-The Science Behind Winning Teams in International Football
+# Last refreshed: 2026-07-04T01:21:55.762621+00:00
+The Evolution of Football World Cups
+What Makes a Winning World Cup Team?
+The Future of Live Sports Viewing
+How Soccer Brackets Work: A Deep Dive
+Understanding Economic Trends Through Investment
+Exploring the Global Impact of Major Sports Events
