@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-07-04T01:21:55.762621+00:00
-The Evolution of Football World Cups
-What Makes a Winning World Cup Team?
-The Future of Live Sports Viewing
-How Soccer Brackets Work: A Deep Dive
-Understanding Economic Trends Through Investment
-Exploring the Global Impact of Major Sports Events
+# Last refreshed: 2026-07-05T01:21:57.304021+00:00
+The Rise of Women's Cricket: A Global Phenomenon
+The Impact of AI on Sports Performance
+Exploring the Future of Football: Innovations in Goalkeeping
+Celebrating Independence: The Importance of National Holidays Worldwide
+Fireworks: The Art and Science Behind Spectacular Displays
+Inside the Economic Impact of Lottery Wins on Local Communities
