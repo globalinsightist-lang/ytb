@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-07-05T01:21:57.304021+00:00
-The Rise of Women's Cricket: A Global Phenomenon
-The Impact of AI on Sports Performance
-Exploring the Future of Football: Innovations in Goalkeeping
-Celebrating Independence: The Importance of National Holidays Worldwide
-Fireworks: The Art and Science Behind Spectacular Displays
-Inside the Economic Impact of Lottery Wins on Local Communities
+# Last refreshed: 2026-07-06T01:21:54.114527+00:00
+The Rise of Global Football Stars
+The Evolution of World Cup History
+The Science Behind Weather Patterns
+Decoding the Secrets of Successful Sports Teams
+Famous Matches That Changed Football
+Understanding the Impact of Referees in Sports
