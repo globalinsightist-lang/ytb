@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-07-06T01:21:54.114527+00:00
-The Rise of Global Football Stars
-The Evolution of World Cup History
-The Science Behind Weather Patterns
-Decoding the Secrets of Successful Sports Teams
-Famous Matches That Changed Football
-Understanding the Impact of Referees in Sports
+# Last refreshed: 2026-07-07T01:21:54.497074+00:00
+The Rise of Women's Soccer: A Global Phenomenon
+The Evolution of Soccer World Rankings: What Do They Mean?
+How International Friendlies Shape Team Dynamics
+Behind the Scenes of Iconic Soccer Duels
+The Impact of Star Athletes on Sports Culture
+Exploring the Financial Side of Professional Sports Contracts
