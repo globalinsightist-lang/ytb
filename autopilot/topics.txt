@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-07-07T01:21:54.497074+00:00
-The Rise of Women's Soccer: A Global Phenomenon
-The Evolution of Soccer World Rankings: What Do They Mean?
-How International Friendlies Shape Team Dynamics
-Behind the Scenes of Iconic Soccer Duels
-The Impact of Star Athletes on Sports Culture
-Exploring the Financial Side of Professional Sports Contracts
+# Last refreshed: 2026-07-08T01:22:06.399978+00:00
+The Thrill of World Cup Football: A Look at Global Rivalries
+Cricket: The Art of Strategic Play in Iconic Matches
+Understanding Flash Flood Risks: Nature's Unpredictable Forces
+Exploring the Cultural Impact of Iconic Actors in Cinema
+The Evolution of NBA Trades: Strategies Behind Team Dynamics
+The Future of Urban Transit: Innovations in Public Transportation
