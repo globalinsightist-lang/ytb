@@ -1,10 +1,9 @@
 {
-  "run_count": 101,
-  "recent_topics": [],
+  "run_count": 102,
+  "recent_topics": [
+    "The Rise of Fast Paced Action Films"
+  ],
   "feedback_notes": [
-    "Start with a compelling hook to grab attention immediately.",
-    "Maintain a brisk pacing to keep viewers engaged throughout.",
-    "Ensure clarity by avoiding overly complex terminology and concepts.",
     "Start with a strong, attention-grabbing hook.",
     "Maintain a brisk pace to keep audience engagement high.",
     "Ensure clarity by avoiding overly complex language or jargon.",
@@ -13,6 +12,9 @@
     "Conclude with a clear, impactful statement that resonates.",
     "Start with a powerful hook that captures attention immediately.",
     "Use concise language to maintain pace and clarity.",
-    "End with a strong, memorable statement to provide satisfaction."
+    "End with a strong, memorable statement to provide satisfaction.",
+    "Open with a powerful, compelling statement that grabs attention immediately.",
+    "Maintain a brisk pace to keep viewers engaged throughout the script.",
+    "Ensure the conclusion delivers a strong, memorable takeaway related to the topic."
   ]
 }
