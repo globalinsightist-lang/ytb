@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-07-10T01:21:42.097616+00:00
-The Rise of Fast Paced Action Films
-Exploring the Excitement of Summer Sports Leagues
-Decoding Popular Video Game Updates
-The Secrets Behind Successful Online Voting Systems
-How Weather Patterns Influence Our Daily Lives
-The Connection Between Gambling and Prize Draws
+# Last refreshed: 2026-07-11T01:22:08.699801+00:00
+Unraveling the Science Behind El Niño Effects
+The Art of Bocce: Techniques and History
+Exploring the Fast and Furious Franchise: Racing Beyond Limits
+The Rise of Young Baseball Stars: A Look at Emerging Talents
+How Weather Patterns Influence Local Economies
+The Secrets Behind Effective Political Campaigning
