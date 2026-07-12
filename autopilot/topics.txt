@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-07-11T01:22:08.699801+00:00
-Unraveling the Science Behind El Niño Effects
-The Art of Bocce: Techniques and History
-Exploring the Fast and Furious Franchise: Racing Beyond Limits
-The Rise of Young Baseball Stars: A Look at Emerging Talents
-How Weather Patterns Influence Local Economies
-The Secrets Behind Effective Political Campaigning
+# Last refreshed: 2026-07-12T01:22:24.632840+00:00
+The Rise of Argentine Soccer Stars
+2026 Military Recruitment Trends Across the Globe
+Exploring Global Popularity of UFC Events
+The Evolution of Soccer Jerseys Through the Years
+Famous Birthdays: The Science Behind Fame and Success
+Understanding Zodiac Signs and Their Impact on Personality
