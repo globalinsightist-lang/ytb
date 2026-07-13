@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-07-12T01:22:24.632840+00:00
-The Rise of Argentine Soccer Stars
-2026 Military Recruitment Trends Across the Globe
-Exploring Global Popularity of UFC Events
-The Evolution of Soccer Jerseys Through the Years
-Famous Birthdays: The Science Behind Fame and Success
-Understanding Zodiac Signs and Their Impact on Personality
+# Last refreshed: 2026-07-13T01:22:17.175521+00:00
+The Evolution of Box Office Hits: What Makes a Movie a Success?
+Exploring the Impact of Global Markets on Your Everyday Life
+The Science Behind Electric Power: How Electricity Transforms Our World
+Inside the Marvel Cinematic Universe: The Art of Creating Epic Posters
+The Legacy of Great Athletes: Lessons from Iconic Sports Figures
+Understanding Modern Warfare: Key Factors in Global Conflicts
