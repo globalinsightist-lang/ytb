@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-07-16T01:21:33.518372+00:00
-The Impact of Climate on Sports Performances
-Exploring the World of International Cricket
-The Secrets Behind Meteorite Discoveries
-A Deep Dive into Air Quality and Health
-Futuristic Discoveries: What's New in Exoplanets?
-The Evolution of Chef Culture and Culinary Trends
+# Last refreshed: 2026-07-17T01:22:17.402235+00:00
+The Rise of Exoplanets: Discoveries That Might Change Our Understanding of the Universe
+The Future of Energy Drinks: Will New Regulations Change the Game?
+Exploring the Science Behind Heatwaves and Their Impact on the Planet
+The Evolution of Soccer: What Makes MLS Thriving in the Sports Landscape?
+The Impact of Political Speeches on Youth: Engaging the Next Generation
+How Classic Movies are Made: Behind the Scenes of Epic Film Production
