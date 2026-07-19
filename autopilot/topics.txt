@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-07-18T01:22:17.381760+00:00
-Understanding the Impact of Extreme Weather on Daily Life
-The Gold Market: What Influences Gold Prices Globally?
-The Rise of Competitive Cricket: A Look at Emerging Stars
-How Natural Disasters Shape Economic Decisions
-The Future of Cinema: Exploring the Art of Storytelling in Film
-Uncovering the Secrets of Major League Sports Rivalries
+# Last refreshed: 2026-07-19T01:22:24.114964+00:00
+Exploring the Secrets of the Atmosphere
+Trends in Social Media and Digital Influence
+The Future of iPhones: Innovations Ahead
+Understanding the Rise of Moonshot Projects
+The Evolution of Live Sports: From Local to Global
+The Allure of Precious Metals: Gold and Silver Trends
