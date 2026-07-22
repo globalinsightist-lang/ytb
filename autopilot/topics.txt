@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-07-21T01:21:37.868319+00:00
-Understanding Tornado Warnings: What You Need to Know
-The Future of Space Exploration: NASA's Psyche Mission
-The Transformation of Sports: The Rise of Major League Baseball
-The Science of Weather Patterns: How Does Rain Form?
-Exploring the Fascination with Squishy Toys: A Fun Analysis
-The Evolution of Cinema: The Impact of 70mm IMAX Technology
+# Last refreshed: 2026-07-22T01:22:13.323679+00:00
+The Science Behind Thunderstorms: What Causes Lightning to Strike
+Exploring the Rise of Innovative Sports Stars
+The Impact of Disability Awareness on Society
+The Future of Smart Technology: What's Next for Smartphones?
+The Thrill of the Game: Understanding Cricket's Global Popularity
+Unpacking Mega Jackpots: How Lottery Systems Work Globally
