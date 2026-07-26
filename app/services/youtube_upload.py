@@ -94,8 +94,14 @@ def upload_video(
     privacy_status: str = "public",
     category_id: str = "22",
     made_for_kids: bool = False,
+    contains_synthetic_media: bool = False,
 ) -> dict:
     """Upload a single file to YouTube via a resumable session.
+
+    `contains_synthetic_media` sets YouTube's "altered or synthetic content"
+    disclosure. Any pipeline that narrates an LLM-written script with TTS must
+    declare this — it is a policy requirement, separate from monetization, and
+    undisclosed synthetic content risks removal.
 
     Returns {"success": bool, "video_id": str, "url": str} or
     {"success": False, "error": str}.
@@ -127,6 +133,7 @@ def upload_video(
         "status": {
             "privacyStatus": privacy_status,
             "selfDeclaredMadeForKids": made_for_kids,
+            "containsSyntheticMedia": contains_synthetic_media,
         },
     }
 

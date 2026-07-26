@@ -15,8 +15,12 @@ const REF = "main";
 
 // Map each cron trigger (must match wrangler.toml exactly) → workflow file to dispatch.
 const CRON_TO_WORKFLOW = {
-  "0 */4 * * *": "autopilot.yml",     // every 4h — heavy render/judge/upload, 6×/day (YouTube quota cap)
-  "21 1 * * *": "refresh-topics.yml", // daily 01:21 UTC — refresh topic list from Google Trends
+  // 6×/day (YouTube videos.insert quota cap). 01:05 UTC = 06:35 IST, inside the
+  // channel's observed 06:30-07:30 peak-viewer window.
+  "5 1,5,9,13,17,21 * * *": "autopilot.yml",
+  // Daily topic refresh, scheduled clear of the 01:05 autopilot slot so the two
+  // workflows never race on the git push-back.
+  "40 0 * * *": "refresh-topics.yml",
 };
 
 async function dispatch(workflow, token) {

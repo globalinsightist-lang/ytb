@@ -1,0 +1,150 @@
+{
+  "_comment": "Allowlist for background music. A track is eligible for random BGM selection ONLY when its 'license' field is a non-empty string. The tracks below shipped with upstream MoneyPrinterTurbo, whose README states they were taken from YouTube videos with no rights cleared, so they are listed with an empty license and will NOT be used. Replace them with tracks you can attribute, fill in source/license/url, and they become eligible automatically. See README.md in this directory.",
+  "tracks": {
+    "output000.mp3": {
+      "source": "upstream MoneyPrinterTurbo (provenance unknown)",
+      "license": "",
+      "url": ""
+    },
+    "output001.mp3": {
+      "source": "upstream MoneyPrinterTurbo (provenance unknown)",
+      "license": "",
+      "url": ""
+    },
+    "output002.mp3": {
+      "source": "upstream MoneyPrinterTurbo (provenance unknown)",
+      "license": "",
+      "url": ""
+    },
+    "output003.mp3": {
+      "source": "upstream MoneyPrinterTurbo (provenance unknown)",
+      "license": "",
+      "url": ""
+    },
+    "output004.mp3": {
+      "source": "upstream MoneyPrinterTurbo (provenance unknown)",
+      "license": "",
+      "url": ""
+    },
+    "output005.mp3": {
+      "source": "upstream MoneyPrinterTurbo (provenance unknown)",
+      "license": "",
+      "url": ""
+    },
+    "output006.mp3": {
+      "source": "upstream MoneyPrinterTurbo (provenance unknown)",
+      "license": "",
+      "url": ""
+    },
+    "output007.mp3": {
+      "source": "upstream MoneyPrinterTurbo (provenance unknown)",
+      "license": "",
+      "url": ""
+    },
+    "output008.mp3": {
+      "source": "upstream MoneyPrinterTurbo (provenance unknown)",
+      "license": "",
+      "url": ""
+    },
+    "output009.mp3": {
+      "source": "upstream MoneyPrinterTurbo (provenance unknown)",
+      "license": "",
+      "url": ""
+    },
+    "output010.mp3": {
+      "source": "upstream MoneyPrinterTurbo (provenance unknown)",
+      "license": "",
+      "url": ""
+    },
+    "output011.mp3": {
+      "source": "upstream MoneyPrinterTurbo (provenance unknown)",
+      "license": "",
+      "url": ""
+    },
+    "output012.mp3": {
+      "source": "upstream MoneyPrinterTurbo (provenance unknown)",
+      "license": "",
+      "url": ""
+    },
+    "output013.mp3": {
+      "source": "upstream MoneyPrinterTurbo (provenance unknown)",
+      "license": "",
+      "url": ""
+    },
+    "output014.mp3": {
+      "source": "upstream MoneyPrinterTurbo (provenance unknown)",
+      "license": "",
+      "url": ""
+    },
+    "output015.mp3": {
+      "source": "upstream MoneyPrinterTurbo (provenance unknown)",
+      "license": "",
+      "url": ""
+    },
+    "output016.mp3": {
+      "source": "upstream MoneyPrinterTurbo (provenance unknown)",
+      "license": "",
+      "url": ""
+    },
+    "output017.mp3": {
+      "source": "upstream MoneyPrinterTurbo (provenance unknown)",
+      "license": "",
+      "url": ""
+    },
+    "output018.mp3": {
+      "source": "upstream MoneyPrinterTurbo (provenance unknown)",
+      "license": "",
+      "url": ""
+    },
+    "output019.mp3": {
+      "source": "upstream MoneyPrinterTurbo (provenance unknown)",
+      "license": "",
+      "url": ""
+    },
+    "output020.mp3": {
+      "source": "upstream MoneyPrinterTurbo (provenance unknown)",
+      "license": "",
+      "url": ""
+    },
+    "output021.mp3": {
+      "source": "upstream MoneyPrinterTurbo (provenance unknown)",
+      "license": "",
+      "url": ""
+    },
+    "output022.mp3": {
+      "source": "upstream MoneyPrinterTurbo (provenance unknown)",
+      "license": "",
+      "url": ""
+    },
+    "output023.mp3": {
+      "source": "upstream MoneyPrinterTurbo (provenance unknown)",
+      "license": "",
+      "url": ""
+    },
+    "output024.mp3": {
+      "source": "upstream MoneyPrinterTurbo (provenance unknown)",
+      "license": "",
+      "url": ""
+    },
+    "output025.mp3": {
+      "source": "upstream MoneyPrinterTurbo (provenance unknown)",
+      "license": "",
+      "url": ""
+    },
+    "output027.mp3": {
+      "source": "upstream MoneyPrinterTurbo (provenance unknown)",
+      "license": "",
+      "url": ""
+    },
+    "output028.mp3": {
+      "source": "upstream MoneyPrinterTurbo (provenance unknown)",
+      "license": "",
+      "url": ""
+    },
+    "output029.mp3": {
+      "source": "upstream MoneyPrinterTurbo (provenance unknown)",
+      "license": "",
+      "url": ""
+    }
+  }
+}

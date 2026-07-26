@@ -1,6 +1,7 @@
 import glob
 import itertools
 import io
+import json
 import os
 import random
 import gc
@@ -10,7 +11,7 @@ import sys
 import tempfile
 from contextlib import redirect_stdout
 from functools import lru_cache
-from typing import List
+from typing import List, Optional
 from loguru import logger
 import numpy as np
 from moviepy import (
@@ -496,6 +497,39 @@ def _resolve_bgm_file_path(song_dir: str, bgm_file: str) -> str:
             raise ValueError(str(root_dir_exc)) from song_dir_exc
 
 
+_BGM_LICENSE_MANIFEST = "licenses.json"
+
+
+def _licensed_bgm_files(song_dir: str) -> Optional[set]:
+    """Filenames cleared for use by resource/songs/licenses.json.
+
+    Opt-in by design: with no manifest present this returns None and BGM
+    selection keeps its original behaviour, so existing installs are
+    unaffected. Create the manifest and only tracks listed in it are eligible
+    — an unattributed track can draw a copyright claim that demonetizes a
+    video retroactively, which is exactly the failure a publish-automation
+    pipeline cannot notice on its own.
+    """
+    manifest_path = os.path.join(song_dir, _BGM_LICENSE_MANIFEST)
+    if not os.path.isfile(manifest_path):
+        return None
+    try:
+        with open(manifest_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except (json.JSONDecodeError, OSError) as e:
+        logger.warning(f"unreadable bgm license manifest {manifest_path}: {e}")
+        return set()
+
+    entries = data.get("tracks", data) if isinstance(data, dict) else data
+    allowed = set()
+    if isinstance(entries, dict):
+        for name, meta in entries.items():
+            # A track counts as cleared only when it names its license.
+            if isinstance(meta, dict) and str(meta.get("license", "")).strip():
+                allowed.add(name)
+    return allowed
+
+
 def get_bgm_file(bgm_type: str = "random", bgm_file: str = ""):
     if not bgm_type:
         return ""
@@ -527,6 +561,17 @@ def get_bgm_file(bgm_type: str = "random", bgm_file: str = ""):
         if not files:
             logger.warning(f"no bgm files found in song directory: {song_dir}")
             return ""
+
+        allowed = _licensed_bgm_files(song_dir)
+        if allowed is not None:
+            files = [f for f in files if os.path.basename(f) in allowed]
+            if not files:
+                logger.warning(
+                    f"no licensed bgm files in {song_dir} "
+                    f"({_BGM_LICENSE_MANIFEST} lists none with a license); "
+                    "rendering without background music"
+                )
+                return ""
         return random.choice(files)
 
     return ""

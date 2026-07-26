@@ -108,29 +108,33 @@
 flowchart TD
     CRON["☁️ Cloudflare Worker cron<br/>cloudflare-cron/ → workflow_dispatch (UTC)"]
 
-    subgraph DAILY["🗓️ Daily Topic Refresh — 01:21 UTC"]
+    subgraph DAILY["🗓️ Daily Topic Refresh — 00:40 UTC"]
       GT["Google Trends RSS<br/>(IN · GB · US)"] --> CUR["LLM curator<br/>raw searches → 6 renderable topics"]
       CUR --> TOPICS[("autopilot/topics.txt<br/>6 locked topics")]
     end
 
-    subgraph AUTO["🎬 Autopilot Video Generator — every 4h (6×/day)"]
-      PICK["pick_topic()<br/>round-robin over the 6"] --> GEN["generate N candidate scripts"]
-      GEN --> JUDGE["LLM-as-judge<br/>scores hook/pacing/clarity/payoff"]
-      JUDGE --> RENDER["render ONLY the winner<br/>TTS → subs → Pexels → MoviePy"]
-      RENDER --> UP["upload to YouTube<br/>Data API v3"]
-      UP --> LEARN["append judge lessons<br/>→ state.json feedback_notes"]
+    subgraph AUTO["🎬 Autopilot Video Generator — 6×/day"]
+      PERF["refresh_performance()<br/>YouTube Analytics → performance.jsonl"] --> PICK["pick_topic()<br/>round-robin over the 6"]
+      PICK --> PROMPT["compose_system_prompt()<br/>real winners/losers by retention"]
+      PROMPT --> GEN["generate N candidates<br/>trimmed to a 30-40s word budget"]
+      GEN --> JUDGE["LLM-as-judge<br/>shuffled order · anchored 0-40 rubric"]
+      JUDGE --> RENDER["render ONLY the winner<br/>rotated voice · centred subs · varied cuts"]
+      RENDER --> UP["upload to YouTube<br/>Data API v3 · synthetic-media declared"]
+      UP --> LEARN["record hook + render choices<br/>→ history.jsonl"]
     end
 
-    CRON -->|"21 1 * * *"| GT
-    CRON -->|"0 */4 * * *"| PICK
+    CRON -->|"40 0 * * *"| GT
+    CRON -->|"5 1,5,9,13,17,21 * * *"| PERF
     TOPICS --> PICK
-    LEARN --> COMMIT[("git commit-back to main<br/>state.json · history.jsonl")]
-    COMMIT -.-> PICK
+    LEARN --> COMMIT[("git commit-back to main<br/>state · history · performance")]
+    COMMIT -.-> PERF
+    PERF -.->|"closes the loop"| PROMPT
 
     style CRON fill:#1f2530,stroke:#58a6ff,color:#e6edf3
     style DAILY fill:#161b22,stroke:#30363d,color:#e6edf3
     style AUTO fill:#161b22,stroke:#30363d,color:#e6edf3
     style TOPICS fill:#1f2530,stroke:#f0b429,color:#e6edf3
+    style PERF fill:#1f2530,stroke:#f0b429,color:#e6edf3
     style COMMIT fill:#1f2530,stroke:#3fb950,color:#e6edf3
     </div>
   </section>
@@ -144,13 +148,13 @@ flowchart TD
       <tr><th>Workflow</th><th>Cloudflare cron</th><th>Does</th></tr>
       <tr>
         <td><code>refresh-topics.yml</code><br/>Daily Topic Refresh</td>
-        <td><span class="pill cron">21 1 * * *</span><br/>once/day</td>
-        <td>Fetch Google Trends → LLM curates 6 renderable topics → write <code>topics.txt</code> → commit back. No rendering, near-zero cost.</td>
+        <td><span class="pill cron">40 0 * * *</span><br/>once/day</td>
+        <td>Fetch Google Trends → LLM curates 6 renderable topics → write <code>topics.txt</code> → commit back. No rendering, near-zero cost. Scheduled clear of the 01:05 autopilot slot so the two never race on the git push-back.</td>
       </tr>
       <tr>
         <td><code>autopilot.yml</code><br/>Autopilot Video Generator</td>
-        <td><span class="pill cron">0 */4 * * *</span><br/>6×/day</td>
-        <td>Pick a topic → candidates → LLM judge → render winner → upload to YouTube → commit learning state. Capped at 6/day to fit the YouTube API quota (videos.insert = 1600 units / 10,000 per day).</td>
+        <td><span class="pill cron">5 1,5,9,13,17,21 * * *</span><br/>6×/day</td>
+        <td>Refresh analytics → pick a topic → candidates → LLM judge → render winner → upload → commit learning state. Still capped at 6/day by the YouTube API quota (videos.insert = 1600 units / 10,000 per day). The <strong>01:05 UTC</strong> slot is <strong>06:35 IST</strong>, placed inside the channel's observed peak-viewer window.</td>
       </tr>
     </table>
     <p class="lead" style="font-size:.9rem">
@@ -191,7 +195,8 @@ flowchart LR
       <div class="card"><h3><code>services/subtitle.py</code></h3><p>Subtitles via <code>edge</code> (reuses TTS timing) or local <code>whisper</code>. Edge falls back to whisper.</p></div>
       <div class="card"><h3><code>services/material.py</code></h3><p>Downloads matching stock footage from Pexels/Pixabay, or uses local materials.</p></div>
       <div class="card"><h3><code>services/video.py</code></h3><p>MoviePy 2.x compositing; subtitles rendered via Pillow (no ImageMagick).</p></div>
-      <div class="card"><h3><code>services/youtube_upload.py</code></h3><p>Direct YouTube Data API v3 resumable upload. OAuth refresh-token → access-token per run.</p></div>
+      <div class="card"><h3><code>services/youtube_upload.py</code></h3><p>Direct YouTube Data API v3 resumable upload. OAuth refresh-token → access-token per run. Declares <code>containsSyntheticMedia</code>.</p></div>
+      <div class="card"><h3><code>services/youtube_analytics.py</code></h3><p>Reads per-video retention from the YouTube Analytics API — the autopilot's ground truth. Needs the <code>yt-analytics.readonly</code> scope; degrades to "no data" without it.</p></div>
       <div class="card"><h3><code>services/state.py</code></h3><p>Per-task status/progress store: in-memory or Redis (toggled by <code>enable_redis</code>).</p></div>
       <div class="card"><h3><code>controllers/manager/</code></h3><p>Task queue / concurrency: threads up to <code>max_concurrent_tasks</code>; memory- or Redis-backed.</p></div>
       <div class="card"><h3><code>cloudflare-cron/</code></h3><p>Cloudflare Worker on a reliable cron that fires both GitHub workflows via the <code>workflow_dispatch</code> API — replaces GitHub's flaky native <code>schedule:</code>.</p></div>
@@ -202,10 +207,51 @@ flowchart LR
     <h2>Autopilot state files <span class="tag">autopilot/</span></h2>
     <table>
       <tr><th>File</th><th>Role</th></tr>
-      <tr><td><code>config.json</code></td><td>Knobs: niche, num_candidates, voice, privacy_status, <code>trends_geos</code>, <code>daily_topic_count</code>, <code>recent_topics_window</code> (kept below the topic count so the autopilot round-robins and never invents off-topic).</td></tr>
+      <tr><td><code>config.json</code></td><td>Knobs: niche, num_candidates, <code>voice_pool</code>, privacy_status, <code>trends_geos</code>, <code>daily_topic_count</code>, <code>recent_topics_window</code> (kept below the topic count so the autopilot round-robins and never invents off-topic), plus subtitle styling and the <code>target_seconds_min/max</code> length budget.</td></tr>
       <tr><td><code>topics.txt</code></td><td>The locked daily topic list — auto-generated by the daily refresh.</td></tr>
-      <tr><td><code>state.json</code></td><td>Evolving learning state: <code>run_count</code>, <code>recent_topics</code> (rotation), <code>feedback_notes</code> (judge lessons folded into the next system prompt).</td></tr>
-      <tr><td><code>history.jsonl</code></td><td>Append-only log of every run: topic, scores, lessons, video path, YouTube result.</td></tr>
+      <tr><td><code>state.json</code></td><td><code>run_count</code>, <code>recent_topics</code> (rotation), and <code>feedback_notes</code> — now only a cold-start fallback, used until enough analytics accumulate for the evidence block.</td></tr>
+      <tr><td><code>history.jsonl</code></td><td>Append-only log of every run: topic, scores, lessons, video path, YouTube result, plus the winning <code>hook</code>, title, estimated seconds and the render choices (voice, cut length, transition) so retention can later be attributed to them.</td></tr>
+      <tr><td><code>performance.jsonl</code></td><td>Full-snapshot join of <code>history.jsonl</code> against the YouTube Analytics API — views, <code>avg_view_pct</code>, subs gained per video. Rewritten each run (metrics keep moving), and the source of the prompt's evidence block.</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>The learning loop <span class="tag">closed against real retention</span></h2>
+    <p class="lead">The judge grades scripts against each other; only YouTube knows whether anyone
+      stayed. <code>services/youtube_analytics.py</code> is the wire between them.</p>
+    <div class="mermaid">
+flowchart LR
+    YT["📺 YouTube Analytics API<br/>views · averageViewPercentage · subs"] --> PJ["performance.jsonl<br/>joined on video_id"]
+    PJ --> RANK["rank by retention,<br/>not raw views"]
+    RANK --> EV["evidence block<br/>top-5 vs bottom-5 hooks"]
+    EV --> SP["script system prompt"]
+    SP --> NEW["next batch of candidates"]
+    NEW -.->|"rendered · uploaded"| YT
+
+    style YT fill:#1f2530,stroke:#58a6ff,color:#e6edf3
+    style PJ fill:#1f2530,stroke:#f0b429,color:#e6edf3
+    style EV fill:#1f2530,stroke:#3fb950,color:#e6edf3
+    </div>
+    <p class="lead" style="font-size:.9rem">
+      Ranking is on <code>averageViewPercentage</code> deliberately: view count mostly measures how
+      far the algorithm pushed a video, while average view percentage measures whether viewers
+      stayed once it did — and only the second is something a script controls. Videos below
+      <code>evidence_min_views</code> are excluded as noise, and the block is suppressed entirely
+      until there are enough samples on both ends, falling back to <code>feedback_notes</code>.
+      <strong>Requires the <code>yt-analytics.readonly</code> OAuth scope</strong> — an upload-only
+      refresh token gets a 403, which is logged and degrades to "no evidence" rather than breaking
+      the run.
+    </p>
+  </section>
+
+  <section>
+    <h2>Compliance guards</h2>
+    <table>
+      <tr><th>Guard</th><th>Where</th><th>Why</th></tr>
+      <tr><td>Synthetic-media disclosure</td><td><code>youtube_upload.py</code> → <code>status.containsSyntheticMedia</code></td><td>TTS narration of an LLM-written script is altered content and must be declared. Separate from monetization; required regardless.</td></tr>
+      <tr><td>BGM licence allowlist</td><td><code>video.py::get_bgm_file</code> + <code>resource/songs/licenses.json</code></td><td>A track is eligible only with a non-empty <code>license</code> field. Opt-in: with no manifest present, behaviour is unchanged. The upstream <code>outputNNN.mp3</code> set is listed uncleared and therefore unused.</td></tr>
+      <tr><td>Title de-templating</td><td><code>autopilot.py::sanitize_title</code></td><td>Strips the "Unlock…/Secrets/!" tics and emoji that read as mass-produced to viewers and to the inauthentic-content classifier. The prompt asks; this enforces.</td></tr>
+      <tr><td>Per-run variation</td><td><code>autopilot.py::pick_voice</code> / <code>pick_from_pool</code></td><td>Rotates voice, cut length and transition so consecutive uploads don't share one signature.</td></tr>
     </table>
   </section>
 

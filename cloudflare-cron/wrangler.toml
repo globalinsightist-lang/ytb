@@ -5,8 +5,17 @@ compatibility_date = "2024-11-01"
 # Cloudflare cron triggers (UTC). These are now the source of truth for the
 # autopilot cadence — the GitHub workflows themselves only keep workflow_dispatch.
 # Keep these strings byte-identical to the keys in worker.js CRON_TO_WORKFLOW.
+#
+# Slot times are ASSUMED IST (UTC+5:30) — the channel owner's timezone, which is
+# what YouTube Studio reports "when your viewers are on YouTube" in. The 01:05
+# UTC slot exists to land inside the observed 06:30-07:30 IST peak (= 06:35 IST).
+# If that peak was actually read in UTC, change the hour list to include 6
+# instead of 1 and move the topic refresh accordingly.
+#
+# Still 6 autopilot runs/day: videos.insert costs 1600 units against the default
+# 10,000/day quota, so a 7th slot would 403 rather than publish.
 [triggers]
 crons = [
-  "0 */4 * * *",  # autopilot.yml — every 4h, 6×/day (YouTube videos.insert quota cap)
-  "21 1 * * *",   # refresh-topics.yml — daily 01:21 UTC
+  "5 1,5,9,13,17,21 * * *",  # autopilot.yml — 6×/day; 01:05 UTC = 06:35 IST peak slot
+  "40 0 * * *",              # refresh-topics.yml — daily, clear of the 01:05 autopilot slot
 ]

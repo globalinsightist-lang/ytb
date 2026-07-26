@@ -965,11 +965,27 @@ def _normalize_hashtags(raw, count: int) -> List[str]:
     return result
 
 
+MAX_SOCIAL_EXTRA_CONSTRAINTS = 800
+
+
+def _social_extra_constraints(extra_constraints: str) -> str:
+    """Render caller-supplied style rules as an extra numbered constraint.
+
+    Lets a caller (e.g. the autopilot) impose channel-specific style rules
+    without baking them into the shared prompt every API/WebUI user gets.
+    """
+    text = " ".join(str(extra_constraints or "").split())
+    if not text:
+        return ""
+    return "\n7. " + text[:MAX_SOCIAL_EXTRA_CONSTRAINTS]
+
+
 def build_social_metadata_prompt(
     video_subject: str,
     video_script: str = "",
     language: str = DEFAULT_SOCIAL_LANGUAGE,
     platform: str = DEFAULT_SOCIAL_PLATFORM,
+    extra_constraints: str = "",
 ) -> str:
     video_subject = _limit_social_text(
         video_subject, MAX_SOCIAL_SUBJECT_LENGTH, "video_subject"
@@ -994,7 +1010,7 @@ Write engaging publishing metadata for a short video that will be posted on {lab
 3. "title": a catchy hook, at most {spec['title_max']} characters.
 4. "caption": an engaging description that ends with a call to action, at most {spec['caption_max']} characters. Do not put hashtags inside the caption.
 5. "hashtags": a JSON array of exactly {spec['hashtag_count']} strings. Each must start with "#", contain no spaces, and be relevant to the topic and to {label}.
-6. {language_instruction}
+6. {language_instruction}{_social_extra_constraints(extra_constraints)}
 
 ## Output Example
 {{"title":"...","caption":"...","hashtags":["#example","#video"]}}
@@ -1061,6 +1077,7 @@ def generate_social_metadata(
     video_script: str = "",
     language: str = DEFAULT_SOCIAL_LANGUAGE,
     platform: str = DEFAULT_SOCIAL_PLATFORM,
+    extra_constraints: str = "",
 ) -> dict:
     """
     生成短视频发布文案元数据。
@@ -1082,6 +1099,7 @@ def generate_social_metadata(
         video_script=video_script,
         language=language,
         platform=platform,
+        extra_constraints=extra_constraints,
     )
     logger.info(
         f"generating social metadata: platform={platform}, language={language}"

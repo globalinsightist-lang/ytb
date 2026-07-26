@@ -5,15 +5,17 @@ name: Autopilot Video Generator
 # 16 GB) do the heavy MoviePy/FFmpeg rendering that Render's free tier can't.
 #
 # Cadence is driven externally by the Cloudflare Worker in cloudflare-cron/,
-# which fires this workflow via the workflow_dispatch REST API every 4h. We do
-# NOT use GitHub's native `schedule:` — it best-effort drops scheduled runs
-# (worst for new repos / high load), which is exactly why it kept missing.
-# Cloudflare cron is reliable; keeping `schedule:` too would double-fire and
-# burn the YouTube quota.
+# which fires this workflow via the workflow_dispatch REST API. We do NOT use
+# GitHub's native `schedule:` — it best-effort drops scheduled runs (worst for
+# new repos / high load), which is exactly why it kept missing. Cloudflare cron
+# is reliable; keeping `schedule:` too would double-fire and burn the quota.
+#
+# Slots (UTC): 01:05, 05:05, 09:05, 13:05, 17:05, 21:05 — 6/day. The 01:05 slot
+# is 06:35 IST, placed inside the channel's observed peak-viewer window.
 #
 # Cadence is capped by the YouTube Data API quota: videos.insert costs 1600
-# units against the default 10,000/day, i.e. ~6 uploads/day. Running more often
-# just burns quota and returns 403 quotaExceeded, so Cloudflare fires every 4h.
+# units against the default 10,000/day, i.e. ~6 uploads/day. A 7th slot would
+# return 403 quotaExceeded rather than publish.
 
 on:
   workflow_dispatch: {}        # triggered by the Cloudflare Worker (and manual runs from the Actions tab)
@@ -61,7 +63,11 @@ jobs:
         run: |
           git config user.name "autopilot-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add autopilot/state.json autopilot/history.jsonl
+          # performance.jsonl is committed too: it is rebuilt from the
+          # Analytics API each run, so persisting it means a transient API
+          # failure still leaves the previous snapshot for the evidence block
+          # instead of silently falling back to the cold-start notes.
+          git add autopilot/state.json autopilot/history.jsonl autopilot/performance.jsonl
           if git diff --cached --quiet; then
             echo "no state changes to commit"
           else
