@@ -1086,10 +1086,10 @@ def generate_video(
                 size=size,
             )
         else:
-            size = (
-                int(max_width),
-                clip_h,
-            )
+            # 只固定宽度，高度交给 MoviePy 按实际排版结果计算。此前这里传入
+            # 预估的 clip_h，而 clip_h 依赖 `wrap_text` 用首行 ink bbox 推算的
+            # 高度：字号大、行数多或描边粗时会低估，多行字幕的最后一行就被
+            # 直接裁掉。margin 与上面两个背景分支保持一致，给描边留出空间。
             _clip = TextClip(
                 text=wrapped_txt,
                 font=font_path,
@@ -1099,8 +1099,9 @@ def generate_video(
                 stroke_color=params.stroke_color,
                 stroke_width=params.stroke_width,
                 interline=interline,
-                size=size,
+                size=(int(max_width), None),
                 text_align="center",
+                margin=(0, text_clip_margin_y),
             )
         duration = subtitle_item[0][1] - subtitle_item[0][0]
         _clip = _clip.with_start(subtitle_item[0][0])

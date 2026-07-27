@@ -89,7 +89,7 @@ manually.
 ```bash
 # config.toml must exist with the keys from step 2
 export YT_CLIENT_ID=... YT_CLIENT_SECRET=... YT_REFRESH_TOKEN=...
-uv run python run_autopilot.py
+uv run python scripts/run_autopilot.py
 ```
 Set `"upload_enabled": false` in `config.json` first if you just want to verify
 rendering without touching YouTube.

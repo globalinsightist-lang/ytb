@@ -42,7 +42,7 @@ jobs:
         run: printf '%s' "$CONFIG_TOML" > config.toml
 
       - name: Refresh topics from Google Trends
-        run: uv run python run_refresh_topics.py
+        run: uv run python scripts/run_refresh_topics.py
 
       - name: Commit refreshed topics
         if: always()

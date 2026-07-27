@@ -16,12 +16,12 @@ to, with environment variables taking precedence. config.toml is gitignored, so
 the credentials stay out of version control.
 
 Usage:
-    uv run python run_youtube_auth.py                  # creds from config.toml
-    YT_CLIENT_ID=... YT_CLIENT_SECRET=... uv run python run_youtube_auth.py
+    uv run python scripts/run_youtube_auth.py          # creds from config.toml
+    YT_CLIENT_ID=... YT_CLIENT_SECRET=... uv run python scripts/run_youtube_auth.py
 
     # if your OAuth client is a "Web application", pin the port so you can
     # register exactly one redirect URI:
-    YT_OAUTH_PORT=8765 uv run python run_youtube_auth.py
+    YT_OAUTH_PORT=8765 uv run python scripts/run_youtube_auth.py
 """
 import os
 import socket
@@ -32,7 +32,11 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 
 import requests
 
-from app.config import config
+# The project is not installed as a package (`[tool.uv] package = false`), so
+# the repo root has to be on sys.path for `app.*` to import from a subdirectory.
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from app.config import config  # noqa: E402
 
 AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth"
 TOKEN_URL = "https://oauth2.googleapis.com/token"
@@ -173,8 +177,6 @@ def main() -> int:
     print(
         "\nNext: replace the YT_REFRESH_TOKEN secret with the value above.\n"
         "  gh secret set YT_REFRESH_TOKEN -R globalinsightist-lang/ytb\n"
-        "\nThen confirm it worked:\n"
-        "  gh workflow run check-analytics.yml -R globalinsightist-lang/ytb\n"
         "\nTreat that string like a password — it grants upload access to the channel."
     )
     return 0

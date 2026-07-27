@@ -64,7 +64,7 @@ DEFAULT_CONFIG = {
     "youtube_category_id": "22",
     "max_feedback_notes": 12,
     "recent_topics_window": 5,
-    # Daily Google-Trends topic refresh (run_refresh_topics.py).
+    # Daily Google-Trends topic refresh (scripts/run_refresh_topics.py).
     "trends_geos": ["IN", "GB", "US"],
     "daily_topic_count": 6,
     # ---------------- Template-breaking (varies per run) ----------------
@@ -91,18 +91,29 @@ DEFAULT_CONFIG = {
     # render can do. Variation comes from voice, cut cadence and footage.
     "transition_pool": [""],
     # ---------------- Subtitle styling ----------------
-    # 'center' matters: YouTube's Shorts UI (title, handle, CTA button) paints
-    # over the bottom of the frame, so bottom-anchored subtitles are physically
-    # occluded on the exact surface viewers are reading.
-    "subtitle_position": "center",
+    # Captions sit low in the frame, but NOT flush to the bottom: YouTube's
+    # Shorts UI (title, handle, description, CTA button) paints over roughly the
+    # bottom 15% of the frame, so the built-in "bottom" anchor (y = 95% of
+    # height) is physically occluded on the exact surface viewers are reading.
+    # "custom" + 78% is the lowest band that still clears that chrome. Raise
+    # `custom_position` toward 90 for a true bottom edge if the UI overlap is
+    # acceptable; lower it toward 50 to move back to mid-frame.
+    "subtitle_position": "custom",
+    "custom_position": 78,
     # Anton is a heavy condensed Latin face (SIL OFL). The upstream default is
     # a CJK font whose Latin glyphs are thin and generic at Shorts scale.
     "font_name": "Anton-Regular.ttf",
-    "font_size": 84,
-    "stroke_width": 5,
+    # 54px over a 1080-wide frame keeps a caption to 1-2 lines. The previous 84
+    # forced 3+ lines per cue, which is what overran the text box.
+    "font_size": 54,
+    # A solid backing plate does the legibility work a heavy stroke used to do,
+    # so the outline drops to a hairline that just separates glyph from plate.
+    "stroke_width": 2,
     "stroke_color": "#000000",
     "text_fore_color": "#FFFFFF",
-    "subtitle_background": False,
+    # Black plate behind the caption: guarantees contrast over bright or busy
+    # stock footage, which an outline alone does not.
+    "subtitle_background": "#000000",
     # ---------------- Script length ----------------
     # Measured output averaged ~56s with a third of uploads over 60s while the
     # judge prompt asked for 30-50s: nothing enforced the ask. These bound it.
@@ -631,13 +642,14 @@ def render_winner(topic: str, script: str, cfg: dict, run_no: int) -> tuple[str,
         video_transition_mode=transition or None,
         # Subtitle styling is set here rather than on the shared schema defaults
         # so the WebUI and public API keep their upstream behaviour.
-        subtitle_position=cfg.get("subtitle_position", "center"),
+        subtitle_position=cfg.get("subtitle_position", "custom"),
+        custom_position=float(cfg.get("custom_position", 78)),
         font_name=cfg.get("font_name", "Anton-Regular.ttf"),
-        font_size=int(cfg.get("font_size", 84)),
-        stroke_width=float(cfg.get("stroke_width", 5)),
+        font_size=int(cfg.get("font_size", 54)),
+        stroke_width=float(cfg.get("stroke_width", 2)),
         stroke_color=cfg.get("stroke_color", "#000000"),
         text_fore_color=cfg.get("text_fore_color", "#FFFFFF"),
-        text_background_color=cfg.get("subtitle_background", False),
+        text_background_color=cfg.get("subtitle_background", "#000000"),
     )
     task_id = utils.get_uuid()
     result = task.start(task_id=task_id, params=params, stop_at="video")
@@ -808,7 +820,7 @@ def _curate_topics(raw_terms: List[str], n: int) -> List[str]:
 
 def _write_topics(topics: List[str]) -> None:
     header = (
-        "# AUTO-GENERATED DAILY by run_refresh_topics.py from Google Trends.\n"
+        "# AUTO-GENERATED DAILY by scripts/run_refresh_topics.py from Google Trends.\n"
         "# Do not hand-edit — the daily cron overwrites this file. Tune the\n"
         "# source regions via 'trends_geos' / count via 'daily_topic_count' in\n"
         "# autopilot/config.json. recent_topics_window is kept below the topic\n"

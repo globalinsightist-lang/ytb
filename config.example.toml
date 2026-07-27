@@ -308,7 +308,7 @@ max_queued_tasks = 100
 # OAuth client from the Google Cloud console. The environment variables
 # YT_CLIENT_ID / YT_CLIENT_SECRET / YT_REFRESH_TOKEN take precedence over these,
 # which is how the GitHub Actions workflows supply them.
-# Mint the refresh token with: uv run python run_youtube_auth.py
+# Mint the refresh token with: uv run python scripts/run_youtube_auth.py
 # It must carry BOTH scopes, or analytics calls return 403:
 #   https://www.googleapis.com/auth/youtube.upload
 #   https://www.googleapis.com/auth/yt-analytics.readonly

@@ -76,30 +76,6 @@ def is_configured() -> bool:
     return _load_credentials() is not None
 
 
-def granted_scopes() -> Optional[List[str]]:
-    """Scopes actually attached to the refresh token, via Google's tokeninfo.
-
-    The authoritative answer to "was yt-analytics.readonly consented?" — a
-    refresh token silently carries whatever scopes were granted when it was
-    minted, so re-consenting with a new scope but keeping the old token leaves
-    it unchanged. Returns None when the token cannot be exchanged at all.
-    """
-    token = _access_token()
-    if not token:
-        return None
-    try:
-        resp = requests.get(
-            "https://oauth2.googleapis.com/tokeninfo",
-            params={"access_token": token},
-            timeout=30,
-        )
-        resp.raise_for_status()
-    except requests.RequestException as e:
-        logger.error(f"tokeninfo lookup failed: {e}")
-        return None
-    return str(resp.json().get("scope", "")).split()
-
-
 def _query_batch(token: str, video_ids: List[str], start: str, end: str) -> Dict[str, dict]:
     params = {
         "ids": "channel==MINE",

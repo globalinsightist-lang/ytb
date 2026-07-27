@@ -5,7 +5,7 @@
 Make autopilot Shorts safely monetizable under the July 15, 2025 YPP update.
 
 - [x] **Break the template** — voice rotates over an 8-voice pool, cut cadence
-      varies per run, subtitles restyled. *Partial:* Pexels clips are shuffled
+      varies per run, subtitles restyled. _Partial:_ Pexels clips are shuffled
       per run but there is still no cross-video dedup, so the same stock clip
       can recur across uploads.
 - [ ] **Add genuine transformation** — original commentary/analysis on top of the
@@ -37,11 +37,11 @@ Make autopilot Shorts safely monetizable under the July 15, 2025 YPP update.
 ## Open items
 
 - [ ] **Re-mint `YT_REFRESH_TOKEN` with the `yt-analytics.readonly` scope.**
-      Run `run_youtube_auth.py`, then verify with `run_check_analytics.py` (or the
-      "Check Analytics Scope" workflow). A refresh token carries only the scopes
-      it was issued with, so adding the scope to the consent screen does nothing
-      to the existing token — it must be re-minted. Until then the learning loop
-      falls back to `feedback_notes` and the evidence block stays empty.
+      Run `scripts/run_youtube_auth.py`, which prints the granted scopes before
+      the token. A refresh token carries only the scopes it was issued with, so
+      adding the scope to the consent screen does nothing to the existing token —
+      it must be re-minted. Until then the learning loop falls back to
+      `feedback_notes` and the evidence block stays empty.
 - [ ] **Source licensed BGM** and fill in `resource/songs/licenses.json`.
       Renders currently have no background music at all.
 - [ ] **Dead-man's switch** — alert if `history.jsonl` stops growing for 24h. The
