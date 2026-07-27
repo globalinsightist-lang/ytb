@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-07-23T01:22:15.468653+00:00
-The Rise of Football Superstars
-Understanding Stock Market Trends
-The Global Impact of Weather Patterns
-Exploring the Science Behind Food Cravings
-The Evolution of Sports Betting
-Decoding the Phenomenon of Hunger Strikes
+# Last refreshed: 2026-07-27T01:22:18.643936+00:00
+The Battle of the Titans: Exploring Iconic India vs West Indies Cricket Matches
+Weather Wonders: How Climate Affects Daily Life Around the World
+Behind the Legends: The Greatest Heroes in Military History
+The Science of Satellites: Unveiling Earth's Mysteries from Space
+Epic Showdowns: The Rise and Fall of Major Sports Rivalries
+Future Tech: How Satellite Imagery is Revolutionizing Our Understanding of the Planet
