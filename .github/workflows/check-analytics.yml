@@ -1,0 +1,41 @@
+name: Check Analytics Scope
+
+# Read-only diagnostic for the YouTube OAuth token: confirms YT_REFRESH_TOKEN
+# actually carries the yt-analytics.readonly scope the learning loop needs.
+#
+# Renders nothing, uploads nothing, commits nothing, and costs no YouTube
+# quota — safe to run any time. Manual dispatch only; the Cloudflare Worker
+# does not fire this.
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync --frozen
+
+      - name: Materialize config.toml from secret
+        env:
+          CONFIG_TOML: ${{ secrets.CONFIG_TOML }}
+        run: printf '%s' "$CONFIG_TOML" > config.toml
+
+      - name: Check the analytics scope
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+        run: uv run python run_check_analytics.py

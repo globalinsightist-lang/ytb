@@ -304,6 +304,18 @@ max_concurrent_tasks = 5
 # 并发任务已满后的最大排队任务数，超过后接口返回 429，避免匿名请求无限堆积
 max_queued_tasks = 100
 
+########## YouTube Data API v3 (direct upload + Analytics, used by the autopilot)
+# OAuth client from the Google Cloud console. The environment variables
+# YT_CLIENT_ID / YT_CLIENT_SECRET / YT_REFRESH_TOKEN take precedence over these,
+# which is how the GitHub Actions workflows supply them.
+# Mint the refresh token with: uv run python run_youtube_auth.py
+# It must carry BOTH scopes, or analytics calls return 403:
+#   https://www.googleapis.com/auth/youtube.upload
+#   https://www.googleapis.com/auth/yt-analytics.readonly
+youtube_client_id = ""
+youtube_client_secret = ""
+youtube_refresh_token = ""
+
 
 [whisper]
 # Only effective when subtitle_provider is "whisper"

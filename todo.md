@@ -36,8 +36,12 @@ Make autopilot Shorts safely monetizable under the July 15, 2025 YPP update.
 
 ## Open items
 
-- [ ] **Add the `yt-analytics.readonly` scope** and replace `YT_REFRESH_TOKEN`.
-      Until this is done the learning loop still falls back to `feedback_notes`.
+- [ ] **Re-mint `YT_REFRESH_TOKEN` with the `yt-analytics.readonly` scope.**
+      Run `run_youtube_auth.py`, then verify with `run_check_analytics.py` (or the
+      "Check Analytics Scope" workflow). A refresh token carries only the scopes
+      it was issued with, so adding the scope to the consent screen does nothing
+      to the existing token — it must be re-minted. Until then the learning loop
+      falls back to `feedback_notes` and the evidence block stays empty.
 - [ ] **Source licensed BGM** and fill in `resource/songs/licenses.json`.
       Renders currently have no background music at all.
 - [ ] **Dead-man's switch** — alert if `history.jsonl` stops growing for 24h. The
