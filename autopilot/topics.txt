@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-07-28T01:22:17.227148+00:00
-The Science Behind El Niño and Weather Patterns
-Understanding the Importance of Crop Insurance
-The Fascinating Phases of the Moon Explained
-The Evolution of Stealth Technology in Modern Aviation
-Exploring the Rise of Women in Professional Tennis
-Behind the Scenes of Creating a Blockbuster Musical Film
+# Last refreshed: 2026-07-29T01:22:17.102019+00:00
+The Fascinating Meaning Behind Popular Hindi Phrases
+The Future of Financial Assistance Programs for Employees
+Exciting Changes Coming to Gaming Subscriptions
+Innovative Technologies Transforming the Airline Industry
+The Latest in Formula 1: Teams and Their Strategies
+The Impact of Climate on Animal Behavior and Safety
