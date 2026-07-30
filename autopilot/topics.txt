@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-07-29T01:22:17.102019+00:00
-The Fascinating Meaning Behind Popular Hindi Phrases
-The Future of Financial Assistance Programs for Employees
-Exciting Changes Coming to Gaming Subscriptions
-Innovative Technologies Transforming the Airline Industry
-The Latest in Formula 1: Teams and Their Strategies
-The Impact of Climate on Animal Behavior and Safety
+# Last refreshed: 2026-07-30T01:22:16.898019+00:00
+What You Need to Know About Data Breaches
+How the Heat Index Affects Your Daily Life
+The Surprising Impact of Record Rainfall on Agriculture
+Exploring the Excitement of the FIFA World Cup
+Decoding the Fascinating World of Post-Credits Scenes in Movies
+The Rise of Cryptocurrency and Its Global Effects on Exchange Rates
