@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-07-30T01:22:16.898019+00:00
-What You Need to Know About Data Breaches
-How the Heat Index Affects Your Daily Life
-The Surprising Impact of Record Rainfall on Agriculture
-Exploring the Excitement of the FIFA World Cup
-Decoding the Fascinating World of Post-Credits Scenes in Movies
-The Rise of Cryptocurrency and Its Global Effects on Exchange Rates
+# Last refreshed: 2026-07-31T01:22:21.544560+00:00
+Exploring the Rise of Student Athletes
+Famous Figures Who Shaped History
+Understanding the Impact of Aadhaar on Identity
+The Science Behind Meteor Showers and Their Beauty
+The Global Connection of Tax Policies
+Inside the Thrilling World of Competitive Sports
