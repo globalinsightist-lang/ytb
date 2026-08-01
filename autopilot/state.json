@@ -1,10 +1,9 @@
 {
-  "run_count": 200,
-  "recent_topics": [],
+  "run_count": 201,
+  "recent_topics": [
+    "Understanding the Impact of Climate Change on Wildfires"
+  ],
   "feedback_notes": [
-    "Use surprising statistics or striking comparisons in the hook to grab attention immediately.",
-    "Ensure that each sentence builds on the previous one by introducing new, relevant information rather than repeating ideas.",
-    "Capitalize on the emotional or real-world implications of the topic at the end to create a memorable takeaway.",
     "Incorporate a more vivid or unexpected fact early to enhance the hook.",
     "Use simpler language and avoid complex phrases to improve clarity.",
     "Design a strong emotional or intellectual payoff at the end to reinforce viewer satisfaction.",
@@ -13,6 +12,9 @@
     "Conclude with a concrete statistic or relevant insight to provide a strong payoff.",
     "Use specific, striking statistics or examples in the hook to grab attention immediately.",
     "Incorporate a strong emotional payoff that resonates with viewers, creating a memorable conclusion.",
-    "Balance complex ideas with relatable language to ensure clarity for a general audience."
+    "Balance complex ideas with relatable language to ensure clarity for a general audience.",
+    "Use a surprising statistic or fact in the hook to create immediate intrigue.",
+    "Ensure each sentence builds on the previous one to maintain engagement.",
+    "Conclude with a clear call to action or a powerful fact that emphasizes urgency."
   ]
 }
