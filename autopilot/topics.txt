@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-07-31T01:22:21.544560+00:00
-Exploring the Rise of Student Athletes
-Famous Figures Who Shaped History
-Understanding the Impact of Aadhaar on Identity
-The Science Behind Meteor Showers and Their Beauty
-The Global Connection of Tax Policies
-Inside the Thrilling World of Competitive Sports
+# Last refreshed: 2026-08-01T01:22:22.404710+00:00
+Understanding the Impact of Climate Change on Wildfires
+Exploring the Science Behind Satellite Imagery
+The Rise of Modern Outdoor Sports: A Deep Dive into Banana Ball
+How Extreme Heat Events are Shaping Weather Predictions
+The Evolution of Gaming Consoles: What's Next for PlayStation?
+The Cultural Significance of Major Sports Events Around the World
