@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-08-02T01:22:03.965046+00:00
-The Evolution of Sports Rivalries Around the World
-Exploring the Impact of Supreme Court Decisions on Society
-The Intricacies of International Cricket and Its Stars
-What Makes Music Festivals Like Lollapalooza So Exciting?
-Understanding the Economic Value of Precious Metals
-The Science Behind Container Shipping and Global Trade
+# Last refreshed: 2026-08-03T01:22:01.320897+00:00
+The Rise of Women's Cricket: Breaking Barriers
+Earthquakes and Their Impact on Our World
+The Future of Emerging Technologies in Sports
+Understanding Economic Policies for Farmers Globally
+The Science Behind Weather Predictions
+Epic Wrestling Showdowns: What to Expect in 2026
