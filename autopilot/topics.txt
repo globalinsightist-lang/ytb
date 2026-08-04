@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-08-03T01:22:01.320897+00:00
-The Rise of Women's Cricket: Breaking Barriers
-Earthquakes and Their Impact on Our World
-The Future of Emerging Technologies in Sports
-Understanding Economic Policies for Farmers Globally
-The Science Behind Weather Predictions
-Epic Wrestling Showdowns: What to Expect in 2026
+# Last refreshed: 2026-08-04T01:22:07.729269+00:00
+Unveiling the Future of iPhone: What's Next in Mobile Technology?
+The Hidden Dangers of Natural Disasters: Lessons Learned from Floods
+Exploring the Fascinating World of Education Innovations Around the Globe
+The Rise of Streaming Platforms: How They're Changing Entertainment
+The Psychology of Celebrity Influence: Why We’re Drawn to Famous Faces
+The Impact of Social Media on Communication: How It Transforms Our Daily Lives
