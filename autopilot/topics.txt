@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-08-05T01:22:11.391259+00:00
-The Future of Smartphones: What to Expect from the Next iPhone
-Inside the World of Women's Tennis: Rising Stars to Watch
-Sports Analytics: How Data Transforms Game Strategy
-The Science Behind Celebrity Influence on Social Media
-Economic Shifts: Understanding Pay Commission Impacts Globally
-Exploring the Thrill of Major League Baseball Playoffs
+# Last refreshed: 2026-08-06T01:22:07.188349+00:00
+The Impact of Climate Change on Weather Patterns
+The Legacy of Historical Events: Hiroshima and Its Lessons
+The Rise of Mobile Technology: Transforming our Lives
+Top Innovations in Sports: The Future of Athletic Equipment
+How Independence Days Shape National Identity
+Exploring the Science of Space: The Next Frontier in Technology
