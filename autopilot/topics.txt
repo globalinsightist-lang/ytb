@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-08-06T01:22:07.188349+00:00
-The Impact of Climate Change on Weather Patterns
-The Legacy of Historical Events: Hiroshima and Its Lessons
-The Rise of Mobile Technology: Transforming our Lives
-Top Innovations in Sports: The Future of Athletic Equipment
-How Independence Days Shape National Identity
-Exploring the Science of Space: The Next Frontier in Technology
+# Last refreshed: 2026-08-07T01:22:22.889181+00:00
+The Rise of Cricket Rivalries: India vs Sri Lanka
+The Future of Gaming: What to Expect from GTA 6
+Understanding Stock Market Trends: What Drives Share Prices?
+Weather Patterns Around the World: Insights for Everyone
+The Evolution of Women's Sports: Heroes like Aryna Sabalenka
+The Thrill of College Football: A Look at America's Favorite Sport
