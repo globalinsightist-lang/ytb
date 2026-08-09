@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-08-08T01:22:21.687806+00:00
-The Rise of Women's Tennis Champions
-Exploring the Secrets of Successful Exports
-Understanding the Impact of Solar Eclipses on Earth
-The Science Behind National Lottery Odds
-The Exciting World of Football Transfers Explained
-What Makes a Great Sports Team: A Study of Performance
+# Last refreshed: 2026-08-09T01:22:08.032919+00:00
+The Rise of Women in Professional Tennis
+The Significance of Agricultural Insurances
+Exploring the Impact of Major Sports Matches
+Understanding the Power of Community Support Systems
+The Science Behind Meteor Showers and Their Predictions
+How Economic Factors Affect Pension Plans Worldwide
