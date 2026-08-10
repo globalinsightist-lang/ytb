@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-08-09T01:22:08.032919+00:00
-The Rise of Women in Professional Tennis
-The Significance of Agricultural Insurances
-Exploring the Impact of Major Sports Matches
-Understanding the Power of Community Support Systems
-The Science Behind Meteor Showers and Their Predictions
-How Economic Factors Affect Pension Plans Worldwide
+# Last refreshed: 2026-08-10T01:22:08.855268+00:00
+The Rise of Young Tennis Stars Around the World
+Exploring the Impact of Weather Patterns on Global Agriculture
+The Evolution of Sports Rivalries in Football History
+Uncovering the Secrets of Epic Film Productions
+How Celebrities Influence Modern Fashion Trends
+The Role of Music in Cultural Heritage and Community Building
