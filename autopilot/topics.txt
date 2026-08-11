@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-08-10T01:22:08.855268+00:00
-The Rise of Young Tennis Stars Around the World
-Exploring the Impact of Weather Patterns on Global Agriculture
-The Evolution of Sports Rivalries in Football History
-Uncovering the Secrets of Epic Film Productions
-How Celebrities Influence Modern Fashion Trends
-The Role of Music in Cultural Heritage and Community Building
+# Last refreshed: 2026-08-11T01:21:31.200932+00:00
+The Rise of Women in Professional Tennis
+Unraveling the Mysteries of Astrology
+The Future of Broadband Connectivity
+Epic Showdowns: Analyzing the Best in Sports Rivalries
+The Secret Life of Treasure Hunts: How They Work
+Exploring the Unique Flavors of Global Cuisine
