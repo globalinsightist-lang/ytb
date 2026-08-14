@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-08-13T01:21:26.758311+00:00
-The Rise of Young Tennis Stars
-Understanding International Soccer Tournaments
-Exploring the Impact of Sports on Local Economies
-The Evolving World of Competitive Gaming
-The Connection Between Mental Health and Sports Performance
-Breaking Down Recent Trends in Global News
+# Last refreshed: 2026-08-14T01:21:32.087358+00:00
+The Rise of Technology in Sports: What’s Next?
+Exploring Emerging Deadly Diseases: What We Need to Know
+The Fascinating Facts Behind Counting Populations Globally
+The Future of Air Travel: Innovations by Airlines
+Gaming's Next Frontier: What to Expect from GTA 6
+The Impact of Celebrity Influence on Global Sports
