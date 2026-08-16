@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-08-15T01:21:30.058660+00:00
-The Rise of Cricket: A Global Phenomenon
-The Future of Pokémon: What's Next for AR Gaming?
-Breaking Down the Euro Lottery: How Jackpot Systems Work
-The Impact of Leadership on Urban Development
-The Evolution of Food Trends: What Are We Eating in 2023?
-The Science Behind Fever: Understanding Temperature and Health
+# Last refreshed: 2026-08-16T01:21:31.478966+00:00
+The Impact of COVID-19 on Summer Gatherings
+Exploring the Science Behind Meteor Showers
+The Future of Space Travel: Insights from Recent Launches
+Understanding the Stock Market: What You Need to Know
+The Rise of Dual-Sport Athletes: A New Trend in Fitness
+The Economic Effects of Holiday Spending on Communities
