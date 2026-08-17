@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-08-16T01:21:31.478966+00:00
-The Impact of COVID-19 on Summer Gatherings
-Exploring the Science Behind Meteor Showers
-The Future of Space Travel: Insights from Recent Launches
-Understanding the Stock Market: What You Need to Know
-The Rise of Dual-Sport Athletes: A New Trend in Fitness
-The Economic Effects of Holiday Spending on Communities
+# Last refreshed: 2026-08-17T01:21:28.616302+00:00
+The Rise of Indian Cinema: A Look at Hindi Movies
+Weather Patterns: Understanding Heatwaves and Their Impact
+The Evolution of Caribbean Pirates in Film: What Makes Them Iconic?
+Exploring the Impact of Women in Sports: Recent Breakthroughs
+The Science Behind Weather Forecasting: How Radars Work
+Disney's Legacy: What Makes an Iconic Character Timeless?
