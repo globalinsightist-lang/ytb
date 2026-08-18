@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-08-17T01:21:28.616302+00:00
-The Rise of Indian Cinema: A Look at Hindi Movies
-Weather Patterns: Understanding Heatwaves and Their Impact
-The Evolution of Caribbean Pirates in Film: What Makes Them Iconic?
-Exploring the Impact of Women in Sports: Recent Breakthroughs
-The Science Behind Weather Forecasting: How Radars Work
-Disney's Legacy: What Makes an Iconic Character Timeless?
+# Last refreshed: 2026-08-18T01:21:26.961969+00:00
+The Science Behind High-Octane Racing Cars
+Uncovering the Fascinating World of Spirits Around the Globe
+How Rising Fuel Prices Impact Global Economies
+The Power of Celebrity Influence on Pop Culture Trends
+Exploring the Evolution of Urban Living and Entertainment
+Emergency Preparedness: Lessons from Airport Incidents
