@@ -1,10 +1,9 @@
 {
-  "run_count": 300,
-  "recent_topics": [],
+  "run_count": 301,
+  "recent_topics": [
+    "The Science Behind High-Octane Racing Cars"
+  ],
   "feedback_notes": [
-    "Use vivid imagery or surprising facts in the hook to immediately captivate.",
-    "Ensure each sentence builds on the previous one with strong transitions.",
-    "Incorporate a surprising or compelling takeaway that encapsulates the main theme at the end.",
     "Use concrete examples right after the hook to maintain interest.",
     "Make sure each sentence directly builds on the previous one to maximize retention.",
     "Aim for relatable stories or figures that can create a strong emotional connection.",
@@ -13,6 +12,9 @@
     "Ensure the conclusion not only informs but also emphasizes the importance or urgency of the topic.",
     "Integrate surprising facts or statistics early to engage the audience immediately.",
     "Ensure each sentence builds on the previous one to maintain a cohesive flow.",
-    "Minimize filler words and repetitive phrases to enhance clarity and retention."
+    "Minimize filler words and repetitive phrases to enhance clarity and retention.",
+    "Use relatable statistics or surprising facts to enhance retention and intrigue.",
+    "Avoid technical jargon where possible to ensure broad understanding.",
+    "Ensure the final takeaway clearly connects to everyday relevance for a stronger payoff."
   ]
 }
