@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-08-18T01:21:26.961969+00:00
-The Science Behind High-Octane Racing Cars
-Uncovering the Fascinating World of Spirits Around the Globe
-How Rising Fuel Prices Impact Global Economies
-The Power of Celebrity Influence on Pop Culture Trends
-Exploring the Evolution of Urban Living and Entertainment
-Emergency Preparedness: Lessons from Airport Incidents
+# Last refreshed: 2026-08-19T01:21:28.280786+00:00
+The Future of Payment Systems: Innovations You Need to Know
+Why the Global Interest in Lottery Results is Increasing
+Exploring the Anticipations for the Next Big Video Game Release
+The Rise of True Crime Stories: A Look at Dark Dating Apps
+Technology Behind the Latest Missile Defense Systems
+The Fascinating Journey of Modern Film Success Stories
