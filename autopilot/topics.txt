@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-08-19T01:21:28.280786+00:00
-The Future of Payment Systems: Innovations You Need to Know
-Why the Global Interest in Lottery Results is Increasing
-Exploring the Anticipations for the Next Big Video Game Release
-The Rise of True Crime Stories: A Look at Dark Dating Apps
-Technology Behind the Latest Missile Defense Systems
-The Fascinating Journey of Modern Film Success Stories
+# Last refreshed: 2026-08-20T01:21:30.138113+00:00
+The Impact of Volatility on Financial Markets
+Exploring the Rise of Indian Cinema Worldwide
+The Science Behind Weather Predictions
+The Evolution of Sports Casting and Its Influence
+How Lottery Systems Work Around the World
+The Cultural Significance of Music Festivals Globally
