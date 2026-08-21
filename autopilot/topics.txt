@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-08-20T01:21:30.138113+00:00
-The Impact of Volatility on Financial Markets
-Exploring the Rise of Indian Cinema Worldwide
-The Science Behind Weather Predictions
-The Evolution of Sports Casting and Its Influence
-How Lottery Systems Work Around the World
-The Cultural Significance of Music Festivals Globally
+# Last refreshed: 2026-08-21T01:21:31.044538+00:00
+The Rising Impact of Volatility on Global Markets
+Exploring the Future of Unmanned Aerial Vehicles
+The Evolution of Competitive Swimming Techniques
+How Major Sports Tournaments Influence National Pride
+The Fascinating World of Economic Indicators
+The Secrets Behind Successful Online Streaming Services
