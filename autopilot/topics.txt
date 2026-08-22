@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-08-21T01:21:31.044538+00:00
-The Rising Impact of Volatility on Global Markets
-Exploring the Future of Unmanned Aerial Vehicles
-The Evolution of Competitive Swimming Techniques
-How Major Sports Tournaments Influence National Pride
-The Fascinating World of Economic Indicators
-The Secrets Behind Successful Online Streaming Services
+# Last refreshed: 2026-08-22T01:21:29.747471+00:00
+Epic Cricket Showdowns: Bangladesh vs Australia
+The Rise of H1N1: Understanding the Flu Virus
+Fitness Trends: How People Stay Motivated
+Exploring the High Stakes of Modern Casinos
+Why Movies with Strong Female Leads Are Taking Over
+Unforgettable Moments in High School Sports History
