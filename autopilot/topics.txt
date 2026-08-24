@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-08-23T01:21:26.912480+00:00
-The Science Behind Thunderstorms and Their Impact
-Exploring the Business of Professional Sports Transfers
-The Rise of Online Gaming and Betting Trends
-How Weather Affects Our Daily Lives and Economies
-The Evolution of Stadium Design for Modern Sports
-Understanding Drug Interactions: What You Need to Know
+# Last refreshed: 2026-08-24T01:21:29.166002+00:00
+The Rise of Professional Athletes in Young Sports
+Exploring the Secrets Behind Unforgettable Vrat Rituals
+Climate Shifts: Understanding Weather Patterns Globally
+Inside the Mind of Today's Top Tech Innovations
+The Evolution of Competitive Team Sports Worldwide
+The Impact of Historical Figures on Modern Society
