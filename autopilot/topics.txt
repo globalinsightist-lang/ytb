@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-08-25T01:22:11.190248+00:00
-Extreme Weather Trends Around the World
-Understanding Stock Market Fluctuations
-The Rise of Competitive Sports Leagues
-The Science Behind Lunar Eclipses
-Exploring the Impact of Celebrity Culture on Society
-The Fascinating World of Running and Its Benefits
+# Last refreshed: 2026-08-27T01:21:33.785938+00:00
+The Future of Sports Betting: What You Need to Know
+Unlocking Secrets of Stock Market Trends
+Exploring the Evolution of Gaming Culture
+How Weather Patterns Impact Global Agriculture
+The Science Behind Gold Prices Fluctuations
+An In-Depth Look at Tennis Rising Stars
