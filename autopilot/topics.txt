@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-08-27T01:21:33.785938+00:00
-The Future of Sports Betting: What You Need to Know
-Unlocking Secrets of Stock Market Trends
-Exploring the Evolution of Gaming Culture
-How Weather Patterns Impact Global Agriculture
-The Science Behind Gold Prices Fluctuations
-An In-Depth Look at Tennis Rising Stars
+# Last refreshed: 2026-08-28T01:21:37.928747+00:00
+The Mysteries of Solar Eclipses Unveiled
+How Weather Patterns Shape Our World
+Exploring the Impact of Social Media on Modern Life
+The Evolution of Competitive Sports Around the Globe
+The Science Behind the Perfect Photograph
+The Future of Betting: Insights into Digital Gambling Trends
