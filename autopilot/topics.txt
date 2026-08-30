@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-08-29T01:21:32.174069+00:00
-The Rise of Cricket: How Global Teams are Shaping the Future of the Sport
-Understanding the Stock Market: What Drives Major Index Changes?
-The Art of Chewing: Benefits and Risks of Popular Chewing Gums
-Exploring the World of Dumplings: A Taste of Cultural Diversity
-Innovations in Electric Vehicles: The Future of Eco-Friendly Transportation
-The Power of Celebrity: How Influencers Shape Pop Culture Trends
+# Last refreshed: 2026-08-30T01:21:36.747380+00:00
+The Rise of Esports: A New Era in Competitive Gaming
+Unlocking Space Exploration: The Future of SpaceX and Beyond
+The Evolution of College Football: Trends and Innovations
+A Taste of Culinary Cultures: Festivals and Food Around the World
+Understanding Sports Statistics: The Science Behind the Numbers
+Eco-Friendly Innovations in City Design: Building for a Sustainable Future
