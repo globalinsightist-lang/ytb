@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-08-30T01:21:36.747380+00:00
-The Rise of Esports: A New Era in Competitive Gaming
-Unlocking Space Exploration: The Future of SpaceX and Beyond
-The Evolution of College Football: Trends and Innovations
-A Taste of Culinary Cultures: Festivals and Food Around the World
-Understanding Sports Statistics: The Science Behind the Numbers
-Eco-Friendly Innovations in City Design: Building for a Sustainable Future
+# Last refreshed: 2026-08-31T01:21:57.135060+00:00
+The Future of War: Emerging Conflicts and Their Global Impact
+The Rise of Tech in Sports: How Innovation is Changing the Game
+Exploring the Hidden Cuisines of the World: A Culinary Adventure
+The Science of Weather: What Drives Climate Change and Natural Disasters
+The Fascinating World of Betting: How Gambling Shaped Economies
+Snoop Dogg's Unique Ventures in Food: Trends in Celebrity Culinary Creations
