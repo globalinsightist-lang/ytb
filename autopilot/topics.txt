@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-09-01T01:22:00.473389+00:00
-Understanding Market Volatility: What the CBOE Index Reveals
-The Science of Weather Patterns: How Nature Changes Daily
-The Rise of Premium Bonds: A Safe Investment Option
-Exploring the Legacy of Hip-Hop Legends in Music History
-The Strategy Behind Championship Sports Teams: What Makes Them Great
-The Art of Movie Castings: How Iconic Stars are Chosen
+# Last refreshed: 2026-09-02T01:22:18.651273+00:00
+The Impact of El Nino on Global Weather Patterns
+Exploring the Rise of Competitive Gaming and Console Subscription Services
+The Evolution of Football: Iconic Matches and Their Legacy
+Understanding the Role of Toxic Substances in Our Environment
+How Premium Bonds Offer a Unique Betting Option for Savvy Investors
+The Thrill of UFC: What Makes Mixed Martial Arts So Popular?
