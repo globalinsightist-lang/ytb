@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-09-02T01:22:18.651273+00:00
-The Impact of El Nino on Global Weather Patterns
-Exploring the Rise of Competitive Gaming and Console Subscription Services
-The Evolution of Football: Iconic Matches and Their Legacy
-Understanding the Role of Toxic Substances in Our Environment
-How Premium Bonds Offer a Unique Betting Option for Savvy Investors
-The Thrill of UFC: What Makes Mixed Martial Arts So Popular?
+# Last refreshed: 2026-09-03T01:21:44.022791+00:00
+The Intriguing World of Dark Matter
+The Rise of Women's Cricket Worldwide
+Exploring Global Sugar Consumption Trends
+Unveiling the Secrets of Gold Transfers in Economies
+The Impact of Comas on Athletes and Sports
+The Latest Innovations in Ride-Sharing Technology
