@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-09-06T01:21:44.986079+00:00
-The Rise of Streaming: How OTT Platforms Are Changing Entertainment
-Unlocking the Secrets of Zodiac Predictions
-The Shadow of Corruption: How It Affects Society
-The Future of Smartphones: What's Next After the iPhone 18 Pro?
-Sports Rivalries: The Thrill Behind Epic Matches
-The Science of Athlete Performance: What Makes Stars Like Justin Jefferson Shine?
+# Last refreshed: 2026-09-07T01:21:28.691237+00:00
+The Rise and Fall of Bitcoin Prices Explained
+Fascinating Traditions Surrounding Ekadashi Festival
+How Changes in Pay Commissions Impact You
+The Future of Open Sports Events: What to Expect
+Exploring the Legacy of Popular Sports Teams Globally
+The Art of Culinary Innovations in Modern Cuisine
