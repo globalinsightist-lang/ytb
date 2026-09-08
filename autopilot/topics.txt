@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-09-07T01:21:28.691237+00:00
-The Rise and Fall of Bitcoin Prices Explained
-Fascinating Traditions Surrounding Ekadashi Festival
-How Changes in Pay Commissions Impact You
-The Future of Open Sports Events: What to Expect
-Exploring the Legacy of Popular Sports Teams Globally
-The Art of Culinary Innovations in Modern Cuisine
+# Last refreshed: 2026-09-08T01:21:28.829747+00:00
+The Rise of Drone Technology: Transforming Industries
+The Impact of Birthdays on Celebrity Culture
+Exploring the Evolution of Global Stock Markets
+Understanding the Significance of Major Football Tournaments
+The Future of Electric Vehicles: Innovations to Watch
+Fantasy Football Strategies: Building the Perfect Team
