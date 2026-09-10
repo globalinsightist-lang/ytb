@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-09-09T01:21:29.720468+00:00
-The Science Behind Extreme Weather Patterns
-The Global Impact of Cricket Culture
-Emerging Technologies That Are Shaping Our Future
-Understanding the Psychology of Competitive Sports
-Exploring the Fascinating World of Lottery Economics
-The Evolution of Hotel Experiences in a Post-Pandemic World
+# Last refreshed: 2026-09-10T01:22:19.946237+00:00
+The Future of Investing: Trends Shaping Your Financial Landscape
+Epic NFL Matchups: The Most Anticipated Games This Season
+Weather Patterns: How Rainfall Affects Global Agriculture
+The Rise of MLS: Soccer's Popularity Surge in North America
+Exploring the Science Behind Athletic Performance in Football
+Music Legends: The Timeless Appeal of Rock Icons
