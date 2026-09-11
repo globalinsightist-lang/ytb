@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-09-10T01:22:19.946237+00:00
-The Future of Investing: Trends Shaping Your Financial Landscape
-Epic NFL Matchups: The Most Anticipated Games This Season
-Weather Patterns: How Rainfall Affects Global Agriculture
-The Rise of MLS: Soccer's Popularity Surge in North America
-Exploring the Science Behind Athletic Performance in Football
-Music Legends: The Timeless Appeal of Rock Icons
+# Last refreshed: 2026-09-11T01:21:49.480469+00:00
+The Impact of Crude Oil Prices on Global Economy
+Exploring the Technology Behind ColorOS 17
+The Science of Tsunamis: How They Form and Impact Us
+The Rise of Epic Movies: What Makes Them So Popular?
+Understanding the Global Sports Betting Phenomenon
+The Future of Electric Tractors in Sustainable Farming
