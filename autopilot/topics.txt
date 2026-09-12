@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-09-11T01:21:49.480469+00:00
-The Impact of Crude Oil Prices on Global Economy
-Exploring the Technology Behind ColorOS 17
-The Science of Tsunamis: How They Form and Impact Us
-The Rise of Epic Movies: What Makes Them So Popular?
-Understanding the Global Sports Betting Phenomenon
-The Future of Electric Tractors in Sustainable Farming
+# Last refreshed: 2026-09-12T01:22:14.914356+00:00
+What Causes Flight Cancellations and How to Avoid Them
+The Evolution of Sports Rivalries Through History
+Exploring the Science Behind Weather Patterns
+A Deep Dive into the Future of Sustainable Festivals
+Understanding the Impact of Celebrity Athletes on Sports Trends
+The Fascinating World of Animal vs Human Behavior Studies
