@@ -1,10 +1,9 @@
 {
-  "run_count": 442,
-  "recent_topics": [],
+  "run_count": 443,
+  "recent_topics": [
+    "What Causes Flight Cancellations and How to Avoid Them"
+  ],
   "feedback_notes": [
-    "Use specific, urgent language in the opening to immediately engage the audience.",
-    "Include a surprising fact or consequence towards the end to enhance the payoff.",
-    "Keep the language straightforward, avoiding complex phrases that may confuse the audience.",
     "Use compelling statistics or surprising facts to enhance the hook.",
     "Prioritize emotional resonance by including relatable themes.",
     "Avoid redundancy; each sentence should introduce new information or build upon the previous one.",
@@ -13,6 +12,9 @@
     "Ensure every sentence builds directly on the previous one to maintain retention.",
     "Use specific, impactful statistics or projections to heighten the perceived value of the payoff.",
     "Incorporate more vivid imagery or scenarios that illustrate the benefits of the topic, making it relatable for viewers.",
-    "Ensure a strong connection between sentences to maintain viewer interest and retention throughout the script."
+    "Ensure a strong connection between sentences to maintain viewer interest and retention throughout the script.",
+    "Incorporate specific statistics or surprising facts early to enhance the hook.",
+    "End with a strong, memorable takeaway or call-to-action that clearly emphasizes the benefits of the information shared.",
+    "Use relatable language and scenarios to create a sense of urgency or personal relevance."
   ]
 }
