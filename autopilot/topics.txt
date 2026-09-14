@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-09-13T01:22:10.727945+00:00
-The Future of Global Weather Patterns
-Inside the EPL: Ranking the World's Best Football Teams
-Exploring the Impact of War on Global Politics
-The Rise of Economic Alliances: Understanding BRICS
-The Evolution of Streaming Services and Their Impact on Entertainment
-The Science Behind Athletic Performance in Football
+# Last refreshed: 2026-09-14T01:22:15.220190+00:00
+The Impact of Extreme Weather Patterns on Global Climate
+The Financial Secrets Behind Major Sports Leagues
+How Global Competitions Shape Student Funding and Education
+The Evolution of Television Talent Shows Around the World
+Exploring the Future of Cryptocurrencies and Blockchain Technology
+The Role of Food Culture in Global Culinary Trends
