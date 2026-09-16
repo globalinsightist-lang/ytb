@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-09-15T01:22:15.680463+00:00
-The Rise of Celebrity Athletes and Their Impact on Sports
-Unveiling the Cultural Significance of Festival Celebrations Worldwide
-Understanding the Trends in Mortgage Rates and What They Mean for You
-Exploring the Fascination with Superheroes in Modern Cinema
-The Increasing Importance of Market News in Today's Economy
-The Science Behind the Elements: What Makes Uranium so Unique
+# Last refreshed: 2026-09-16T01:22:16.540538+00:00
+Unveiling the Secrets of Cryptocurrency Trading
+The Fascinating World of Artificial Intelligence
+Exploring the Science Behind Volcanic Eruptions
+The Rise of Sports in the Digital Age
+Innovations in Food: Culinary Trends Around the Globe
+How Economic Factors Influence Import and Export Dynamics
