@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-09-16T01:22:16.540538+00:00
-Unveiling the Secrets of Cryptocurrency Trading
-The Fascinating World of Artificial Intelligence
-Exploring the Science Behind Volcanic Eruptions
-The Rise of Sports in the Digital Age
-Innovations in Food: Culinary Trends Around the Globe
-How Economic Factors Influence Import and Export Dynamics
+# Last refreshed: 2026-09-17T01:22:10.536835+00:00
+The Future of Smartphone Innovation
+How Economic Indicators Impact Your Wallet
+War and Peace: The Global Effects on Society
+Uncovering the Mystery of Ferritin in Our Bodies
+The Impact of Sports Rivalries on Team Spirit
+Exploring the Evolution of Modern Cinema Techniques
