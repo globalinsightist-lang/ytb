@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-09-17T01:22:10.536835+00:00
-The Future of Smartphone Innovation
-How Economic Indicators Impact Your Wallet
-War and Peace: The Global Effects on Society
-Uncovering the Mystery of Ferritin in Our Bodies
-The Impact of Sports Rivalries on Team Spirit
-Exploring the Evolution of Modern Cinema Techniques
+# Last refreshed: 2026-09-18T01:22:15.948609+00:00
+The Rise and Fall of Precious Metal Prices
+The Untold Stories of Competitive Sports
+How Economic Indicators Shape Our Lives
+The Thrill of Live Sports: How They Captivate Fans
+Exploring the Fascination with Virtual Gaming Worlds
+Behind the Scenes of Iconic Music Legends
