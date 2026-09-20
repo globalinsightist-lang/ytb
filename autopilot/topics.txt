@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-09-19T01:21:55.772371+00:00
-The Rising Influence of Artificial Intelligence in Daily Life
-Exploring the Impact of Cricket on Global Sports Culture
-The Fascinating Science Behind Fever and Health Monitoring
-Unraveling the Mysteries of Iconic Historical Figures
-The Evolution of Electric Scooters and Their Future
-The Dynamics of Major League Baseball: A Season of Surprises
+# Last refreshed: 2026-09-20T01:21:59.644397+00:00
+The Rise of Cryptocurrency Trading: What's Fueling the Boom?
+Inside the Exciting World of UFC: Major Highlights and Upcoming Fights
+Understanding Data Breaches: How They Happen and How to Protect Yourself
+Disneyland Ticket Pricing: What Makes a Day at the Park Worth It?
+The Evolution of Sports Betting: Exploring the DraftKings Phenomenon
+The Future of Smartphone Photography: Innovations in the iPhone 15 Pro
