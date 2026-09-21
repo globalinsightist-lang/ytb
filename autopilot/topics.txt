@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-09-20T01:21:59.644397+00:00
-The Rise of Cryptocurrency Trading: What's Fueling the Boom?
-Inside the Exciting World of UFC: Major Highlights and Upcoming Fights
-Understanding Data Breaches: How They Happen and How to Protect Yourself
-Disneyland Ticket Pricing: What Makes a Day at the Park Worth It?
-The Evolution of Sports Betting: Exploring the DraftKings Phenomenon
-The Future of Smartphone Photography: Innovations in the iPhone 15 Pro
+# Last refreshed: 2026-09-21T01:21:57.706255+00:00
+The Impact of NFL Superstars on Team Success
+Exploring the Global Influence of Soccer Clubs
+The Evolution of Salary Structures in Sports
+Unlocking the Secrets of High-Profile Weddings
+The Rise of Celebrity Culture in Entertainment
+Understanding the Financial Dynamics of Sports Teams
