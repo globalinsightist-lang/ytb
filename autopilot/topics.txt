@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-09-22T01:21:55.805697+00:00
-The Rise of Fitness Trends Around the Globe
-How Technology is Changing the Hospitality Industry
-The Science Behind Stock Market Movements
-Exploring the Impact of Sports Coaches on Team Dynamics
-The Evolution of Movie Genres in Modern Cinema
-Unveiling Innovations in Mobile Phone Technology
+# Last refreshed: 2026-09-23T01:21:54.471597+00:00
+Understanding the Science Behind Extreme Weather
+The Economic Impact of Cryptocurrency Trends
+Exploring the World's Most Dangerous Roller Coasters
+Unbelievable Athletic Feats: Record-Breaking Sports Moments
+The Evolution of Modern Camping: Nature's Comeback
+The Rise of Plant-Based Diets: Health Benefits and Trends
