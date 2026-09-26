@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-09-25T01:21:57.222032+00:00
-Unveiling the Cultural Significance of Anant Chaturdashi
-What Weather Patterns Reveal About Our Planet
-The Rise of Caribbean Football: A Clash of Titans
-Exploring the Diversity in Modern Families Across Cultures
-The Technological Marvels Behind Smartphone Innovations
-The Evolution of Gaming: Analyzing Iconic Open-World Adventures
+# Last refreshed: 2026-09-26T01:21:55.641462+00:00
+The Rise of ADHD Awareness and Support
+Global Sports Showdowns: Cricket Events Worldwide
+What's Next for National Lottery Results and Winnings?
+Exploring the Science of Weather Prediction
+The Future of Football: Analyzing National Team Standings
+Inside the World of High-Stakes Primetime Competitions
