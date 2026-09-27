@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-09-26T01:21:55.641462+00:00
-The Rise of ADHD Awareness and Support
-Global Sports Showdowns: Cricket Events Worldwide
-What's Next for National Lottery Results and Winnings?
-Exploring the Science of Weather Prediction
-The Future of Football: Analyzing National Team Standings
-Inside the World of High-Stakes Primetime Competitions
+# Last refreshed: 2026-09-27T01:22:05.923324+00:00
+The Science Behind Weather Patterns
+The Evolution of Train Technology
+Understanding Money: How to Manage Your Finances
+Celebrating Global Festivals: A Look at Cultural Traditions
+The Impact of Sports Rivalries on Team Performance
+Exploring the Polar Vortex: What It Means for Our Climate
