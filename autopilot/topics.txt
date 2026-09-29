@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-09-28T01:22:04.143984+00:00
-Emerging Cricket Stars Shaping the Future of the Game
-The Rise of Inter Miami and the Impact of Celebrity Athletes
-Exploring the Fascinating Science Behind Weather Patterns
-Understanding Diesel Rationing: A Global Economic Concern
-The Thrill of Global Sports: Highlights from Asian Games
-The Influence of Music Legends on Today's Creative Artists
+# Last refreshed: 2026-09-29T01:22:05.005719+00:00
+Exploring the Impact of Tropical Storms on Global Weather Patterns
+The Rise of Cycling: A Fitness Revolution for All Ages
+How Trade Deals Influence Global Markets and Economies
+The Evolution of Video Games: What's Next for the Industry?
+The Science Behind Fitness Trends: What Works and What Doesn't
+Innovations in Air Travel: The Future of Flights and Connectivity
