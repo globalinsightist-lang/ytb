@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-09-30T01:22:08.460444+00:00
-The Impact of Rising Brent Crude Prices on Global Economy
-The Evolution of AI: What to Expect from GPT 6.1
-Exploring the Global Popularity of Friendly Sports Matches
-The Science Behind Major League Baseball Strategies
-The Intersection of Tech and Gaming: An Inside Look at Game Development
-The Exciting World of Lotteries: How Luck Can Change Lives
+# Last refreshed: 2026-10-01T01:22:05.345492+00:00
+The Rise of Emerging Soccer Nations
+Exploring the World of Digital Currency Evolution
+The Science Behind Effective Team Strategies in Sports
+How Premium Bonds Work and Why They're Popular
+Unveiling the Impact of Extreme Weather on Communities
+The Evolution of Gaming Subscriptions and Their Future
