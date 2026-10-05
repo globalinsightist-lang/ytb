@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-10-04T01:22:03.055170+00:00
-The Thrill of International Sports Rivalries
-Exploring the Future of Automotive Design
-The Science Behind Daily Horoscope Predictions
-The Rise of Competitive Fighting Championships
-The Evolution of Gaming Consoles: What's Next?
-The Impact of Euthanasia Discussions on Global Health Policies
+# Last refreshed: 2026-10-05T01:22:01.992415+00:00
+The Rise of Police Forces in Modern Society
+Exploring the Significance of Religious Observances
+The Impact of Protests on Global Change
+Understanding Weather Patterns: The Polar Vortex Explained
+The Evolution of American Football: From Legends to New Stars
+The Future of Social Security: What to Expect in the Coming Years
