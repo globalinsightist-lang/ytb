@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-10-08T01:22:05.340489+00:00
-The Future of Space Exploration: What to Expect in 2026
-Understanding Economic Indicators: The Dow Jones Explained
-The Rise of Technology in Sports: How Data is Changing the Game
-Uncovering the Mysteries of Onions: Health Benefits and Culinary Uses
-Navigating the World of Lotteries: Strategies for Success
-The Evolution of Science Fiction: How Doctor Who Influenced Modern TV
+# Last refreshed: 2026-10-09T01:22:00.813611+00:00
+The Rise of International Football Rivalries
+Unveiling the Secrets Behind Successful Sports Teams
+Astrology and the Significance of Lunar Cycles
+The Impact of Climate Patterns on Global Weather
+Exploring the Evolution of Popular Film Genres
+The Future of Money: Innovations in Technology
