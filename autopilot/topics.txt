@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-10-09T01:22:00.813611+00:00
-The Rise of International Football Rivalries
-Unveiling the Secrets Behind Successful Sports Teams
-Astrology and the Significance of Lunar Cycles
-The Impact of Climate Patterns on Global Weather
-Exploring the Evolution of Popular Film Genres
-The Future of Money: Innovations in Technology
+# Last refreshed: 2026-10-10T01:22:01.668769+00:00
+Exploring the Mystery of Fast Radio Bursts in Space
+The Science Behind Earthquakes: Causes and Effects
+Unveiling the Reality of the Northern Lights
+How Astrology Influences Decision-Making: The Impact of Zodiac Signs
+The Evolution of Reality TV: From Origins to Modern Day
+The Fascinating Bond Between Cats and Their Environments
