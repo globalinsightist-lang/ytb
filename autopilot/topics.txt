@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-10-10T01:22:01.668769+00:00
-Exploring the Mystery of Fast Radio Bursts in Space
-The Science Behind Earthquakes: Causes and Effects
-Unveiling the Reality of the Northern Lights
-How Astrology Influences Decision-Making: The Impact of Zodiac Signs
-The Evolution of Reality TV: From Origins to Modern Day
-The Fascinating Bond Between Cats and Their Environments
+# Last refreshed: 2026-10-11T01:22:01.120474+00:00
+Unveiling the Future: What to Expect from the Samsung Galaxy S27
+The Evolution of Sports Rivalries: A Look at Iconic Matchups
+The Dark History of Hellraiser: What Makes Horror So Captivating?
+Understanding the Impact of Major Sports Transfers and Acquisitions
+The Science Behind National Lottery Wins: What are Your Chances?
+Exploring the Depths of Gameplay: What We Want from GTA6
