@@ -26,6 +26,16 @@ from openai import OpenAI
 from app.config import config
 from app.utils import utils
 
+# 自 2026-10 起 speech.platform.bing.com 对合成 WebSocket 返回 403（10-12 起美国也是，
+# GitHub runner 因此在 stream 里一直卡到超时）。Edge 155 已改走 api.msedgeservices.com，
+# 该地址同样接受旧 token。edge_tts 7.2.8 还没跟进（rany2/edge-tts#491），这里先替换；
+# 只在仍是旧地址时覆盖，以免盖掉将来修复后的新版本。
+if "speech.platform.bing.com" in getattr(edge_tts.communicate, "WSS_URL", ""):
+    edge_tts.communicate.WSS_URL = (
+        "wss://api.msedgeservices.com/tts/cognitiveservices/websocket/v1"
+        f"?Ocp-Apim-Subscription-Key={edge_tts.constants.TRUSTED_CLIENT_TOKEN}"
+    )
+
 _DEFAULT_EDGE_TTS_TIMEOUT_SECONDS = 30.0
 _MIMO_DEFAULT_BASE_URL = "https://api.xiaomimimo.com/v1"
 _MIMO_DEFAULT_TTS_MODEL = "mimo-v2.5-tts"
