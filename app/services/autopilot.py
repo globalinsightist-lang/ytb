@@ -348,6 +348,25 @@ def pick_voice(cfg: dict, run_no: int) -> str:
     return pool[run_no % len(pool)]
 
 
+def voice_fallback_order(cfg: dict, run_no: int) -> List[str]:
+    """The run's rotated voice first, then the rest of the pool in order.
+
+    Edge TTS sometimes stops answering for one voice from GitHub's runners
+    while the others still work. run_count only advances on success, so
+    without a fallback a single dead voice wedges every later run on itself.
+    """
+    pool = [v for v in (cfg.get("voice_pool") or []) if v]
+    if not pool:
+        return [pick_voice(cfg, run_no)]
+    start = run_no % len(pool)
+    return pool[start:] + pool[:start]
+
+
+def _audio_rendered(task_id: str) -> bool:
+    audio_file = path.join(utils.task_dir(task_id), "audio.mp3")
+    return path.isfile(audio_file) and path.getsize(audio_file) > 0
+
+
 def pick_from_pool(cfg: dict, key: str, run_no: int, fallback):
     """Deterministic per-run choice from a config pool (cut rhythm, transitions)."""
     pool = cfg.get(key) or []
@@ -624,11 +643,38 @@ def render_winner(topic: str, script: str, cfg: dict, run_no: int) -> tuple[str,
     Returns (final_video_path, task_id, render_meta) where render_meta records
     the varied choices so history can later correlate them with retention.
     """
-    voice_name = pick_voice(cfg, run_no)
     clip_duration = pick_from_pool(cfg, "clip_duration_pool", run_no, 5)
     transition = pick_from_pool(cfg, "transition_pool", run_no, "")
 
-    params = VideoParams(
+    voices = voice_fallback_order(cfg, run_no)[: int(cfg.get("max_voice_attempts", 3))]
+    for attempt, voice_name in enumerate(voices, start=1):
+        params = _render_params(topic, script, cfg, voice_name, clip_duration, transition)
+        task_id = utils.get_uuid()
+        result = task.start(task_id=task_id, params=params, stop_at="video")
+        if result and result.get("videos"):
+            break
+        # TTS runs before footage download, so a missing audio file means the
+        # voice itself failed and another voice is cheap to try. Anything
+        # later in the pipeline isn't voice-related; retrying would only
+        # repeat the same failure at the cost of a full render.
+        if _audio_rendered(task_id) or attempt == len(voices):
+            raise RuntimeError("rendering produced no video")
+        logger.warning(f"TTS failed for voice {voice_name}; trying next voice in pool")
+
+    render_meta = {
+        "voice_name": voice_name,
+        "clip_duration": int(clip_duration),
+        "transition": transition or "none",
+        "subtitle_position": params.subtitle_position,
+        "font_name": params.font_name,
+    }
+    return result["videos"][0], task_id, render_meta
+
+
+def _render_params(
+    topic: str, script: str, cfg: dict, voice_name: str, clip_duration, transition
+) -> VideoParams:
+    return VideoParams(
         video_subject=topic,
         video_script=script,  # non-empty -> pipeline skips script generation
         video_count=1,
@@ -651,19 +697,6 @@ def render_winner(topic: str, script: str, cfg: dict, run_no: int) -> tuple[str,
         text_fore_color=cfg.get("text_fore_color", "#FFFFFF"),
         text_background_color=cfg.get("subtitle_background", "#000000"),
     )
-    task_id = utils.get_uuid()
-    result = task.start(task_id=task_id, params=params, stop_at="video")
-    if not result or not result.get("videos"):
-        raise RuntimeError("rendering produced no video")
-
-    render_meta = {
-        "voice_name": voice_name,
-        "clip_duration": int(clip_duration),
-        "transition": transition or "none",
-        "subtitle_position": params.subtitle_position,
-        "font_name": params.font_name,
-    }
-    return result["videos"][0], task_id, render_meta
 
 
 def sanitize_title(title: str, fallback: str) -> str:

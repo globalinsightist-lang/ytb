@@ -154,6 +154,10 @@ def generate_audio(task_id, params, video_script):
             voice_file=audio_file,
         )
         if sub_maker is None:
+            # A stream that timed out mid-way can leave a truncated file. Drop
+            # it so "audio.mp3 exists" reliably means TTS succeeded.
+            if path.isfile(audio_file):
+                os.remove(audio_file)
             sm.state.update_task(task_id, state=const.TASK_STATE_FAILED)
             logger.error(
                 """failed to generate audio:

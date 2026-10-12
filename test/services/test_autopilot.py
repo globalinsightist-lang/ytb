@@ -68,6 +68,50 @@ class TestPickVoice(unittest.TestCase):
         cfg = {"voice_pool": [], "voice_name": "fallback"}
         self.assertEqual(ap.pick_voice(cfg, 3), "fallback")
 
+    def test_fallback_order_starts_at_rotated_voice(self):
+        cfg = {"voice_pool": ["a", "b", "c"], "voice_name": "fallback"}
+        self.assertEqual(ap.voice_fallback_order(cfg, 4), ["b", "c", "a"])
+        self.assertEqual(ap.voice_fallback_order({"voice_pool": []}, 4)[0], "en-US-JennyNeural-Female")
+
+
+class TestRenderWinnerVoiceFallback(unittest.TestCase):
+    CFG = {
+        "voice_pool": ["a", "b", "c", "d"],
+        "aspect": "9:16",
+        "video_source": "pexels",
+        "language": "en",
+        "subtitle_enabled": True,
+        "bgm_type": "random",
+    }
+
+    def _render(self, start_results, audio_rendered):
+        voices = []
+
+        def fake_start(task_id, params, stop_at):
+            voices.append(params.voice_name)
+            return start_results.pop(0)
+
+        with patch.object(ap.task, "start", side_effect=fake_start), \
+                patch.object(ap, "_audio_rendered", side_effect=audio_rendered):
+            result = ap.render_winner("topic", "script", self.CFG, run_no=2)
+        return result, voices
+
+    def test_moves_to_next_voice_when_tts_fails(self):
+        (video, _, meta), voices = self._render(
+            [None, {"videos": ["out.mp4"]}], audio_rendered=[False]
+        )
+        self.assertEqual(voices, ["c", "d"])
+        self.assertEqual(video, "out.mp4")
+        self.assertEqual(meta["voice_name"], "d")
+
+    def test_does_not_retry_failures_after_audio(self):
+        with self.assertRaises(RuntimeError):
+            self._render([None], audio_rendered=[True])
+
+    def test_gives_up_after_max_voice_attempts(self):
+        with self.assertRaises(RuntimeError):
+            self._render([None, None, None], audio_rendered=[False, False, False])
+
 
 class TestSanitizeTitle(unittest.TestCase):
     def test_rejects_banned_opener(self):
