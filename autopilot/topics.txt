@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-10-12T01:22:03.556242+00:00
-The Rise of Cricket: Exploring the West Indies Cricket Team
-Understanding Economic Trends: The Impact of the Nikkei 225
-Technology and Farming: Insights on PM Kisan's 24th Installment
-Behind the Drama: The Art of Modern TV Series Production
-The Future of Gaming: What to Expect from GTA 6
-Sports Rivalry: A Closer Look at Iconic Football Matches
+# Last refreshed: 2026-10-13T01:22:04.142753+00:00
+Uncovered Secrets of Political Parties Worldwide
+The Rise of Digital Currency: What You Need to Know
+Exploring the Science Behind Extreme Weather Events
+The Evolution of Fast Food: A Global Perspective
+Behind the Scenes of Modern Sports Championships
+Innovations Shaping the Future of Entertainment
