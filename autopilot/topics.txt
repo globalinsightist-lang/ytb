@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-10-13T01:22:04.142753+00:00
-Uncovered Secrets of Political Parties Worldwide
-The Rise of Digital Currency: What You Need to Know
-Exploring the Science Behind Extreme Weather Events
-The Evolution of Fast Food: A Global Perspective
-Behind the Scenes of Modern Sports Championships
-Innovations Shaping the Future of Entertainment
+# Last refreshed: 2026-10-14T01:21:58.225445+00:00
+Extreme Weather Patterns Around the Globe
+The Psychology Behind Choosing Daily Colors
+The Rise of Smartphone Innovations
+Gold and Silver: A Look at Precious Metals Investment
+Exploring the Importance of Fertilizers in Agriculture
+The Fascinating World of Competitive Baking Challenges
