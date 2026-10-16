@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-10-15T01:21:59.264146+00:00
-Unveiling the Science Behind Weather Patterns
-The Volatility Index: What It Means for Your Investments
-Exploring the Rise of Soccer in America
-The Secrets to Successful Trading Strategies
-An Inside Look at Global Culinary Trends
-The Evolution of Streaming Services in Entertainment
+# Last refreshed: 2026-10-16T01:21:59.213709+00:00
+Weather Patterns Around the World
+The Future of Sports: Analyzing Major League Standings
+Exploring the Impact of Technology on Daily Life
+Behind the Scenes of Movie Making: The Art of Direction
+Animal Highlights: Incredible Moments in Nature
+The Evolution of Mobile Phones: What’s Next?
