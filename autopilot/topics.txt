@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-10-16T01:21:59.213709+00:00
-Weather Patterns Around the World
-The Future of Sports: Analyzing Major League Standings
-Exploring the Impact of Technology on Daily Life
-Behind the Scenes of Movie Making: The Art of Direction
-Animal Highlights: Incredible Moments in Nature
-The Evolution of Mobile Phones: What’s Next?
+# Last refreshed: 2026-10-17T01:21:43.620445+00:00
+The Science Behind Weather Patterns Around the World
+The Rise of the Volatility Index in Uncertain Times
+Exploring the Global Popularity of Cricket
+The Impact of Sports Analytics on Team Performance
+How Technology is Transforming Modern Education
+The Secrets Behind Successful Movie Screenplays
