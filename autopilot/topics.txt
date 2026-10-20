@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-10-19T01:21:41.515083+00:00
-The Future of Agricultural Assistance: Unlocking Government Subsidies
-Understanding Crude Oil Prices: What Affects the Market?
-The Significance of Navratri: Celebrating Culture and Devotion
-Astrology Insights: How Weekly Horoscopes Shape Perspectives
-The Evolution of 5G Technology: How it Connects the World
-The Impact of Celebrity Culture on Fashion and Trends
+# Last refreshed: 2026-10-20T01:22:18.886130+00:00
+Epic Showdowns in Team Sports: A Look at Rivalries
+Unpacking Traditional Festivals: Exploring Ekadashi
+The Rise of Regional Languages in Media
+Gold and Silver: Investing in Precious Metals
+Weathering the Storm: The Science Behind Extreme Weather
+The Impact of Cash Direct Transfers on Agriculture and Economy
