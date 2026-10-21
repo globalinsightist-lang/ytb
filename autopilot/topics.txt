@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-10-20T01:22:18.886130+00:00
-Epic Showdowns in Team Sports: A Look at Rivalries
-Unpacking Traditional Festivals: Exploring Ekadashi
-The Rise of Regional Languages in Media
-Gold and Silver: Investing in Precious Metals
-Weathering the Storm: The Science Behind Extreme Weather
-The Impact of Cash Direct Transfers on Agriculture and Economy
+# Last refreshed: 2026-10-21T01:22:17.093492+00:00
+The Beauty of Meteor Showers
+Uncovering the World of Lottery Games
+The Transition from Traditional to Smart Tech
+Exploring the Impact of Sports on Communities
+The History and Influence of Royal Accessories
+The Journey of Urban Development around Major Bridges
