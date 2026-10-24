@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-10-23T01:22:15.052252+00:00
-Unveiling the Secrets of Sports Team Rivalries
-The Impact of Volatility on Stock Market Trends
-The Evolution of Hairstyles Through the Decades
-How Economic Policies Shape Local Businesses Globally
-Understanding Player Statistics in Competitive Sports
-The Rise of Digital News in Today's World
+# Last refreshed: 2026-10-24T01:21:51.362982+00:00
+Epic NBA Showdowns You Can't Miss
+The Evolution of New OTT Releases
+Navigating the Future of Gas Prices
+The Rise of Cyberpunk in Modern Media
+Understanding IPOs: What to Know
+The Science Behind Sports Rankings
