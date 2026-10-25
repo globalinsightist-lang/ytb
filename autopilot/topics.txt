@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-10-24T01:21:51.362982+00:00
-Epic NBA Showdowns You Can't Miss
-The Evolution of New OTT Releases
-Navigating the Future of Gas Prices
-The Rise of Cyberpunk in Modern Media
-Understanding IPOs: What to Know
-The Science Behind Sports Rankings
+# Last refreshed: 2026-10-25T01:21:49.886957+00:00
+The Impact of Windy Weather on Our Daily Lives
+The Rise of Esports: Why Gaming is Taking Over
+Understanding Share Markets: How Does the Economy Work?
+The Future of AI in Weather Forecasting
+The Excitement of Live Sports: What Makes Fans Cheer?
+Exploring the Evolution of Football Around the World
