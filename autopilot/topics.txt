@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-10-25T01:21:49.886957+00:00
-The Impact of Windy Weather on Our Daily Lives
-The Rise of Esports: Why Gaming is Taking Over
-Understanding Share Markets: How Does the Economy Work?
-The Future of AI in Weather Forecasting
-The Excitement of Live Sports: What Makes Fans Cheer?
-Exploring the Evolution of Football Around the World
+# Last refreshed: 2026-10-26T01:21:51.080913+00:00
+The Future of Football: Insights on the Ballon d'Or
+The Impact of Windy Weather on Daily Life
+The Rise of Global Sports Betting: What's Driving It?
+Understanding the Fluctuations in Oil Prices and Their Effects
+The Evolution of the NBA: Key Players to Watch
+Sports Highlights: Top Matchups You Can’t Miss This Season
