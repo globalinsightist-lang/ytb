@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-10-26T01:21:51.080913+00:00
-The Future of Football: Insights on the Ballon d'Or
-The Impact of Windy Weather on Daily Life
-The Rise of Global Sports Betting: What's Driving It?
-Understanding the Fluctuations in Oil Prices and Their Effects
-The Evolution of the NBA: Key Players to Watch
-Sports Highlights: Top Matchups You Can’t Miss This Season
+# Last refreshed: 2026-10-27T01:21:51.833583+00:00
+Unraveling the Magic of Karwa Chauth Celebrations
+The Science Behind the Changing Weather Patterns
+Exploring the Thrill of NBA Rivalries
+Understanding Global Stock Market Trends
+The Art of Crafting the Perfect Cheesecake
+Inside the World of Competitive Sports and Their Stars
