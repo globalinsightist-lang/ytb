@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-10-27T01:21:51.833583+00:00
-Unraveling the Magic of Karwa Chauth Celebrations
-The Science Behind the Changing Weather Patterns
-Exploring the Thrill of NBA Rivalries
-Understanding Global Stock Market Trends
-The Art of Crafting the Perfect Cheesecake
-Inside the World of Competitive Sports and Their Stars
+# Last refreshed: 2026-10-28T01:21:50.848075+00:00
+Uncovering the Secrets of Weather Patterns Around the Globe
+The Rise of Competitive Gaming: What's Next for Esports?
+Exploring the Excitement of NBA Matchups: Team Rivalries
+Trends in Fashion Retail: How Brands Adapt to Consumer Demands
+The Evolution of Multiplayer Gaming: A Look at Modern Warfare
+Understanding Economic Indicators: What They Mean for Your Wallet
