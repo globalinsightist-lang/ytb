@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-10-28T01:21:50.848075+00:00
-Uncovering the Secrets of Weather Patterns Around the Globe
-The Rise of Competitive Gaming: What's Next for Esports?
-Exploring the Excitement of NBA Matchups: Team Rivalries
-Trends in Fashion Retail: How Brands Adapt to Consumer Demands
-The Evolution of Multiplayer Gaming: A Look at Modern Warfare
-Understanding Economic Indicators: What They Mean for Your Wallet
+# Last refreshed: 2026-10-29T01:21:54.686776+00:00
+The Rise of Young Soccer Stars Across Europe
+Unveiling the Science Behind Weather Patterns
+The Thrill of Live Sports: A Global Phenomenon
+Breaking Down NBA Standings: What They Mean for the Playoffs
+Exploring the Future of Lottery and Its Impact on Society
+How Movie Trailers Are Crafted to Captivate Audiences
