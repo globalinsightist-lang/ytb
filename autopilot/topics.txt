@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-10-29T01:21:54.686776+00:00
-The Rise of Young Soccer Stars Across Europe
-Unveiling the Science Behind Weather Patterns
-The Thrill of Live Sports: A Global Phenomenon
-Breaking Down NBA Standings: What They Mean for the Playoffs
-Exploring the Future of Lottery and Its Impact on Society
-How Movie Trailers Are Crafted to Captivate Audiences
+# Last refreshed: 2026-10-30T01:21:44.403573+00:00
+Exploring the Impact of Climate on Global Weather Patterns
+The Rise of Bitcoin: What It Means for Your Wallet
+Inside the World of Competitive Sports: Recent Match Highlights
+The Evolution of Video Game Graphics: From Pixels to Realism
+Celebrity Athletes: How Fame Influences Performance on the Field
+The Future of Renewable Energy: Innovations and Trends
