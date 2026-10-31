@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-10-30T01:21:44.403573+00:00
-Exploring the Impact of Climate on Global Weather Patterns
-The Rise of Bitcoin: What It Means for Your Wallet
-Inside the World of Competitive Sports: Recent Match Highlights
-The Evolution of Video Game Graphics: From Pixels to Realism
-Celebrity Athletes: How Fame Influences Performance on the Field
-The Future of Renewable Energy: Innovations and Trends
+# Last refreshed: 2026-10-31T01:21:47.717277+00:00
+The Rise of Cricket Rivalries: Global Matchups to Watch
+Extreme Weather Patterns: What They Mean for Our Future
+The Evolution of Basketball: Icons and Legendary Matchups
+Hollywood's Leading Ladies: The Impact of Female Stars on Film
+The Science Behind Popular Diets: Facts and Trends You Need to Know
+Exploring the Influence of Music on Culture: From Classics to Modern Hits
