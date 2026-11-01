@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-10-31T01:21:47.717277+00:00
-The Rise of Cricket Rivalries: Global Matchups to Watch
-Extreme Weather Patterns: What They Mean for Our Future
-The Evolution of Basketball: Icons and Legendary Matchups
-Hollywood's Leading Ladies: The Impact of Female Stars on Film
-The Science Behind Popular Diets: Facts and Trends You Need to Know
-Exploring the Influence of Music on Culture: From Classics to Modern Hits
+# Last refreshed: 2026-11-01T01:21:42.413216+00:00
+The Science of Weather Patterns and Their Global Impact
+Cricket Rivalries: The Spirit of Competition
+The Rise of WNBA: Women in Sports Revolution
+Exploring the Thrill of Live Sports: How Teams Keep Fans Engaged
+The Evolution of Film: How Twilight Changed the Movie Landscape
+The Future of Space Exploration: What Lies Beyond Our Planet
