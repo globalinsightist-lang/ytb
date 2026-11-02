@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-11-01T01:21:42.413216+00:00
-The Science of Weather Patterns and Their Global Impact
-Cricket Rivalries: The Spirit of Competition
-The Rise of WNBA: Women in Sports Revolution
-Exploring the Thrill of Live Sports: How Teams Keep Fans Engaged
-The Evolution of Film: How Twilight Changed the Movie Landscape
-The Future of Space Exploration: What Lies Beyond Our Planet
+# Last refreshed: 2026-11-02T01:21:43.930222+00:00
+Cricket's Unique Formats: The Rise of Short-Form Tournaments
+Air Quality Crisis: How Pollution Affects Life Around the Globe
+The Evolution of Sports Rivalries: A Look at Iconic Matchups
+Innovations in Music: Celebrating Young Artists Shaping the Future
+Exploring the Complex World of Investment: Understanding Futures Markets
+The Impact of Celebrity Influence in Modern Culture and Media
