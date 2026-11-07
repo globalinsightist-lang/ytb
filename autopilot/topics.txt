@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-11-06T01:22:02.257521+00:00
-The Rise of International Cricket Teams
-Understanding the Impact of Commission Reports on Economy
-Astrology and Its Influence on Daily Decisions
-Exploring Global Stock Market Trends
-The Timeless Lessons from Ancient Texts
-The Evolution of Video Gaming Technology
+# Last refreshed: 2026-11-07T01:21:36.768495+00:00
+The Rise of Eco-Friendly Vehicles
+Exploring the Evolution of Banking Technology
+The Art of Bowling: Strategies for Success
+How NBA Teams Adapt to New Strategies
+The Secrets Behind Murder Mystery Series
+The Future of Education: Innovations and Trends
