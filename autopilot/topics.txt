@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-11-07T01:21:36.768495+00:00
-The Rise of Eco-Friendly Vehicles
-Exploring the Evolution of Banking Technology
-The Art of Bowling: Strategies for Success
-How NBA Teams Adapt to New Strategies
-The Secrets Behind Murder Mystery Series
-The Future of Education: Innovations and Trends
+# Last refreshed: 2026-11-08T01:22:06.908408+00:00
+Mastering the Art of Trading: Insights for 2026
+The Science Behind the Perfect Diwali Celebration
+Exploring the Enigmatic World of Scorpio Traits
+The Emotional Impact of Teams in High-Stakes Sports
+Unraveling the Mysteries of Sugar Production
+The Evolution of Technology in Modern Sports
