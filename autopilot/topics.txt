@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-11-08T01:22:06.908408+00:00
-Mastering the Art of Trading: Insights for 2026
-The Science Behind the Perfect Diwali Celebration
-Exploring the Enigmatic World of Scorpio Traits
-The Emotional Impact of Teams in High-Stakes Sports
-Unraveling the Mysteries of Sugar Production
-The Evolution of Technology in Modern Sports
+# Last refreshed: 2026-11-09T01:22:08.980879+00:00
+The Rise of Esports: How Competitive Gaming is Changing the Sports Landscape
+Supercars and Speed: Exploring the World of High-Performance Vehicles
+The Future of Cryptocurrency: Trends Shaping Digital Currency Investment
+Behind the Scenes of Blockbuster Movies: The Magic of Film Production
+Unforgettable Moments in Sports History: Iconic Games that Changed the Play
+Groundbreaking Innovations in Healthcare: The Future of Medicine and Technology
