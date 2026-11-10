@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-11-09T01:22:08.980879+00:00
-The Rise of Esports: How Competitive Gaming is Changing the Sports Landscape
-Supercars and Speed: Exploring the World of High-Performance Vehicles
-The Future of Cryptocurrency: Trends Shaping Digital Currency Investment
-Behind the Scenes of Blockbuster Movies: The Magic of Film Production
-Unforgettable Moments in Sports History: Iconic Games that Changed the Play
-Groundbreaking Innovations in Healthcare: The Future of Medicine and Technology
+# Last refreshed: 2026-11-10T01:22:08.356855+00:00
+The Science Behind Rain and Its Impact on the Environment
+Exploring the Global Gold Market and Its Trends
+The Future of Farming: Innovations in Crop Production
+The Evolution of Mobile Phone Policies in Education
+The Rise of Gaming Consoles: What to Expect from the Next Generation
+Sports Rivalries: The Impact on Fans and Communities
