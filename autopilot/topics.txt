@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-11-11T01:21:57.909068+00:00
-The Future of Electric Vehicles: Trends in Fuel Technology
-Exploring the Rise of Mobile Networks in the Digital Age
-The Evolution of Agriculture: Innovations That Shape Our Food
-Sports Rivalries: A Look at the Intense Competitions in Basketball
-The Thrill of Major International Rallies: Racing Across Continents
-The Impact of Technology on Entertainment: What to Expect Next
+# Last refreshed: 2026-11-12T01:21:55.889437+00:00
+The Science Behind Electric Power Generation
+Exploring the Thrill of Competition in NBA Showdowns
+The Secrets of Successful Stock Market Investments
+Understanding the Influence of Astrology on Our Lives
+The Magic of Storytelling in Modern Cinema
+The Architecture and History of Iconic Bridges
