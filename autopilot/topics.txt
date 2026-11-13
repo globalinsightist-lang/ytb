@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-11-12T01:21:55.889437+00:00
-The Science Behind Electric Power Generation
-Exploring the Thrill of Competition in NBA Showdowns
-The Secrets of Successful Stock Market Investments
-Understanding the Influence of Astrology on Our Lives
-The Magic of Storytelling in Modern Cinema
-The Architecture and History of Iconic Bridges
+# Last refreshed: 2026-11-13T01:21:52.957887+00:00
+The Rise of AI in Sports Analysis
+Exploring the Impact of Local Governance on Economy
+The Science Behind Salary Calculators
+Ancient Cultures: Legends of Nepal
+How Weather Influences Global Sports Events
+The Evolution of Youth Basketball Programs
