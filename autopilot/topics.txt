@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-11-13T01:21:52.957887+00:00
-The Rise of AI in Sports Analysis
-Exploring the Impact of Local Governance on Economy
-The Science Behind Salary Calculators
-Ancient Cultures: Legends of Nepal
-How Weather Influences Global Sports Events
-The Evolution of Youth Basketball Programs
+# Last refreshed: 2026-11-14T01:21:44.325576+00:00
+The Rise of Cricket Star Players Worldwide
+Understanding Airline Industry Trends
+The Impact of Minimum Wage Changes on Economy
+Exploring the Future of Video Game Maps and Environments
+The Fascinating World of Abandoned Animal Rescue Stories
+The Science Behind March Madness in College Basketball
