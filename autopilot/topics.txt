@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-11-16T01:21:42.301067+00:00
-The Science Behind Cyclones and Their Impact on Our Planet
-Understanding El Niño: How Weather Patterns Affect Global Climate
-The Future of Gaming: Exploring the Evolution of Physical Game Copies
-The Rise of Electric Vehicles: What You Need to Know
-Inside the World of Competitive Basketball: Emerging Stars to Watch
-High Surf Warnings: Nature's Power and Ocean Safety Tips
+# Last refreshed: 2026-11-17T01:21:25.066530+00:00
+Epic NBA Showdowns: The Best Rivalries in Basketball History
+The Evolution of Dinosaurs: Unraveling the Mystery of Pterodactyls
+How Weather Influences Our Lives: A Global Perspective
+Understanding Global Markets: The Impact of Stock Indices on Economies
+The Art of Competition: Exploring High-Stakes Sports Events Worldwide
+The Future of Medicine: Insights from Pharmaceutical Innovations and Drug Safety
