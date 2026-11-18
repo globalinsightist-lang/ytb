@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-11-17T01:21:25.066530+00:00
-Epic NBA Showdowns: The Best Rivalries in Basketball History
-The Evolution of Dinosaurs: Unraveling the Mystery of Pterodactyls
-How Weather Influences Our Lives: A Global Perspective
-Understanding Global Markets: The Impact of Stock Indices on Economies
-The Art of Competition: Exploring High-Stakes Sports Events Worldwide
-The Future of Medicine: Insights from Pharmaceutical Innovations and Drug Safety
+# Last refreshed: 2026-11-18T01:21:31.011162+00:00
+Unraveling the Mysteries of Meteor Showers
+The Tactics Behind International Cricket Rivalries
+Exploring the Versatility of Foil in Everyday Life
+The Path to Becoming a Successful Clerk in Banking
+How Natural Disasters Shape Our World
+The Evolution of Football Rivalries Across Nations
