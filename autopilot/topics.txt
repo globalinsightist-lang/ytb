@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-11-18T01:21:31.011162+00:00
-Unraveling the Mysteries of Meteor Showers
-The Tactics Behind International Cricket Rivalries
-Exploring the Versatility of Foil in Everyday Life
-The Path to Becoming a Successful Clerk in Banking
-How Natural Disasters Shape Our World
-The Evolution of Football Rivalries Across Nations
+# Last refreshed: 2026-11-19T01:21:41.317768+00:00
+The Thrill of NBA Rivalries: Exploring Classic Matchups
+The Future of Football Tactics and Player Development
+The Art of Culinary Perfection: Secrets from Famous Chefs
+Sports Drafts: The Strategies Behind Building Winning Teams
+Exploring the Impact of Weather on Sports Performance
+Unlocking the Mysteries of Video Game Development and Storytelling
