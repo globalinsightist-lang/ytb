@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-11-19T01:21:41.317768+00:00
-The Thrill of NBA Rivalries: Exploring Classic Matchups
-The Future of Football Tactics and Player Development
-The Art of Culinary Perfection: Secrets from Famous Chefs
-Sports Drafts: The Strategies Behind Building Winning Teams
-Exploring the Impact of Weather on Sports Performance
-Unlocking the Mysteries of Video Game Development and Storytelling
+# Last refreshed: 2026-11-20T01:22:07.615690+00:00
+The Impact of Extreme Weather on Urban Areas
+Breakdown of Iconic Sports Rivalries
+Exploring the Fascinating World of Stock Market Indices
+The Evolution of Commercial Aviation: Boeing 747
+The Rise of Basketball in Global Sports Culture
+How Celebrity Influence Shapes Modern Trends
