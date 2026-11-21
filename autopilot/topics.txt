@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-11-20T01:22:07.615690+00:00
-The Impact of Extreme Weather on Urban Areas
-Breakdown of Iconic Sports Rivalries
-Exploring the Fascinating World of Stock Market Indices
-The Evolution of Commercial Aviation: Boeing 747
-The Rise of Basketball in Global Sports Culture
-How Celebrity Influence Shapes Modern Trends
+# Last refreshed: 2026-11-21T01:21:55.330928+00:00
+Epic Showdowns in Women's Cricket League
+Exploring the World of Pancreatic Cancer Treatments
+The Impact of Sports on Global Culture
+Tech Innovations in Automotive Lawsuits
+Understanding the Economics Behind Lottery Winnings
+The Art of Storytelling in Modern Cinema
