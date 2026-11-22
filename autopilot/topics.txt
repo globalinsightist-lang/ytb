@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-11-21T01:21:55.330928+00:00
-Epic Showdowns in Women's Cricket League
-Exploring the World of Pancreatic Cancer Treatments
-The Impact of Sports on Global Culture
-Tech Innovations in Automotive Lawsuits
-Understanding the Economics Behind Lottery Winnings
-The Art of Storytelling in Modern Cinema
+# Last refreshed: 2026-11-22T01:22:02.828369+00:00
+The Science Behind Weather Predictions
+Unlocking the Secrets of Successful Marriage Ceremonies
+The Global Phenomenon of Cricket: Scores and Standings
+Exploring the Rise of Gaming: What's Next for the Industry?
+How Natural Disasters Shape Global Politics
+The Evolution of Sports: Analyzing Recent Team Performances
