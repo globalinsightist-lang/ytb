@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-11-22T01:22:02.828369+00:00
-The Science Behind Weather Predictions
-Unlocking the Secrets of Successful Marriage Ceremonies
-The Global Phenomenon of Cricket: Scores and Standings
-Exploring the Rise of Gaming: What's Next for the Industry?
-How Natural Disasters Shape Global Politics
-The Evolution of Sports: Analyzing Recent Team Performances
+# Last refreshed: 2026-11-23T01:22:17.518126+00:00
+Exploring the Legacy of Cricket: From Iconic Matches to Emerging Talents
+The Rise of AI in Stock Trading: Navigating Market Futures
+Gaming Evolution: What We Can Expect from Upcoming Blockbusters
+Sports Rivalries: The Thrilling Impact of NFL Matchups on Fans
+Understanding the Dangers of Doomsday Predictions: What the Data Says
+Marvel's Cinematic Magic: Crafting Blockbuster Trailers and Their Impact
