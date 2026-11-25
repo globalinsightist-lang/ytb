@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-11-24T01:21:29.846126+00:00
-Unraveling Climate Change: Understanding Weather Patterns Worldwide
-The Rise of Esports: How Competitive Gaming is Shaping the Future
-Exploring the World of Transgender Representation in Media
-Behind the Scenes of Award-Winning Films: The Art of Cinematography
-The Evolution of Major League Sports: Trends and Predictions
-Celebrity Influence on Fashion: How Icons Shape Global Styles
+# Last refreshed: 2026-11-25T01:22:02.354777+00:00
+Exploring the Impact of Climate Change on Global Weather Patterns
+The Future of AI in Military Applications
+Top Emerging Technologies to Watch in the Gaming Industry
+Understanding Earthquake Preparedness: Lessons from Nepal
+The Evolution of Sports Analytics: How Stats Shape Games
+The Intersection of Travel and Technology: Innovations Reshaping Your Journey
