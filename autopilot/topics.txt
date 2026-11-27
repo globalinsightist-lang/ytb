@@ -3,10 +3,10 @@
 # source regions via 'trends_geos' / count via 'daily_topic_count' in
 # autopilot/config.json. recent_topics_window is kept below the topic
 # count so the autopilot round-robins these and never invents off-topic.
-# Last refreshed: 2026-11-26T01:22:16.452896+00:00
-Weather Patterns Around the World That Will Surprise You
-The Science Behind Gold Prices and Market Trends
-Spectacular Highlights from Recent NBA Matchups
-The Future of Gaming: What to Expect from GTA 6
-Unexpected Facts About Snakes That Will Amaze You
-Exploring the Evolution of Football Tactics
+# Last refreshed: 2026-11-27T01:22:04.541487+00:00
+The Rise of Streaming Media: How It Transformed Entertainment
+Cricket Fever: Exploring the Global Impact of the Sport
+Unforgettable Landmarks: The Burj Khalifa and Its Architectural Wonders
+The Science Behind Meteor Showers: Fireballs in Our Atmosphere
+The Buzz About Black Friday: Shopping Trends Around the World
+Football Injury Updates: What Happens When Athletes Hit the Field
